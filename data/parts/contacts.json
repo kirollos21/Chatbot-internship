@@ -1,0 +1,75 @@
+{
+  "_comment": "PLACEHOLDER RECORDS. No phone number in this file has been supplied by Palm Hills. Every entry has phone=null and status='unconfigured'. The API layer MUST NOT render an unconfigured contact as if it were real, and must never emit a masked/dummy number such as 'XXXXXXXXXX' to a resident. The `hours_hint` field is an internal, UNVERIFIED planning note carried over from project scoping; it is not sourced from the regulations document and must never be presented to a resident as opening hours until verified.",
+  "contacts": [
+    {
+      "id": "C001",
+      "name_en": "Security / Gate Control",
+      "name_ar": "الأمن / التحكم في البوابات",
+      "role": "security",
+      "phone": null,
+      "email": null,
+      "hours": null,
+      "hours_hint": "24/7 (unverified)",
+      "compound": null,
+      "phase": null,
+      "status": "unconfigured",
+      "pending_fields": ["phone", "hours", "compound"]
+    },
+    {
+      "id": "C002",
+      "name_en": "General Maintenance Hotline",
+      "name_ar": "الخط الساخن للصيانة العامة",
+      "role": "maintenance",
+      "phone": null,
+      "email": null,
+      "hours": null,
+      "hours_hint": "08:00-22:00 (unverified)",
+      "compound": null,
+      "phase": null,
+      "status": "unconfigured",
+      "pending_fields": ["phone", "hours", "compound"]
+    },
+    {
+      "id": "C003",
+      "name_en": "Emergency / Fire / Ambulance Coordination",
+      "name_ar": "تنسيق الطوارئ / الحريق / الإسعاف",
+      "role": "emergency",
+      "phone": null,
+      "email": null,
+      "hours": null,
+      "hours_hint": "24/7 (unverified)",
+      "compound": null,
+      "phase": null,
+      "status": "unconfigured",
+      "pending_fields": ["phone", "hours", "compound"]
+    },
+    {
+      "id": "C004",
+      "name_en": "Community Management Office",
+      "name_ar": "مكتب إدارة المجتمعات",
+      "role": "community_management",
+      "phone": null,
+      "email": null,
+      "hours": null,
+      "hours_hint": "09:00-18:00 (unverified)",
+      "compound": null,
+      "phase": null,
+      "status": "unconfigured",
+      "pending_fields": ["phone", "hours", "compound"]
+    },
+    {
+      "id": "C005",
+      "name_en": "North Coast Beach Office",
+      "name_ar": "مكتب شاطئ الساحل الشمالي",
+      "role": "beach_office",
+      "phone": null,
+      "email": null,
+      "hours": null,
+      "hours_hint": "09:00-20:00 seasonal (unverified)",
+      "compound": "north_coast",
+      "phase": null,
+      "status": "unconfigured",
+      "pending_fields": ["phone", "hours"]
+    }
+  ]
+}

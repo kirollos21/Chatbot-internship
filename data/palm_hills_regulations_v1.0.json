@@ -1,0 +1,3042 @@
+{
+  "metadata": {
+    "source_document": "Community_Living_standards_regulations_and_penalties.pdf",
+    "source_document_sha256": "09ba56e7c4548b05762964e49b1cadac68c4c78cf93983d2317dd96e41ed432e",
+    "issuer": "Palm Hills Developments - Community Management",
+    "version": "1.0",
+    "effective_from": "2026-08-18",
+    "effective_until": null,
+    "effective_date": "2026-08-18",
+    "languages_available": [
+      "en",
+      "ar"
+    ],
+    "generated_languages": [
+      "franco"
+    ],
+    "counts": {
+      "categories": 10,
+      "rules": 117,
+      "violations": 90,
+      "contacts": 5,
+      "facilities": 4,
+      "rules_with_derived_translation": 12
+    },
+    "integrity_notes": [
+      "penalty_egp values are transcribed verbatim from the source violation tables and are authoritative.",
+      "Franco-Arabic is generated at query time and is never an authoritative policy language.",
+      "Contacts and facilities contain placeholder records; unconfigured fields are null and must never be surfaced as real values."
+    ]
+  },
+  "policies": [
+    {
+      "category_id": "waste_management",
+      "category_en": "Waste Management Regulations",
+      "category_ar": "لائحة المخلفات",
+      "rules": [
+        {
+          "id": "P001",
+          "en": "The disposal of household waste in any area other than designated collection points is strictly prohibited.",
+          "ar": "الالتزام بعدم إلقاء القمامة أو أي مخلفات في غير الأماكن المخصصة لها.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 15,
+          "page_ar": 1
+        },
+        {
+          "id": "P002",
+          "en": "All renovation and finishing debris must be properly handled and disposed of in the manner prescribed by management.",
+          "ar": "الالتزام بعدم إلقاء المخلفات الناتجة عن أعمال تشطيبات الوحدات.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 15,
+          "page_ar": 1
+        },
+        {
+          "id": "P003",
+          "en": "The storage of construction materials in public or communal areas is not permitted under any circumstances.",
+          "ar": "عدم تخزين مواد البناء في الأماكن العامة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 15,
+          "page_ar": 1
+        },
+        {
+          "id": "P004",
+          "en": "The burning of any type of waste is expressly forbidden.",
+          "ar": "عدم حرق أي نوع من أنواع المخلفات المختلفة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 15,
+          "page_ar": 1
+        },
+        {
+          "id": "P005",
+          "en": "The discharge, spillage, or release of paint or chemical substances onto roadways or paved surfaces is strictly prohibited.",
+          "ar": "عدم سكب الدهانات أو المواد الكيميائية على الطرق.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 15,
+          "page_ar": 1
+        },
+        {
+          "id": "P006",
+          "en": "Bulky items, heavy furniture, and similar refuse must be discarded safely and in accordance with approved procedures.",
+          "ar": "الالتزام بالتخلص بصورة سليمة من الأثاث أو المخلفات الثقيلة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 15,
+          "page_ar": 1
+        }
+      ]
+    },
+    {
+      "category_id": "rental_regulations",
+      "category_en": "Rental Regulations",
+      "category_ar": "لائحة الإيجار",
+      "rules": [
+        {
+          "id": "P007",
+          "en": "Units may not be rented, leased, or subleased without notifying the competent authorities and registering the lease agreement at the relevant police department.",
+          "ar": "عدم تأجير الوحدة دون إبلاغ الجهات المسؤولة وتوثيق العقد في أقسام الشرطة، مع ضرورة الانتهاء من إجراءات التعديل.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 15,
+          "page_ar": 1
+        },
+        {
+          "id": "P008",
+          "en": "Subleasing without authorization is explicitly prohibited.",
+          "ar": "عدم تأجير الوحدة من الباطن.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 15,
+          "page_ar": 1
+        },
+        {
+          "id": "P009",
+          "en": "No advertising, promotional, or commercial signage may be affixed to building façades.",
+          "ar": "عدم إتلاف الممتلكات العامة بوضع اللافتات الإعلانية أو الدعائية على واجهات الوحدات السكنية.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 15,
+          "page_ar": 1
+        },
+        {
+          "id": "P010",
+          "en": "Residential units may not be utilized for any non-residential or commercial purposes.",
+          "ar": "عدم استخدام الوحدات السكنية في أي أغراض غير السكنية.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 1
+        }
+      ]
+    },
+    {
+      "category_id": "elevator_regulations",
+      "category_en": "Elevator Regulations",
+      "category_ar": "لائحة المصاعد",
+      "rules": [
+        {
+          "id": "P011",
+          "en": "Elevators may not be used to transport furniture, construction materials, heavy equipment, or any similar items.",
+          "ar": "عدم استخدام المصاعد لنقل الأثاث أو أي مواد بناء أو أجهزة ثقيلة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 1
+        },
+        {
+          "id": "P012",
+          "en": "Transporting animals in elevators is strictly prohibited.",
+          "ar": "عدم استخدام المصاعد في نقل الحيوانات من وإلى الوحدة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 1
+        }
+      ]
+    },
+    {
+      "category_id": "pet_regulations",
+      "category_en": "Pet Regulations",
+      "category_ar": "لائحة الحيوانات الأليفة",
+      "rules": [
+        {
+          "id": "P013",
+          "en": "Only domesticated household pets are permitted; owners must provide official vaccination records issued by the competent authorities, in accordance with Egyptian law.",
+          "ar": "عدم تربية حيوانات داخل الوحدة السكنية بخلاف الأنواع المتعارف على تربيتها داخل المنازل، مع ضرورة توفير شهادات التطعيم من الجهات المختصة لضمان سلامة الآخرين، على أن تخضع جميع أنواع الحيوانات لأحكام القانون المصري.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 2
+        },
+        {
+          "id": "P014",
+          "en": "Unit gates and perimeter fences must be secured and of sufficient height to prevent pets, particularly dogs, from escaping.",
+          "ar": "ضرورة التأكد من إغلاق بوابات الوحدة وارتفاع أسوارها بالشكل المناسب والذي يمنع الكلب من تجاوزه أو القفز من فوقه.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 2
+        },
+        {
+          "id": "P015",
+          "en": "Pet waste and leftover food must not be left in public or communal areas.",
+          "ar": "عدم ترك فضلات الحيوانات وبواقي الطعام بالأماكن العامة داخل المجتمع.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 2
+        },
+        {
+          "id": "P016",
+          "en": "Excessive noise caused by pets, including disruptive barking, will not be tolerated.",
+          "ar": "لا يُسمح بأصوات النباح أو أي أصوات ناتجة عن تربية الحيوانات الأليفة والتي قد تؤدي إلى إزعاج الجيران.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 2
+        },
+        {
+          "id": "P017",
+          "en": "Dogs may not roam outside the unit unless accompanied by a responsible adult, and must remain leashed and muzzled at all times.",
+          "ar": "عدم تجول الكلاب بدون صحبة مرافق بالغ معها وأن تكون مقيدة بالسلسلة والكمامة المخصصة لها.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 2
+        },
+        {
+          "id": "P018",
+          "en": "Owners bear full legal responsibility for any form of aggression or attack initiated by their pets.",
+          "ar": "المسئولية القانونية تعود على مالك الكلب في حالة وجود أي تعدٍ أو هجوم على شخص آخر.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 2
+        },
+        {
+          "id": "P019",
+          "en": "Pets must not be harmed, poisoned, mistreated, or subjected to any form of cruelty; any incidents involving injured or stray animals must be reported to the relevant authorities.",
+          "ar": "عدم التعرض للحيوانات الأليفة كالكلاب أو غيرها أو تلك التي تتواجد حول الوحدات بالأذى أو بالأدوات الحادة أو بالسموم احتراماً للمبادئ العامة والقوانين، وإبلاغ الجهات المختصة عند العثور على أي حالة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 2
+        },
+        {
+          "id": "P020",
+          "en": "Pet houses or enclosures may not be placed outside the confines of the unit.",
+          "ar": "عدم وضع بيت للحيوانات الأليفة (كالكلاب) خارج الوحدة السكنية.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 2
+        },
+        {
+          "id": "P021",
+          "en": "Feeding pets or stray animals in public areas is prohibited.",
+          "ar": "عدم وضع أي مأكولات للحيوانات الأليفة في الأماكن العامة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 2
+        },
+        {
+          "id": "P022",
+          "en": "Public areas and internal building staircases may not be used to bathe pets.",
+          "ar": "عدم استخدام الأماكن العامة أو السلالم الداخلية للعمارات لاستحمام الحيوانات الأليفة.",
+          "src_en": "derived",
+          "src_ar": "pdf",
+          "page_en": null,
+          "page_ar": 2
+        }
+      ]
+    },
+    {
+      "category_id": "general_site_regulations",
+      "category_en": "General Site Regulations",
+      "category_ar": "لائحة الموقع العام",
+      "rules": [
+        {
+          "id": "P023",
+          "en": "Any form of vandalism or damage to public property is strictly prohibited.",
+          "ar": "لا يُسمح بأي أعمال تخريبية للممتلكات العامة داخل المجتمع.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 2
+        },
+        {
+          "id": "P024",
+          "en": "Planting vegetation in public gardens or outside units without prior written authorization is forbidden.",
+          "ar": "عدم زراعة أي أنواع نباتات مخالفة للتصميم في الحدائق العامة أو أمام الوحدات، دون الحصول على تصريح مسبق.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 2
+        },
+        {
+          "id": "P025",
+          "en": "Planting tall trees or species with invasive root systems in private gardens requires prior authorization from management.",
+          "ar": "لا يُسمح بزراعة أشجار ذات جذور ضارة أو أشجار مرتفعة داخل الحدائق الخاصة دون الحصول على تصريح مسبق من الإدارة المختصة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 2
+        },
+        {
+          "id": "P026",
+          "en": "Fruit trees may not be planted in ground-floor building gardens or external areas.",
+          "ar": "لا يسمح بزراعة أشجار الفاكهة داخل حدائق العمارات بالدور الأرضي أو في الموقع الخارجي.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 2
+        },
+        {
+          "id": "P027",
+          "en": "Organizing loud gatherings, events, or private parties without a permit is prohibited.",
+          "ar": "منع إصدار أي أصوات صاخبة قد تسبب إزعاجاً للسكان في الأماكن الخاصة، الناتجة عن إقامة حفلات دون تصريح.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 2
+        },
+        {
+          "id": "P028",
+          "en": "No private event may be held in communal spaces without formal approval from Community Management.",
+          "ar": "عدم التعدي على أي مكان عام داخل المجتمع لإقامة حفلات خاصة أو لأي استخدام شخصي.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 2
+        },
+        {
+          "id": "P029",
+          "en": "Conducting commercial activities without official authorization is strictly forbidden.",
+          "ar": "عدم إقامة أي فعالية تجارية دون الحصول على تصريح مسبق من إدارة المجتمع.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 16,
+          "page_ar": 2
+        },
+        {
+          "id": "P030",
+          "en": "Personal belongings may not be left in visible outdoor areas or attached to building façades.",
+          "ar": "عدم ترك المتعلقات الخاصة في أماكن ظاهرة أو على واجهات الوحدات.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 2
+        },
+        {
+          "id": "P031",
+          "en": "Fireworks, laser devices, and noise-generating items including blank pistols are prohibited.",
+          "ar": "عدم استخدام الألعاب النارية أو الليزر أو مسدسات الصوت.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 2
+        },
+        {
+          "id": "P032",
+          "en": "The operation of noise-producing generators is not permitted.",
+          "ar": "عدم تشغيل أي مولدات مسببة للضوضاء.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 2
+        },
+        {
+          "id": "P033",
+          "en": "The use of flammable materials, including barbecues, hookah, or similar items in public areas is strictly prohibited.",
+          "ar": "عدم استخدام أي مواد مشتعلة في المناطق العامة (شواء – شيشة – إلخ).",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 3
+        },
+        {
+          "id": "P034",
+          "en": "Any verbal or physical assault against community employees or service providers is strictly prohibited.",
+          "ar": "عدم التعدي اللفظي أو الجسدي تجاه الأشخاص أو موظفي ومسئولي المجتمع السكني.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 3
+        },
+        {
+          "id": "P035",
+          "en": "Maintenance staff must be granted access to ground-floor gardens, after coordination with the resident, when required to perform essential service operations on building utilities (drinking water, irrigation water, drainage, gas, electricity, fibre rooms).",
+          "ar": "يُسمح بدخول إدارة الصيانة إلى حدائق الدور الأرضي بعد التنسيق مع العميل، ولا يجوز منعهم، وذلك لتنفيذ أي أعمال صيانة خاصة بمرافق العمارة (مياه الشرب – مياه الري – الصرف – الغاز – الكهرباء – غرف الفايبر).",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 3
+        },
+        {
+          "id": "P036",
+          "en": "Vehicles must not be driven on pedestrian walkways.",
+          "ar": "عدم صعود المركبات على المشايات بالأماكن العامة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 3
+        },
+        {
+          "id": "P037",
+          "en": "Nighttime gatherings in public areas or between residential buildings are not allowed.",
+          "ar": "لا يُسمح بالتجمع في المناطق العامة وبين المباني السكنية ليلاً.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 3
+        },
+        {
+          "id": "P038",
+          "en": "Unlicensed four-wheel recreational vehicles are prohibited.",
+          "ar": "عدم استخدام المركبات ذات الأربع عجلات غير المرخصة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 3
+        },
+        {
+          "id": "P039",
+          "en": "Unauthorized use of personal QR codes to grant access to visitors is strictly forbidden.",
+          "ar": "لا يُسمح باستخدام رمز الاستجابة السريعة (QR) الشخصي بطرق غير شرعية لإدخال الزائرين.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 3
+        }
+      ]
+    },
+    {
+      "category_id": "vehicle_regulations",
+      "category_en": "Vehicle Regulations",
+      "category_ar": "لائحة المركبات",
+      "rules": [
+        {
+          "id": "P040",
+          "en": "Parking on sidewalks, landscaped areas, or in spaces reserved for disabilities is strictly prohibited.",
+          "ar": "عدم ركن المركبات في غير الأماكن المخصصة لها، سواء فوق الأرصفة أو المسطحات المزروعة أو الأماكن المخصصة لذوي الإعاقة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 3
+        },
+        {
+          "id": "P041",
+          "en": "Driving against traffic or exceeding posted speed limits is not permitted.",
+          "ar": "عدم السير عكس الاتجاه أو تجاوز حدود السرعات المحددة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 3
+        },
+        {
+          "id": "P042",
+          "en": "Minors and unlicensed individuals are strictly prohibited from operating any type of vehicle within the community.",
+          "ar": "عدم قيادة جميع أنواع المركبات من قِبل القُصَّر أو بدون رخصة داخل المجتمع.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 3
+        },
+        {
+          "id": "P043",
+          "en": "Damaged or abandoned vehicles may not remain on site without prior authorization.",
+          "ar": "عدم ترك مركبات تالفة في الموقع دون الحصول على تصريح.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 3
+        },
+        {
+          "id": "P044",
+          "en": "All vehicles including golf carts must be fully licensed and compliant with community standards.",
+          "ar": "عدم سير جميع أنواع المركبات دون ترخيص، مع ضرورة تقنين سيارات الجولف وجميع المركبات الأخرى.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 3
+        },
+        {
+          "id": "P045",
+          "en": "All types of vehicles that remain parked for extended periods within the residential compound, such as caravans, vintage cars, and boats, must not be parked without prior authorization from Community Management.",
+          "ar": "عدم ترك أي مركبات (سيارات، سيارات الجولف، الكرافانات المتحركة، المركبات المائية) في الموقع دون تصريح من إدارة المجتمعات.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 3
+        },
+        {
+          "id": "P046",
+          "en": "Entry and exit gates must always remain unobstructed.",
+          "ar": "عدم تعطيل بوابات المجتمع السكني، مع عدم ركن أي مركبات أمام البوابات.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 3
+        },
+        {
+          "id": "P047",
+          "en": "Residents may not install private barriers, markers, or modifications within public parking areas.",
+          "ar": "بخصوص ساحات انتظار السيارات العامة، لا يسمح بوضع أية علامات أو محددات بها أو المساس بالشكل المعماري الخاص بها.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 3
+        }
+      ]
+    },
+    {
+      "category_id": "swimming_pool_regulations",
+      "category_en": "Swimming Pool Regulations",
+      "category_ar": "لائحة حمامات السباحة",
+      "rules": [
+        {
+          "id": "P048",
+          "en": "Guests may not access the swimming pool unless accompanied by the unit owner.",
+          "ar": "لا يُسمح باستخدام المرافقين لحمامات السباحة دون تواجد المالك.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 17,
+          "page_ar": 3
+        },
+        {
+          "id": "P049",
+          "en": "All posted pool instructions and safety guidelines must be adhered to strictly.",
+          "ar": "عدم مخالفة أي تعليمات أو إرشادات خاصة باللائحة الموجودة عند حمامات السباحة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 3
+        },
+        {
+          "id": "P050",
+          "en": "Reserving sunbeds, loungers, or pool chairs is not permitted.",
+          "ar": "لا يسمح بحجز كراسي الشاطئ أو المسبح.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 3
+        },
+        {
+          "id": "P051",
+          "en": "Swimming is allowed only during designated hours; management assumes no responsibility for unauthorized use.",
+          "ar": "يجب الالتزام بمواعيد استخدام حمام السباحة وتعليمات المشرف، والشركة غير مسؤولة عن السباحة خارج المواعيد المحددة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 4
+        },
+        {
+          "id": "P052",
+          "en": "Pets are strictly prohibited within or around the pool area.",
+          "ar": "لا يُسمح بدخول الحيوانات الأليفة إلى حمام السباحة أو التواجد حوله.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 4
+        },
+        {
+          "id": "P053",
+          "en": "Smoking, eating, or drinking within the pool water is forbidden.",
+          "ar": "لا يُسمح بالتدخين أو الأكل أو الشرب داخل مياه حمام السباحة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 4
+        },
+        {
+          "id": "P054",
+          "en": "Glassware is not allowed in the pool area.",
+          "ar": "لا يُسمح باستخدام الأكواب أو العبوات المصنوعة من الزجاج داخل حمام السباحة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 4
+        },
+        {
+          "id": "P055",
+          "en": "Appropriate swimwear must always be worn.",
+          "ar": "يشترط ارتداء الملابس المناسبة للسباحة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 4
+        },
+        {
+          "id": "P056",
+          "en": "Children who are not fully potty-trained must wear approved swim diapers.",
+          "ar": "الأطفال الذين لم يتعلموا استخدام المرحاض يجب أن يرتدوا حفاضات مخصصة للسباحة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 4
+        },
+        {
+          "id": "P057",
+          "en": "Children under the age of 14 must be accompanied by an adult.",
+          "ar": "يشترط وجود شخص بالغ مع الأطفال دون سن الـ14 عاماً.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 4
+        },
+        {
+          "id": "P058",
+          "en": "Running, pushing, rough play, or diving is strictly prohibited.",
+          "ar": "يمنع تماماً الجري أو الدفع أو الغطس بحمام السباحة، وفي حالة حدوث إصابة يرجى إبلاغ الإدارة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 4
+        },
+        {
+          "id": "P059",
+          "en": "Playing loud music that disturbs others is not allowed.",
+          "ar": "يمنع تشغيل الموسيقى بصوت مرتفع يسبب إزعاجاً للرواد الآخرين.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 4
+        },
+        {
+          "id": "P060",
+          "en": "The pool must not be used during maintenance, chemical treatment, or safety inspections.",
+          "ar": "يجب الالتزام بعدم استخدام حمام السباحة أثناء أعمال الصيانة أو المعالجة الكيميائية أو الفحوصات الأمنية.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 4
+        }
+      ]
+    },
+    {
+      "category_id": "playground_regulations",
+      "category_en": "Playground Regulations",
+      "category_ar": "لائحة مناطق الألعاب",
+      "rules": [
+        {
+          "id": "P061",
+          "en": "Playground facilities are intended exclusively for children.",
+          "ar": "لا يُسمح باستخدام منطقة الألعاب إلا للأطفال فقط.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 4
+        },
+        {
+          "id": "P062",
+          "en": "Unsafe behavior, including running, pushing, jumping, or wrestling is strictly prohibited.",
+          "ar": "يمنع تماماً أي سلوك يؤدي إلى وقوع حادث (مثل الجري، الدفع، القفز والمصارعة).",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 4
+        },
+        {
+          "id": "P063",
+          "en": "Glass containers are not permitted in or near playground areas.",
+          "ar": "لا يُسمح باستخدام الأكواب أو العبوات الزجاجية داخل منطقة الألعاب أو حولها.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 4
+        },
+        {
+          "id": "P064",
+          "en": "Management is not liable for injuries or losses incurred in playground zones.",
+          "ar": "الشركة غير مسؤولة عن أي إصابات أو خسائر تحدث في منطقة الألعاب.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 4
+        },
+        {
+          "id": "P065",
+          "en": "Use of the playground is not advised when feeling unwell or fatigued.",
+          "ar": "في حالة الشعور بالتعب لا ينصح باستخدام منطقة الألعاب.",
+          "src_en": "derived",
+          "src_ar": "pdf",
+          "page_en": null,
+          "page_ar": 4
+        },
+        {
+          "id": "P066",
+          "en": "Children remain the responsibility of their guardians while using the playground area.",
+          "ar": "الأطفال مسئولية ذويهم أثناء استخدامهم لمنطقة الألعاب.",
+          "src_en": "derived",
+          "src_ar": "pdf",
+          "page_en": null,
+          "page_ar": 4
+        },
+        {
+          "id": "P067",
+          "en": "Children must always remain under the supervision of their guardians.",
+          "ar": "يرجى مراقبة أطفالكم في جميع الأوقات.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 4
+        },
+        {
+          "id": "P068",
+          "en": "Playground operating hours are from 10:00 a.m. until sunset.",
+          "ar": "الالتزام بمواعيد منطقة الألعاب من الساعة 10 صباحاً حتى غروب الشمس.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 4
+        }
+      ]
+    },
+    {
+      "category_id": "maintenance_modifications",
+      "category_en": "Maintenance, Finishing, and Modifications Regulations",
+      "category_ar": "لائحة أعمال الصيانة والتعديلات والتشطيبات",
+      "rules": [
+        {
+          "id": "P069",
+          "en": "No alterations to unit façades front, side, or rear may be performed without the required permits and official approvals.",
+          "ar": "لا يجوز المساس وتعديل الواجهات الأمامية أو الجانبية أو الخلفية سواء في التصميم أو الديكورات إلا بعد إصدار التصاريح اللازمة والموافقات الرسمية والمعتمدة من الشركة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 5
+        },
+        {
+          "id": "P070",
+          "en": "External paint codes must be strictly observed; color changes are not permitted.",
+          "ar": "الالتزام بأكواد الدهانات الخارجية للوحدة وعدم تغيير الألوان نهائياً إلا بعد إصدار التصاريح اللازمة والموافقات الرسمية.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 18,
+          "page_ar": 5
+        },
+        {
+          "id": "P071",
+          "en": "No structures may be built on rooftops or within private gardens without prior authorization.",
+          "ar": "عدم بناء أي منشأة على السطح أو في الحديقة الداخلية إلا بعد إصدار التصاريح اللازمة والموافقات الرسمية.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 5
+        },
+        {
+          "id": "P072",
+          "en": "Sidewalks, landscaped areas, and external land boundaries may not be modified without official approval.",
+          "ar": "عدم التعدي على الأرصفة أو مناطق الزراعة خارج الوحدة، أو زيادة مساحة الأراضي إلا بعد الحصول على الموافقات الرسمية والمعتمدة من الشركة، إن وجدت.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 5
+        },
+        {
+          "id": "P073",
+          "en": "Utility shafts, drainage rooms, and service areas may not be obstructed or altered.",
+          "ar": "عدم التعدي على المناور أو غرف الصرف.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 5
+        },
+        {
+          "id": "P074",
+          "en": "Installing satellite dishes, rooftop lighting, or similar equipment requires prior authorization.",
+          "ar": "لا يُسمح بتركيب كشافات على الأسطح أو أطباق الستالايت أو في التراس.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 5
+        },
+        {
+          "id": "P075",
+          "en": "Constructing swimming pools or Jacuzzis is prohibited unless the required permits are obtained.",
+          "ar": "لا يُسمح بعمل حمام سباحة أو جاكوزي إلا بعد إصدار التصاريح اللازمة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 5
+        },
+        {
+          "id": "P076",
+          "en": "Installing pergolas is prohibited unless the required permits are obtained.",
+          "ar": "لا يُسمح بوضع برجولات إلا بعد إصدار التصاريح اللازمة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 5
+        },
+        {
+          "id": "P077",
+          "en": "Cameras, protective metal grills, solar heaters, and central gas or electrical heaters may not be installed without permits.",
+          "ar": "لا يُسمح بتركيب الكاميرات أو حديد الحماية أو السخانات الشمسية أو سخانات الغاز المركزية أو سخانات الكهرباء المركزية إلا بعد الحصول على التصاريح اللازمة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 5
+        },
+        {
+          "id": "P078",
+          "en": "Private elevators may not be installed unless formally approved.",
+          "ar": "لا يُسمح بإنشاء مصعد خاص للوحدة إلا بعد الحصول على التصاريح اللازمة، إن وُجدت.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 5
+        },
+        {
+          "id": "P079",
+          "en": "Expanding unit boundaries to create guard rooms, pet enclosures, or additional garages is not permitted.",
+          "ar": "لا يُسمح بإضافة مساحات خارجية إلى الوحدة لعمل غرفة حارس أو حيوان أليف أو جراج إضافي.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 5
+        },
+        {
+          "id": "P080",
+          "en": "Vehicles must only be parked in their designated garage spaces.",
+          "ar": "لا يُسمح بوضع السيارة في جراج العمارة في غير المكان المخصص لها.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 5
+        },
+        {
+          "id": "P081",
+          "en": "Air-conditioning units must be placed solely in the approved bracket locations.",
+          "ar": "يجب الالتزام بأماكن حوامل التكييفات المحددة مع عدم تغيير الأماكن الخاصة بها.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 5
+        },
+        {
+          "id": "P082",
+          "en": "Workers may not remain on site outside permitted working hours unless formally authorized.",
+          "ar": "لا يُسمح باستمرار تواجد العمال بعد مواعيد العمل في المشروع إلا بعد إصدار التصاريح اللازمة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 5
+        },
+        {
+          "id": "P083",
+          "en": "Workers must wear appropriate attire and may not gather or wander outside the unit.",
+          "ar": "يجب الالتزام من جانب العمال بالوحدة أثناء التشطيب بالزي المناسب للأعمال مع عدم تجولهم أو تجمعهم خارج الوحدة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 5
+        },
+        {
+          "id": "P084",
+          "en": "Workers, materials, and supplies may only enter through the gates designated for that purpose.",
+          "ar": "لا يسمح بدخول عمال أو خامات أو تشوينات من غير البوابات المخصصة لذلك.",
+          "src_en": "derived",
+          "src_ar": "pdf",
+          "page_en": null,
+          "page_ar": 5
+        },
+        {
+          "id": "P085",
+          "en": "Materials, tools, or waste may not be stored in shafts, building entrances, stairwells, or communal areas.",
+          "ar": "لا يسمح باستخدام المناور أو مداخل العمارات أو السلالم لتشوين المعدات أو الخامات أو المخلفات.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 5
+        },
+        {
+          "id": "P086",
+          "en": "Utility connections may not be carried out without the required permits.",
+          "ar": "لا يُسمح بعمل أي توصيلات للمرافق إلا بعد إصدار التصاريح اللازمة.",
+          "src_en": "derived",
+          "src_ar": "pdf",
+          "page_en": null,
+          "page_ar": 5
+        },
+        {
+          "id": "P087",
+          "en": "Staircases and building entrances must be cleaned after material handling works.",
+          "ar": "ضرورة تنظيف السلالم ومداخل العمارات بعد أعمال التشوين في العمارات.",
+          "src_en": "derived",
+          "src_ar": "pdf",
+          "page_en": null,
+          "page_ar": 5
+        },
+        {
+          "id": "P088",
+          "en": "Cleanliness must be maintained in front of units after material handling works are completed.",
+          "ar": "يجب الالتزام بالنظافة أمام الوحدات بعد الانتهاء من أعمال التشوين.",
+          "src_en": "derived",
+          "src_ar": "pdf",
+          "page_en": null,
+          "page_ar": 5
+        },
+        {
+          "id": "P089",
+          "en": "Water sources other than the unit's own supply may not be used.",
+          "ar": "لا يُسمح باستخدام أي مصادر مياه غير الموجودة بالوحدة.",
+          "src_en": "derived",
+          "src_ar": "pdf",
+          "page_en": null,
+          "page_ar": 5
+        },
+        {
+          "id": "P090",
+          "en": "External drainage rooms may not be opened without the project maintenance officer present.",
+          "ar": "لا يُسمح بفتح غرف الصرف الخارجية بدون حضور مسؤول الصيانة بالمشروع.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 6
+        },
+        {
+          "id": "P091",
+          "en": "Security procedures and inspection protocols at project gates must be fully respected.",
+          "ar": "يجب الالتزام بالتعليمات الأمنية وإجراءات التفتيش أثناء الدخول أو الخروج من بوابات المشروع.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 6
+        },
+        {
+          "id": "P092",
+          "en": "Climbing building façades is strictly prohibited without the required permits.",
+          "ar": "لا يُسمح بالصعود على واجهات الوحدات إلا بعد إصدار التصاريح اللازمة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 6
+        },
+        {
+          "id": "P093",
+          "en": "Misconduct by the owner or their representatives toward staff or service providers is not permitted.",
+          "ar": "لا يُسمح بأي سوء سلوك صادر من جانب المالك أو من ينوب عنه تجاه الموظفين أو مقدمي الخدمات.",
+          "src_en": "derived",
+          "src_ar": "pdf",
+          "page_en": null,
+          "page_ar": 6
+        },
+        {
+          "id": "P094",
+          "en": "Finishing or modification work may not commence without official approval.",
+          "ar": "لا يسمح بالبدء في أعمال التشطيبات أو التعديلات قبل الحصول على الموافقات اللازمة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 6
+        },
+        {
+          "id": "P095",
+          "en": "Workshops may not be established outside unit boundaries.",
+          "ar": "عدم إقامة ورشة خارج حدود الوحدة السكنية.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 6
+        },
+        {
+          "id": "P096",
+          "en": "Debris resulting from any works may not be dumped inside a neighbouring unit.",
+          "ar": "عدم إلقاء المخلفات الناتجة عن أي أعمال في وحدة الجار.",
+          "src_en": "derived",
+          "src_ar": "pdf",
+          "page_en": null,
+          "page_ar": 6
+        }
+      ]
+    },
+    {
+      "category_id": "north_coast_beach",
+      "category_en": "North Coast – Beach Regulations",
+      "category_ar": "لائحة الساحل الشمالي",
+      "rules": [
+        {
+          "id": "P097",
+          "en": "Beach access is restricted exclusively to registered residents; visitors are not permitted.",
+          "ar": "لا يُسمح بدخول الشاطئ للزائرين، ويقتصر استخدامه على العملاء فقط.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 6
+        },
+        {
+          "id": "P098",
+          "en": "Domestic staff or service personnel may not use the lagoons.",
+          "ar": "لا يُسمح للمساعدين أو العاملين بالخدمة باستخدام البحيرات.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 6
+        },
+        {
+          "id": "P099",
+          "en": "Pets are only allowed on the beach during designated hours from 9:00 a.m. to 11:00 a.m.",
+          "ar": "ممنوع اصطحاب الكلاب أو أي حيوانات أليفة إلى الشاطئ إلا في المواعيد المخصصة من الساعة 9 صباحاً حتى 11 صباحاً.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 19,
+          "page_ar": 6
+        },
+        {
+          "id": "P100",
+          "en": "Glass containers are prohibited.",
+          "ar": "ممنوع إدخال الحاويات الزجاجية إلى الشاطئ.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 20,
+          "page_ar": 6
+        },
+        {
+          "id": "P101",
+          "en": "Lighting fires on the beach is strictly forbidden.",
+          "ar": "ممنوع إشعال النيران على الشاطئ.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 20,
+          "page_ar": 6
+        },
+        {
+          "id": "P102",
+          "en": "It is mandatory to maintain the cleanliness and pristine condition of the beach and the lagoon.",
+          "ar": "يرجى الحفاظ على نظافة الشاطئ والبحيرة.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 20,
+          "page_ar": 6
+        },
+        {
+          "id": "P103",
+          "en": "Playing loud or disruptive music is not permitted.",
+          "ar": "ممنوع تشغيل الموسيقى الصاخبة على الشاطئ.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 20,
+          "page_ar": 6
+        },
+        {
+          "id": "P104",
+          "en": "The possession or use of narcotics is strictly prohibited.",
+          "ar": "ممنوع تعاطي أو حيازة المخدرات على الشاطئ.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 20,
+          "page_ar": 6
+        },
+        {
+          "id": "P105",
+          "en": "Swimming is allowed only within designated areas under lifeguard supervision; swimming beyond wave barriers is forbidden.",
+          "ar": "يجب السباحة فقط في المناطق المخصصة وتحت إشراف رجال الإنقاذ، ويمنع السباحة خارج حدود الأمواج.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 20,
+          "page_ar": 6
+        },
+        {
+          "id": "P106",
+          "en": "Motorcycles and beach buggies are prohibited.",
+          "ar": "ممنوع دخول الدراجات النارية أو البيتش باجي إلى الشاطئ.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 20,
+          "page_ar": 6
+        },
+        {
+          "id": "P107",
+          "en": "Disorderly behavior or non-compliant activities are not allowed.",
+          "ar": "ممنوع القيام بأي سلوك مشاغب أو أنشطة غير نظامية على الشاطئ.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 20,
+          "page_ar": 6
+        },
+        {
+          "id": "P108",
+          "en": "Commercial activity or solicitation without approval is prohibited.",
+          "ar": "ممنوع القيام بأي تسويق أو بيع على الشاطئ دون موافقة إدارة المجتمعات.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 20,
+          "page_ar": 6
+        },
+        {
+          "id": "P109",
+          "en": "Children under 14 must remain under adult supervision.",
+          "ar": "يجب أن يكون الأطفال دون سن 14 عاماً تحت مراقبة شخص بالغ دائماً.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 20,
+          "page_ar": 6
+        },
+        {
+          "id": "P110",
+          "en": "Beach operating hours are from 11:00 a.m. until half an hour before sunset.",
+          "ar": "ساعات استخدام الشاطئ من الساعة 11 صباحاً وحتى نصف ساعة قبل غروب الشمس.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 20,
+          "page_ar": 7
+        },
+        {
+          "id": "P111",
+          "en": "Personal items may not be left unattended; any found items will be transferred to Lost & Found.",
+          "ar": "لا يُسمح بترك أي ممتلكات شخصية على الشاطئ، وسيتم نقل أي ممتلكات يتم العثور عليها وتسليمها إلى قسم المفقودات.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 20,
+          "page_ar": 7
+        },
+        {
+          "id": "P112",
+          "en": "Guests may not use beach cabins without the owner present or without a formally registered lease agreement.",
+          "ar": "لا يُسمح بتواجد الضيوف في الكبائن دون حضور المالك أو دون وجود عقد إيجار رسمي مسجل لدى إدارة المجتمعات.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 20,
+          "page_ar": 7
+        },
+        {
+          "id": "P113",
+          "en": "Reserving sunbeds or loungers on the beach or lagoon areas is not permitted.",
+          "ar": "لا يُسمح بحجز الشازلونجات والكراسي على الشاطئ أو البحيرات.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 20,
+          "page_ar": 7
+        },
+        {
+          "id": "P114",
+          "en": "Attempting to access beach gates without the official app, or confronting security staff, is prohibited.",
+          "ar": "عدم محاولة الدخول إلى بوابات الشاطئ بدون استخدام التطبيق أو الاعتداء على أفراد الأمن.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 20,
+          "page_ar": 7
+        },
+        {
+          "id": "P115",
+          "en": "The owner's mobile application may not be used by unauthorized persons.",
+          "ar": "لا يُسمح باستخدام تطبيق المالك من قبل أي شخص آخر.",
+          "src_en": "pdf",
+          "src_ar": "pdf",
+          "page_en": 20,
+          "page_ar": 7
+        },
+        {
+          "id": "P116",
+          "en": "Beach invitations may not be traded or circulated for personal gain without entitlement.",
+          "ar": "لا يسمح بتداول دعوات الشاطئ لتحقيق مكاسب شخصية دون وجه حق.",
+          "src_en": "derived",
+          "src_ar": "pdf",
+          "page_en": null,
+          "page_ar": 7
+        },
+        {
+          "id": "P117",
+          "en": "Personal QR codes may not be used unlawfully to admit visitors or to circumvent security personnel.",
+          "ar": "لا يُسمح باستخدام رمز الاستجابة السريعة (QR) الشخصي بطرق غير قانونية لإدخال الزوار أو للتحايل على أفراد الأمن.",
+          "src_en": "derived",
+          "src_ar": "pdf",
+          "page_en": null,
+          "page_ar": 7
+        }
+      ]
+    }
+  ],
+  "violations": [
+    {
+      "id": "V001",
+      "category_id": "waste_management",
+      "violation_en": "Disposing of household waste or refuse outside designated collection points",
+      "violation_ar": "إلقاء القمامة والمخلفات في غير الأماكن المخصصة لها",
+      "penalty_egp": 2000,
+      "action_en": "Waste removal and reinstatement as required",
+      "action_ar": "إزالة المخلفات",
+      "related_policy_ids": [
+        "P001"
+      ],
+      "page_en": 21,
+      "page_ar": 8
+    },
+    {
+      "id": "V002",
+      "category_id": "waste_management",
+      "violation_en": "Discarding construction or finishing debris in non-designated areas",
+      "violation_ar": "إلقاء المخلفات الناتجة عن أعمال تشطيبات الوحدات",
+      "penalty_egp": 5000,
+      "action_en": "Full removal of debris",
+      "action_ar": "إزالة المخلفات",
+      "related_policy_ids": [
+        "P002"
+      ],
+      "page_en": 21,
+      "page_ar": 8
+    },
+    {
+      "id": "V003",
+      "category_id": "waste_management",
+      "violation_en": "Storing construction materials within public or common-use areas",
+      "violation_ar": "تخزين مواد البناء في الأماكن العامة",
+      "penalty_egp": 3000,
+      "action_en": "Relocation of materials to approved storage zones",
+      "action_ar": "نقل المواد إلى الأماكن المخصصة للتخزين",
+      "related_policy_ids": [
+        "P003"
+      ],
+      "page_en": 21,
+      "page_ar": 8
+    },
+    {
+      "id": "V004",
+      "category_id": "waste_management",
+      "violation_en": "Burning any type of waste within the premises",
+      "violation_ar": "حرق أي نوع من أنواع المخلفات المختلفة",
+      "penalty_egp": 5000,
+      "action_en": "Restoration of the area to its original condition",
+      "action_ar": "إعادة الشيء لأصله",
+      "related_policy_ids": [
+        "P004"
+      ],
+      "page_en": 21,
+      "page_ar": 8
+    },
+    {
+      "id": "V005",
+      "category_id": "waste_management",
+      "violation_en": "Discharging, spillage, or release of paints, chemicals, or hazardous substances onto roads or pathways",
+      "violation_ar": "سكب الدهانات أو المواد الكيميائية على الطرق",
+      "penalty_egp": 5000,
+      "action_en": "Restoration of the affected area",
+      "action_ar": "إعادة الشيء لأصله",
+      "related_policy_ids": [
+        "P005"
+      ],
+      "page_en": 21,
+      "page_ar": 8
+    },
+    {
+      "id": "V006",
+      "category_id": "waste_management",
+      "violation_en": "Improper disposal of furniture or bulky refuse",
+      "violation_ar": "التخلص بصورة غير سليمة من الأثاث أو المخلفات الثقيلة",
+      "penalty_egp": 5000,
+      "action_en": "Removal of the violation",
+      "action_ar": "إزالة المخالفة",
+      "related_policy_ids": [
+        "P006"
+      ],
+      "page_en": 21,
+      "page_ar": 8
+    },
+    {
+      "id": "V007",
+      "category_id": "rental_regulations",
+      "violation_en": "Breaching unit rental conditions without notifying the relevant authorities, failing to register the lease with the police, or failing to inform Community Management",
+      "violation_ar": "الإخلال ببنود إيجار الوحدة دون إبلاغ الجهات المسئولة وتوثيق العقد في أقسام الشرطة وإبلاغ إدارة المجتمعات",
+      "penalty_egp": 5000,
+      "action_en": "Legal measures should be initiated",
+      "action_ar": "إجراء قانوني",
+      "related_policy_ids": [
+        "P007",
+        "P008"
+      ],
+      "page_en": 21,
+      "page_ar": 8
+    },
+    {
+      "id": "V008",
+      "category_id": "rental_regulations",
+      "violation_en": "Installing advertising or promotional signage on residential façades",
+      "violation_ar": "وضع اللافتات الإعلانية أو الدعائية على واجهات الوحدات السكنية",
+      "penalty_egp": 3000,
+      "action_en": "Removal of signage",
+      "action_ar": "إزالة اللافتات",
+      "related_policy_ids": [
+        "P009"
+      ],
+      "page_en": 21,
+      "page_ar": 8
+    },
+    {
+      "id": "V009",
+      "category_id": "rental_regulations",
+      "violation_en": "Using residential units for any non-residential or unauthorized commercial purposes",
+      "violation_ar": "استخدام الوحدات السكنية في أي أغراض غير السكنية",
+      "penalty_egp": 10000,
+      "action_en": "Administrative and legal penalties",
+      "action_ar": "عقوبة إدارية وقانونية",
+      "related_policy_ids": [
+        "P010"
+      ],
+      "page_en": 21,
+      "page_ar": 8
+    },
+    {
+      "id": "V010",
+      "category_id": "elevator_regulations",
+      "violation_en": "Using elevators for transporting furniture, construction materials, or heavy equipment",
+      "violation_ar": "استخدام المصاعد لنقل العفش أو أي مواد بناء أو أجهزة ثقيلة",
+      "penalty_egp": 5000,
+      "action_en": "Residents shall bear all repair costs arising from damage, if applicable",
+      "action_ar": "تحمل تكلفة التلفيات إن وجدت",
+      "related_policy_ids": [
+        "P011"
+      ],
+      "page_en": 21,
+      "page_ar": 8
+    },
+    {
+      "id": "V011",
+      "category_id": "elevator_regulations",
+      "violation_en": "Transporting animals in elevators",
+      "violation_ar": "استخدام المصاعد في نقل الحيوانات من وإلى الوحدة",
+      "penalty_egp": 500,
+      "action_en": "Residents shall bear all repair costs arising from damage, if applicable",
+      "action_ar": "تحمل تكلفة التلفيات إن وجدت",
+      "related_policy_ids": [
+        "P012"
+      ],
+      "page_en": 21,
+      "page_ar": 8
+    },
+    {
+      "id": "V012",
+      "category_id": "pet_regulations",
+      "violation_en": "Keeping animals inside the residential unit other than commonly accepted household pet species or failing to provide official vaccination certificates as required. All animals remain subject to Egyptian law.",
+      "violation_ar": "تربية حيوانات داخل الوحدة السكنية بخلاف الأنواع المتعارف على تربيتها داخل المنازل أو عدم توفير شهادات التطعيم من الجهات المختصة لضمان سلامة الآخرين، على أن تخضع جميع أنواع الحيوانات لأحكام القانون المصري",
+      "penalty_egp": 5000,
+      "action_en": "Legal action",
+      "action_ar": "إجراء قانوني",
+      "related_policy_ids": [
+        "P013"
+      ],
+      "page_en": 22,
+      "page_ar": 9
+    },
+    {
+      "id": "V013",
+      "category_id": "pet_regulations",
+      "violation_en": "Leaving animal waste or food remnants in public areas within the residential community",
+      "violation_ar": "ترك فضلات الحيوانات وبواقي الطعام بالأماكن العامة داخل المجتمع السكني",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P015"
+      ],
+      "page_en": 22,
+      "page_ar": 9
+    },
+    {
+      "id": "V014",
+      "category_id": "pet_regulations",
+      "violation_en": "Walking pets without leashes or without an adult guardian in public areas",
+      "violation_ar": "التجول بالحيوانات بلا قيود أو بدون مرافق بالغ في المناطق العامة",
+      "penalty_egp": 3000,
+      "action_en": "Legal action",
+      "action_ar": "إجراء قانوني",
+      "related_policy_ids": [
+        "P017"
+      ],
+      "page_en": 22,
+      "page_ar": 9
+    },
+    {
+      "id": "V015",
+      "category_id": "pet_regulations",
+      "violation_en": "Harming or abusing pets in public areas",
+      "violation_ar": "التعرض للحيوانات الأليفة بالأذى في الأماكن العامة",
+      "penalty_egp": 5000,
+      "action_en": "Legal action",
+      "action_ar": "إجراء قانوني",
+      "related_policy_ids": [
+        "P019"
+      ],
+      "page_en": 22,
+      "page_ar": 9
+    },
+    {
+      "id": "V016",
+      "category_id": "pet_regulations",
+      "violation_en": "Placing pet houses outside the boundaries of the residential unit",
+      "violation_ar": "وضع بيوت الحيوانات الأليفة خارج حدود الوحدة",
+      "penalty_egp": 5000,
+      "action_en": "Removal of the violation",
+      "action_ar": "إزالة المخالفة",
+      "related_policy_ids": [
+        "P020"
+      ],
+      "page_en": 22,
+      "page_ar": 9
+    },
+    {
+      "id": "V017",
+      "category_id": "pet_regulations",
+      "violation_en": "Intentionally placing pet food in public areas",
+      "violation_ar": "تعمد وضع أكل الحيوانات الأليفة في الأماكن العامة",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P021"
+      ],
+      "page_en": 22,
+      "page_ar": 9
+    },
+    {
+      "id": "V018",
+      "category_id": "pet_regulations",
+      "violation_en": "Using public areas for bathing pets",
+      "violation_ar": "استخدام الأماكن العامة لاستحمام الحيوانات الأليفة",
+      "penalty_egp": 3000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P022"
+      ],
+      "page_en": 22,
+      "page_ar": 9
+    },
+    {
+      "id": "V019",
+      "category_id": "general_site_regulations",
+      "violation_en": "Damaging or vandalizing public property within the residential community",
+      "violation_ar": "تخريب الممتلكات العامة داخل المجتمع السكني",
+      "penalty_egp": 3000,
+      "action_en": "Residents shall bear full repair costs",
+      "action_ar": "تحمل تكلفة التلفيات",
+      "related_policy_ids": [
+        "P023"
+      ],
+      "page_en": 22,
+      "page_ar": 9
+    },
+    {
+      "id": "V020",
+      "category_id": "general_site_regulations",
+      "violation_en": "Altering or modifying the general landscape or public gardens",
+      "violation_ar": "تغيير أو تعديل المشهد العام أو بالحدائق العامة",
+      "penalty_egp": 3000,
+      "action_en": "Restore the area to its original condition",
+      "action_ar": "إرجاع المشهد لأصله",
+      "related_policy_ids": [
+        "P024",
+        "P025",
+        "P026"
+      ],
+      "page_en": 22,
+      "page_ar": 9
+    },
+    {
+      "id": "V021",
+      "category_id": "general_site_regulations",
+      "violation_en": "Excessive noise or disturbance",
+      "violation_ar": "الضوضاء والإزعاج",
+      "penalty_egp": 3000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P027",
+        "P032"
+      ],
+      "page_en": 22,
+      "page_ar": 9
+    },
+    {
+      "id": "V022",
+      "category_id": "general_site_regulations",
+      "violation_en": "Hosting parties inside the residential unit without prior coordination with Community Management",
+      "violation_ar": "إقامة الحفلات داخل الوحدة دون تنسيق مسبق من إدارة المجتمعات",
+      "penalty_egp": 3000,
+      "action_en": "Event termination",
+      "action_ar": "إيقاف الحدث",
+      "related_policy_ids": [
+        "P027"
+      ],
+      "page_en": 22,
+      "page_ar": 9
+    },
+    {
+      "id": "V023",
+      "category_id": "general_site_regulations",
+      "violation_en": "Using public areas for private parties or personal purposes without official authorization",
+      "violation_ar": "التعدي على أي مكان عام داخل المجتمع السكني لإقامة حفلات خاصة أو أي استخدام شخصي بدون تصريح من إدارة المجتمعات",
+      "penalty_egp": 5000,
+      "action_en": "Event termination",
+      "action_ar": "إيقاف الحدث",
+      "related_policy_ids": [
+        "P028"
+      ],
+      "page_en": 22,
+      "page_ar": 9
+    },
+    {
+      "id": "V024",
+      "category_id": "general_site_regulations",
+      "violation_en": "Holding commercial events without prior approval",
+      "violation_ar": "إقامة فعالية تجارية بدون تصريح",
+      "penalty_egp": 10000,
+      "action_en": "Event termination",
+      "action_ar": "إيقاف الحدث",
+      "related_policy_ids": [
+        "P029"
+      ],
+      "page_en": 23,
+      "page_ar": 9
+    },
+    {
+      "id": "V025",
+      "category_id": "general_site_regulations",
+      "violation_en": "Hanging personal belongings in visible locations or on building façades",
+      "violation_ar": "تعليق المتعلقات الخاصة في أماكن ظاهرة أو على واجهات العمارات",
+      "penalty_egp": 2000,
+      "action_en": "Removal of the violation",
+      "action_ar": "إزالة المخالفة",
+      "related_policy_ids": [
+        "P030"
+      ],
+      "page_en": 23,
+      "page_ar": 10
+    },
+    {
+      "id": "V026",
+      "category_id": "general_site_regulations",
+      "violation_en": "Using fireworks, laser devices, or blank guns",
+      "violation_ar": "استخدام الألعاب النارية أو الليزر أو مسدسات الصوت",
+      "penalty_egp": 3000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P031"
+      ],
+      "page_en": 23,
+      "page_ar": 10
+    },
+    {
+      "id": "V027",
+      "category_id": "general_site_regulations",
+      "violation_en": "Using flammable materials in public areas",
+      "violation_ar": "استخدام أي مواد مشتعلة في المناطق العامة",
+      "penalty_egp": 3000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P033"
+      ],
+      "page_en": 23,
+      "page_ar": 10
+    },
+    {
+      "id": "V028",
+      "category_id": "general_site_regulations",
+      "violation_en": "Verbal or physical assault against individuals or community staff",
+      "violation_ar": "التعدي اللفظي أو الجسدي تجاه الأشخاص أو موظفي ومسئولي المجتمع السكني",
+      "penalty_egp": 5000,
+      "action_en": "Legal action",
+      "action_ar": "إجراء قانوني",
+      "related_policy_ids": [
+        "P034"
+      ],
+      "page_en": 23,
+      "page_ar": 10
+    },
+    {
+      "id": "V029",
+      "category_id": "general_site_regulations",
+      "violation_en": "Driving any vehicle onto pedestrian walkways or between buildings",
+      "violation_ar": "صعود أي مركبة على المشايات وبين العمارات",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P036"
+      ],
+      "page_en": 23,
+      "page_ar": 10
+    },
+    {
+      "id": "V030",
+      "category_id": "general_site_regulations",
+      "violation_en": "Gathering in public areas after operating hours",
+      "violation_ar": "وجود تجمعات في المناطق العامة بعد ساعات التشغيل",
+      "penalty_egp": 3000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P037"
+      ],
+      "page_en": 23,
+      "page_ar": 10
+    },
+    {
+      "id": "V031",
+      "category_id": "general_site_regulations",
+      "violation_en": "Using unlicensed four-wheel recreational vehicles",
+      "violation_ar": "استخدام المركبات ذات الأربع عجلات غير المرخصة",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P038"
+      ],
+      "page_en": 23,
+      "page_ar": 10
+    },
+    {
+      "id": "V032",
+      "category_id": "general_site_regulations",
+      "violation_en": "Misusing personal QR codes to unlawfully grant access to visitors",
+      "violation_ar": "استخدام رمز الاستجابة السريعة (QR) الشخصي بطرق غير شرعية لإدخال الزوار",
+      "penalty_egp": 5000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P039"
+      ],
+      "page_en": 23,
+      "page_ar": 10
+    },
+    {
+      "id": "V033",
+      "category_id": "general_site_regulations",
+      "violation_en": "Any inappropriate or indecent behavior causing fear or distress to others",
+      "violation_ar": "التصرفات غير اللائقة أو المنافية للأدب العامة أو ترويع وإرهاب الآخرين",
+      "penalty_egp": 5000,
+      "action_en": "Legal action",
+      "action_ar": "إجراء قانوني",
+      "related_policy_ids": [],
+      "page_en": 23,
+      "page_ar": 10
+    },
+    {
+      "id": "V034",
+      "category_id": "vehicle_regulations",
+      "violation_en": "Parking vehicles in non-designated areas, including sidewalks, landscaped zones, or spaces reserved for disabilities",
+      "violation_ar": "ركن المركبات في غير الأماكن المخصصة لها سواء فوق الرصيف أو الزراعات أو الأماكن المخصصة لذوي الإعاقة",
+      "penalty_egp": 500,
+      "action_en": "Placement of a violation sticker",
+      "action_ar": "وضع ملصق",
+      "related_policy_ids": [
+        "P040"
+      ],
+      "page_en": 23,
+      "page_ar": 10
+    },
+    {
+      "id": "V035",
+      "category_id": "vehicle_regulations",
+      "violation_en": "Driving against traffic direction or exceeding speed limits",
+      "violation_ar": "السير عكس الاتجاه أو خارج حدود السرعات المحددة",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P041"
+      ],
+      "page_en": 23,
+      "page_ar": 10
+    },
+    {
+      "id": "V036",
+      "category_id": "vehicle_regulations",
+      "violation_en": "Driving any vehicle by minors or unlicensed individuals inside the community",
+      "violation_ar": "القيادة من جانب القصر أو بدون رخصة جميع أنواع المركبات داخل المجتمع السكني",
+      "penalty_egp": 5000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P042"
+      ],
+      "page_en": 23,
+      "page_ar": 10
+    },
+    {
+      "id": "V037",
+      "category_id": "vehicle_regulations",
+      "violation_en": "Leaving damaged vehicles, caravans, or watercraft on-site without a permit",
+      "violation_ar": "ترك مركبات تالفة أو كرافانات متحركة أو مركبات مائية في الموقع دون تصريح",
+      "penalty_egp": 3000,
+      "action_en": "Legal action",
+      "action_ar": "إجراء قانوني",
+      "related_policy_ids": [
+        "P043",
+        "P045"
+      ],
+      "page_en": 23,
+      "page_ar": 10
+    },
+    {
+      "id": "V038",
+      "category_id": "vehicle_regulations",
+      "violation_en": "Failing to register unlicensed vehicles with Community Management",
+      "violation_ar": "عدم تسجيل المركبات غير المرخصة مع إدارة المجتمعات",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P044"
+      ],
+      "page_en": 23,
+      "page_ar": 10
+    },
+    {
+      "id": "V039",
+      "category_id": "vehicle_regulations",
+      "violation_en": "Non-compliance with traffic rules",
+      "violation_ar": "عدم الالتزام بقوانين المرور",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P041"
+      ],
+      "page_en": 23,
+      "page_ar": 10
+    },
+    {
+      "id": "V040",
+      "category_id": "vehicle_regulations",
+      "violation_en": "Obstructing gates or public roads with vehicles",
+      "violation_ar": "تعطيل البوابات أو الطرق العامة عن طريق المركبات",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P046"
+      ],
+      "page_en": 24,
+      "page_ar": 10
+    },
+    {
+      "id": "V041",
+      "category_id": "vehicle_regulations",
+      "violation_en": "Placing unauthorized signs or tampering with architectural elements in public parking areas",
+      "violation_ar": "وضع أية علامات أو محددات بها أو المساس بالشكل المعماري الخاص بها في ساحات انتظار السيارات العامة",
+      "penalty_egp": 2000,
+      "action_en": "Resident shall bear repair costs",
+      "action_ar": "تحمل تكلفة التلفيات",
+      "related_policy_ids": [
+        "P047"
+      ],
+      "page_en": 24,
+      "page_ar": 10
+    },
+    {
+      "id": "V042",
+      "category_id": "vehicle_regulations",
+      "violation_en": "Parking in a non-assigned spot inside the building garage",
+      "violation_ar": "وضع المركبة في جراج العمارة في غير المكان المخصص لها",
+      "penalty_egp": 500,
+      "action_en": "Placement of a violation sticker",
+      "action_ar": "وضع ملصق",
+      "related_policy_ids": [
+        "P080"
+      ],
+      "page_en": 24,
+      "page_ar": 10
+    },
+    {
+      "id": "V043",
+      "category_id": "swimming_pool_regulations",
+      "violation_en": "Using the swimming pool without the presence of the unit owner",
+      "violation_ar": "استخدام حمام السباحة بدون صاحب الوحدة",
+      "penalty_egp": 5000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P048"
+      ],
+      "page_en": 24,
+      "page_ar": 11
+    },
+    {
+      "id": "V044",
+      "category_id": "swimming_pool_regulations",
+      "violation_en": "Violating instructions posted for swimming pools, gyms, or sports courts",
+      "violation_ar": "مخالفة أي تعليمات أو إرشادات خاصة بحمامات السباحة أو الصالات الرياضية والملاعب الموجودة على لوحات الإرشادات",
+      "penalty_egp": 3000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P049",
+        "P050",
+        "P051",
+        "P052",
+        "P053",
+        "P054",
+        "P055",
+        "P056",
+        "P057",
+        "P058",
+        "P059",
+        "P060"
+      ],
+      "page_en": 24,
+      "page_ar": 11
+    },
+    {
+      "id": "V045",
+      "category_id": "playground_regulations",
+      "violation_en": "Violating instructions or safety guidelines posted in children's play areas",
+      "violation_ar": "مخالفة أي تعليمات أو إرشادات خاصة بمناطق ألعاب الأطفال والموجودة على اللوحات الإرشادية",
+      "penalty_egp": 3000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P061",
+        "P062",
+        "P063",
+        "P067",
+        "P068"
+      ],
+      "page_en": 24,
+      "page_ar": 11
+    },
+    {
+      "id": "V046",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Altering or modifying any front, side, or rear façades including design elements or decorative components without obtaining the required permits and official company approvals",
+      "violation_ar": "المساس وتعديل الواجهات الأمامية أو الجانبية أو الخلفية سواء في التصميم أو الديكورات إلا بعد إصدار التصاريح اللازمة والموافقات الرسمية والمعتمدة من الشركة",
+      "penalty_egp": 5000,
+      "action_en": "Removal of the violation within 7 days",
+      "action_ar": "إزالة المخالفة في خلال 7 أيام",
+      "related_policy_ids": [
+        "P069"
+      ],
+      "page_en": 24,
+      "page_ar": 11
+    },
+    {
+      "id": "V047",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Failure to comply with approved exterior paint codes without obtaining the required permits and official approvals",
+      "violation_ar": "عدم الالتزام بأكواد الدهانات الخارجية للوحدة بدون إصدار التصاريح اللازمة والموافقات الرسمية",
+      "penalty_egp": 10000,
+      "action_en": "Removal of the violation within 7 days",
+      "action_ar": "إزالة المخالفة في خلال 7 أيام",
+      "related_policy_ids": [
+        "P070"
+      ],
+      "page_en": 24,
+      "page_ar": 11
+    },
+    {
+      "id": "V048",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Constructing any structure on rooftops or within private gardens without authorization",
+      "violation_ar": "بناء أي منشأة على السطح أو في الحديقة الداخلية بدون تصريح",
+      "penalty_egp": 5000,
+      "action_en": "Removal of the violation within 7 days",
+      "action_ar": "إزالة المخالفة في خلال 7 أيام",
+      "related_policy_ids": [
+        "P071"
+      ],
+      "page_en": 25,
+      "page_ar": 11
+    },
+    {
+      "id": "V049",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Encroaching on sidewalks, landscaped areas, or increasing land area without official approval from the company (when applicable)",
+      "violation_ar": "التعدي على الأرصفة أو أماكن الزراعة خارج الوحدة أو زيادة مساحة الأراضي بدون أخذ الموافقات الرسمية والمعتمدة من الشركة إن وجدت",
+      "penalty_egp": 10000,
+      "action_en": "Residents shall bear full repair costs",
+      "action_ar": "تحمل تكلفة التلفيات",
+      "related_policy_ids": [
+        "P072"
+      ],
+      "page_en": 25,
+      "page_ar": 11
+    },
+    {
+      "id": "V050",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Tampering with ventilation shafts or sewage chambers",
+      "violation_ar": "التعدي على المناور أو غرف الصرف",
+      "penalty_egp": 2000,
+      "action_en": "Removal of the violation",
+      "action_ar": "إزالة المخالفة",
+      "related_policy_ids": [
+        "P073"
+      ],
+      "page_en": 25,
+      "page_ar": 11
+    },
+    {
+      "id": "V051",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Installing roof lighting fixtures, satellite dishes, or terrace-mounted devices without authorization",
+      "violation_ar": "تركيب كشافات على الأسطح أو أطباق الستالايت أو في التراس",
+      "penalty_egp": 2000,
+      "action_en": "Removal of the violation",
+      "action_ar": "إزالة المخالفة",
+      "related_policy_ids": [
+        "P074"
+      ],
+      "page_en": 25,
+      "page_ar": 11
+    },
+    {
+      "id": "V052",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Constructing a swimming pool or jacuzzi without necessary permits",
+      "violation_ar": "عمل حمام سباحة أو جاكوزي بدون إصدار التصاريح اللازمة",
+      "penalty_egp": 5000,
+      "action_en": "Work suspension",
+      "action_ar": "إيقاف أعمال",
+      "related_policy_ids": [
+        "P075"
+      ],
+      "page_en": 25,
+      "page_ar": 11
+    },
+    {
+      "id": "V053",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Installing pergolas without obtaining required permits",
+      "violation_ar": "وضع برجولات بدون إصدار التصاريح اللازمة",
+      "penalty_egp": 5000,
+      "action_en": "Removal of the violation",
+      "action_ar": "إزالة المخالفة",
+      "related_policy_ids": [
+        "P076"
+      ],
+      "page_en": 25,
+      "page_ar": 11
+    },
+    {
+      "id": "V054",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Installing security cameras, metal grills, solar heaters, centralized gas/electric heaters without permits",
+      "violation_ar": "تركيب الكاميرات أو حديد الحماية أو السخانات الشمسية أو سخانات الغاز المركزية أو سخانات الكهرباء المركزية بدون إصدار التصاريح اللازمة",
+      "penalty_egp": 5000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P077"
+      ],
+      "page_en": 25,
+      "page_ar": 12
+    },
+    {
+      "id": "V055",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Installing a private elevator without required permits",
+      "violation_ar": "عمل مصعد للوحدة بدون إصدار التصاريح اللازمة إن وجدت",
+      "penalty_egp": 10000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P078"
+      ],
+      "page_en": 25,
+      "page_ar": 12
+    },
+    {
+      "id": "V056",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Adding external structures such as guard rooms, pet rooms, or extra garages without authorization",
+      "violation_ar": "إضافة مساحات خارجية إلى الوحدة لعمل غرفة حارس أو حيوان أليف أو جراج إضافي بدون تصريح",
+      "penalty_egp": 5000,
+      "action_en": "Removal of the violation",
+      "action_ar": "إزالة المخالفة",
+      "related_policy_ids": [
+        "P079"
+      ],
+      "page_en": 25,
+      "page_ar": 12
+    },
+    {
+      "id": "V057",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Failure to comply with the designated air-conditioning bracket locations",
+      "violation_ar": "عدم الالتزام بأماكن حوامل التكييفات المحددة",
+      "penalty_egp": 5000,
+      "action_en": "Removal of the violation",
+      "action_ar": "إزالة المخالفة",
+      "related_policy_ids": [
+        "P081"
+      ],
+      "page_en": 25,
+      "page_ar": 12
+    },
+    {
+      "id": "V058",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Workers remaining on-site beyond approved working hours without permits",
+      "violation_ar": "استمرار تواجد العمال بعد مواعيد العمل في المشروع بدون إصدار التصاريح اللازمة",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P082"
+      ],
+      "page_en": 25,
+      "page_ar": 12
+    },
+    {
+      "id": "V059",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Workers failing to follow appropriate dress codes or gathering outside the unit during finishing works",
+      "violation_ar": "عدم الالتزام من جانب العمال بالوحدة أثناء التشطيب بالزي المناسب للأعمال مع عدم تجولهم أو تجمعهم خارج الوحدة",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P083"
+      ],
+      "page_en": 25,
+      "page_ar": 12
+    },
+    {
+      "id": "V060",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Entering workers, materials, or supplies through unauthorized gates",
+      "violation_ar": "دخول عمال أو خامات أو تشوينات من غير البوابات المخصصة لذلك",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P084"
+      ],
+      "page_en": 25,
+      "page_ar": 12
+    },
+    {
+      "id": "V061",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Using shafts, building entrances, or staircases to store equipment, materials, or waste",
+      "violation_ar": "استخدام المناور أو مداخل العمارات أو السلالم لتشوين المعدات أو الخامات أو المخلفات",
+      "penalty_egp": 5000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P085"
+      ],
+      "page_en": 25,
+      "page_ar": 12
+    },
+    {
+      "id": "V062",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Carrying out utility connections without required permits",
+      "violation_ar": "عمل أي توصيلات للمرافق بدون إصدار التصاريح اللازمة",
+      "penalty_egp": 10000,
+      "action_en": "Legal action",
+      "action_ar": "إجراء قانوني",
+      "related_policy_ids": [
+        "P086"
+      ],
+      "page_en": 25,
+      "page_ar": 12
+    },
+    {
+      "id": "V063",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Failure to clean staircases or building entrances after material handling",
+      "violation_ar": "عدم تنظيف السلالم أو مداخل العمارات بعد التشوين في العمارات",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P087"
+      ],
+      "page_en": 25,
+      "page_ar": 12
+    },
+    {
+      "id": "V064",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Failure to maintain cleanliness around units after finishing works",
+      "violation_ar": "عدم النظافة أمام الوحدات بعد الانتهاء من أعمال التشوين",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P088"
+      ],
+      "page_en": 26,
+      "page_ar": 12
+    },
+    {
+      "id": "V065",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Using any external water source other than the unit's supply",
+      "violation_ar": "استخدام أي مصادر مياه غير الموجودة بالوحدة",
+      "penalty_egp": 3000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P089"
+      ],
+      "page_en": 26,
+      "page_ar": 12
+    },
+    {
+      "id": "V066",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Opening external sewage chambers without presence of the project maintenance officer",
+      "violation_ar": "فتح غرف الصرف الخارجية بدون حضور مسؤول الصيانة بالمشروع",
+      "penalty_egp": 3000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P090"
+      ],
+      "page_en": 26,
+      "page_ar": 12
+    },
+    {
+      "id": "V067",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Non-compliance with security protocols or inspections at project gates",
+      "violation_ar": "عدم الالتزام بالتعليمات الأمنية أو التفتيش أثناء الدخول أو الخروج من بوابات المشروع",
+      "penalty_egp": 5000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P091"
+      ],
+      "page_en": 26,
+      "page_ar": 12
+    },
+    {
+      "id": "V068",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Climbing or accessing unit façades without required permits",
+      "violation_ar": "الصعود على واجهات الوحدات بدون إصدار التصاريح اللازمة",
+      "penalty_egp": 3000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P092"
+      ],
+      "page_en": 26,
+      "page_ar": 12
+    },
+    {
+      "id": "V069",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Misconduct by the owner or representatives toward staff or service providers",
+      "violation_ar": "سوء السلوك من جانب المالك أو من ينوب عنه تجاه الموظفين أو مقدمي الخدمات",
+      "penalty_egp": 5000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P093"
+      ],
+      "page_en": 26,
+      "page_ar": 12
+    },
+    {
+      "id": "V070",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Commencing finishing or modification works without obtaining approvals",
+      "violation_ar": "البدء في أعمال التشطيبات أو التعديلات قبل الحصول على الموافقات اللازمة",
+      "penalty_egp": 5000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P094"
+      ],
+      "page_en": 26,
+      "page_ar": 12
+    },
+    {
+      "id": "V071",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Dumping finishing debris inside another resident's unit",
+      "violation_ar": "إلقاء مخلفات التشطيب في وحدة الغير",
+      "penalty_egp": 3000,
+      "action_en": "Removal of debris",
+      "action_ar": "إزالة المخلفات",
+      "related_policy_ids": [
+        "P096"
+      ],
+      "page_en": 26,
+      "page_ar": 12
+    },
+    {
+      "id": "V072",
+      "category_id": "maintenance_modifications",
+      "violation_en": "Operating a workshop outside the boundaries of the residential unit",
+      "violation_ar": "إقامة ورشة خارج حدود الوحدة السكنية",
+      "penalty_egp": 3000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P095"
+      ],
+      "page_en": 26,
+      "page_ar": 12
+    },
+    {
+      "id": "V073",
+      "category_id": "north_coast_beach",
+      "violation_en": "Allowing visitors to access the Owners' Beach",
+      "violation_ar": "دخول شاطئ المالك للزوار",
+      "penalty_egp": 5000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P097"
+      ],
+      "page_en": 26,
+      "page_ar": 13
+    },
+    {
+      "id": "V074",
+      "category_id": "north_coast_beach",
+      "violation_en": "Using assistants or workers in the lagoons outside designated hours",
+      "violation_ar": "استخدام المساعدين أو العاملين بالخدمة للبحيرات في غير المواعيد المحددة",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P098"
+      ],
+      "page_en": 26,
+      "page_ar": 13
+    },
+    {
+      "id": "V075",
+      "category_id": "north_coast_beach",
+      "violation_en": "Bringing dogs or any pets to the beach outside permitted times",
+      "violation_ar": "اصطحاب الكلاب أو أي حيوانات أليفة إلى الشاطئ في غير المواعيد المحددة",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P099"
+      ],
+      "page_en": 26,
+      "page_ar": 13
+    },
+    {
+      "id": "V076",
+      "category_id": "north_coast_beach",
+      "violation_en": "Bringing glass containers to the beach",
+      "violation_ar": "إدخال الحاويات الزجاجية إلى الشاطئ",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P100"
+      ],
+      "page_en": 26,
+      "page_ar": 13
+    },
+    {
+      "id": "V077",
+      "category_id": "north_coast_beach",
+      "violation_en": "Lighting fires on the beach",
+      "violation_ar": "إشعال النيران على الشاطئ",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P101"
+      ],
+      "page_en": 27,
+      "page_ar": 13
+    },
+    {
+      "id": "V078",
+      "category_id": "north_coast_beach",
+      "violation_en": "Playing loud music on the beach",
+      "violation_ar": "تشغيل الموسيقى الصاخبة على الشاطئ",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P103"
+      ],
+      "page_en": 27,
+      "page_ar": 13
+    },
+    {
+      "id": "V079",
+      "category_id": "north_coast_beach",
+      "violation_en": "Possession or use of drugs on the beach",
+      "violation_ar": "تعاطي أو حيازة المخدرات على الشاطئ",
+      "penalty_egp": 5000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P104"
+      ],
+      "page_en": 27,
+      "page_ar": 13
+    },
+    {
+      "id": "V080",
+      "category_id": "north_coast_beach",
+      "violation_en": "Swimming in undesignated areas or outside lifeguard supervision",
+      "violation_ar": "السباحة في المناطق غير المخصصة أو خارج نطاق إشراف رجال الإنقاذ أو السباحة خارج حدود الأمواج",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P105"
+      ],
+      "page_en": 27,
+      "page_ar": 13
+    },
+    {
+      "id": "V081",
+      "category_id": "north_coast_beach",
+      "violation_en": "Driving motorbikes or beach buggies on the beach",
+      "violation_ar": "دخول الدراجات النارية أو البيتش باجي إلى الشاطئ",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P106"
+      ],
+      "page_en": 27,
+      "page_ar": 13
+    },
+    {
+      "id": "V082",
+      "category_id": "north_coast_beach",
+      "violation_en": "Engaging in disruptive or unsafe behavior on the beach",
+      "violation_ar": "القيام بأي سلوك مشاغب أو أنشطة غير نظامية على الشاطئ",
+      "penalty_egp": 5000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P107"
+      ],
+      "page_en": 27,
+      "page_ar": 13
+    },
+    {
+      "id": "V083",
+      "category_id": "north_coast_beach",
+      "violation_en": "Conducting sales or promotional activities on the beach without approval",
+      "violation_ar": "القيام بأي تسويق أو بيع على الشاطئ دون موافقة إدارة المجتمعات",
+      "penalty_egp": 5000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P108"
+      ],
+      "page_en": 27,
+      "page_ar": 13
+    },
+    {
+      "id": "V084",
+      "category_id": "north_coast_beach",
+      "violation_en": "Failure to maintain beach and lagoon cleanliness",
+      "violation_ar": "عدم الحفاظ على نظافة الشاطئ والبحيرات",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P102"
+      ],
+      "page_en": 27,
+      "page_ar": 13
+    },
+    {
+      "id": "V085",
+      "category_id": "north_coast_beach",
+      "violation_en": "Using the beach outside permitted hours",
+      "violation_ar": "استخدام الشاطئ في الساعات غير المحددة",
+      "penalty_egp": 2000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P110"
+      ],
+      "page_en": 27,
+      "page_ar": 13
+    },
+    {
+      "id": "V086",
+      "category_id": "north_coast_beach",
+      "violation_en": "Guests being present in cabanas without the owner or without a registered lease contract",
+      "violation_ar": "تواجد الضيوف في الكبائن دون حضور المالك أو بدون عقد إيجار رسمي مسجل في المجتمع",
+      "penalty_egp": 10000,
+      "action_en": "Penalty doubles upon repetition and owner invitations suspended",
+      "action_ar": "في حالة التكرار يتضاعف المبلغ وإيقاف الدعوات الخاصة بالمالك",
+      "related_policy_ids": [
+        "P112"
+      ],
+      "page_en": 27,
+      "page_ar": 13
+    },
+    {
+      "id": "V087",
+      "category_id": "north_coast_beach",
+      "violation_en": "Attempting to access beach gates without the app or assaulting security staff",
+      "violation_ar": "محاولة الدخول إلى بوابات الشاطئ بدون استخدام التطبيق أو الاعتداء على أفراد الأمن",
+      "penalty_egp": 5000,
+      "action_en": "Administrative & legal action",
+      "action_ar": "عقوبة إدارية وإجراء قانوني",
+      "related_policy_ids": [
+        "P114"
+      ],
+      "page_en": 27,
+      "page_ar": 14
+    },
+    {
+      "id": "V088",
+      "category_id": "north_coast_beach",
+      "violation_en": "Using the owner's app by unauthorized individuals",
+      "violation_ar": "استخدام تطبيق المالك من قبل أي شخص آخر",
+      "penalty_egp": 5000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P115"
+      ],
+      "page_en": 27,
+      "page_ar": 14
+    },
+    {
+      "id": "V089",
+      "category_id": "north_coast_beach",
+      "violation_en": "Trading beach invitations for profit",
+      "violation_ar": "تداول دعوات الشاطئ لتحقيق مكاسب شخصية دون وجه حق",
+      "penalty_egp": 5000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P116"
+      ],
+      "page_en": 27,
+      "page_ar": 14
+    },
+    {
+      "id": "V090",
+      "category_id": "north_coast_beach",
+      "violation_en": "Misusing QR codes to illegally grant access to visitors or deceive security",
+      "violation_ar": "استخدام الـ QR الشخصي بطريقة غير شرعية لإدخال الزائرين أو التحايل على أفراد الأمن",
+      "penalty_egp": 5000,
+      "action_en": "Administrative penalty",
+      "action_ar": "عقوبة إدارية",
+      "related_policy_ids": [
+        "P117"
+      ],
+      "page_en": 27,
+      "page_ar": 14
+    }
+  ],
+  "contacts": {
+    "entries": [
+      {
+        "id": "C001",
+        "name_en": "Security / Gate Control",
+        "name_ar": "الأمن / التحكم في البوابات",
+        "role": "security",
+        "phone": null,
+        "email": null,
+        "hours": null,
+        "hours_hint": "24/7 (unverified)",
+        "compound": null,
+        "phase": null,
+        "status": "unconfigured",
+        "pending_fields": [
+          "phone",
+          "hours",
+          "compound"
+        ]
+      },
+      {
+        "id": "C002",
+        "name_en": "General Maintenance Hotline",
+        "name_ar": "الخط الساخن للصيانة العامة",
+        "role": "maintenance",
+        "phone": null,
+        "email": null,
+        "hours": null,
+        "hours_hint": "08:00-22:00 (unverified)",
+        "compound": null,
+        "phase": null,
+        "status": "unconfigured",
+        "pending_fields": [
+          "phone",
+          "hours",
+          "compound"
+        ]
+      },
+      {
+        "id": "C003",
+        "name_en": "Emergency / Fire / Ambulance Coordination",
+        "name_ar": "تنسيق الطوارئ / الحريق / الإسعاف",
+        "role": "emergency",
+        "phone": null,
+        "email": null,
+        "hours": null,
+        "hours_hint": "24/7 (unverified)",
+        "compound": null,
+        "phase": null,
+        "status": "unconfigured",
+        "pending_fields": [
+          "phone",
+          "hours",
+          "compound"
+        ]
+      },
+      {
+        "id": "C004",
+        "name_en": "Community Management Office",
+        "name_ar": "مكتب إدارة المجتمعات",
+        "role": "community_management",
+        "phone": null,
+        "email": null,
+        "hours": null,
+        "hours_hint": "09:00-18:00 (unverified)",
+        "compound": null,
+        "phase": null,
+        "status": "unconfigured",
+        "pending_fields": [
+          "phone",
+          "hours",
+          "compound"
+        ]
+      },
+      {
+        "id": "C005",
+        "name_en": "North Coast Beach Office",
+        "name_ar": "مكتب شاطئ الساحل الشمالي",
+        "role": "beach_office",
+        "phone": null,
+        "email": null,
+        "hours": null,
+        "hours_hint": "09:00-20:00 seasonal (unverified)",
+        "compound": "north_coast",
+        "phase": null,
+        "status": "unconfigured",
+        "pending_fields": [
+          "phone",
+          "hours"
+        ]
+      }
+    ],
+    "notice": "PLACEHOLDER RECORDS. No phone number in this file has been supplied by Palm Hills. Every entry has phone=null and status='unconfigured'. The API layer MUST NOT render an unconfigured contact as if it were real, and must never emit a masked/dummy number such as 'XXXXXXXXXX' to a resident. The `hours_hint` field is an internal, UNVERIFIED planning note carried over from project scoping; it is not sourced from the regulations document and must never be presented to a resident as opening hours until verified."
+  },
+  "facilities": {
+    "entries": [
+      {
+        "id": "F001",
+        "name_en": "Swimming Pool",
+        "name_ar": "حمام السباحة",
+        "facility_type": "swimming_pool",
+        "compound": null,
+        "phase": null,
+        "location_note": null,
+        "hours": null,
+        "hours_source": null,
+        "hours_hint": "Per posted schedule at the facility (unverified)",
+        "restrictions_en": [
+          "Guests may not access the pool unless accompanied by the unit owner.",
+          "Children under 14 must be accompanied by an adult."
+        ],
+        "restrictions_ar": [
+          "لا يُسمح باستخدام المرافقين لحمامات السباحة دون تواجد المالك.",
+          "يشترط وجود شخص بالغ مع الأطفال دون سن الـ14 عاماً."
+        ],
+        "related_policy_ids": [
+          "P048",
+          "P049",
+          "P050",
+          "P051",
+          "P052",
+          "P053",
+          "P054",
+          "P055",
+          "P056",
+          "P057",
+          "P058",
+          "P059",
+          "P060"
+        ],
+        "contact_id": null,
+        "status": "unconfigured",
+        "pending_fields": [
+          "compound",
+          "phase",
+          "location_note",
+          "hours",
+          "contact_id"
+        ]
+      },
+      {
+        "id": "F002",
+        "name_en": "Children's Playground",
+        "name_ar": "منطقة ألعاب الأطفال",
+        "facility_type": "playground",
+        "compound": null,
+        "phase": null,
+        "location_note": null,
+        "hours": "10:00 - sunset",
+        "hours_source": "policy:P068",
+        "hours_hint": null,
+        "restrictions_en": [
+          "Playground facilities are intended exclusively for children.",
+          "Children must always remain under the supervision of their guardians."
+        ],
+        "restrictions_ar": [
+          "لا يُسمح باستخدام منطقة الألعاب إلا للأطفال فقط.",
+          "يرجى مراقبة أطفالكم في جميع الأوقات."
+        ],
+        "related_policy_ids": [
+          "P061",
+          "P062",
+          "P063",
+          "P064",
+          "P065",
+          "P066",
+          "P067",
+          "P068"
+        ],
+        "contact_id": null,
+        "status": "partially_configured",
+        "pending_fields": [
+          "compound",
+          "phase",
+          "location_note",
+          "contact_id"
+        ]
+      },
+      {
+        "id": "F003",
+        "name_en": "Gym / Sports Courts",
+        "name_ar": "الصالة الرياضية / الملاعب",
+        "facility_type": "gym_sports",
+        "compound": null,
+        "phase": null,
+        "location_note": null,
+        "hours": null,
+        "hours_source": null,
+        "hours_hint": null,
+        "restrictions_en": [
+          "All posted instructions for gyms and sports courts must be followed."
+        ],
+        "restrictions_ar": [
+          "يجب الالتزام بأي تعليمات أو إرشادات خاصة بالصالات الرياضية والملاعب الموجودة على لوحات الإرشادات."
+        ],
+        "related_policy_ids": [],
+        "contact_id": null,
+        "status": "unconfigured",
+        "pending_fields": [
+          "compound",
+          "phase",
+          "location_note",
+          "hours",
+          "contact_id"
+        ]
+      },
+      {
+        "id": "F004",
+        "name_en": "Owners' Beach (North Coast)",
+        "name_ar": "شاطئ الملاك (الساحل الشمالي)",
+        "facility_type": "beach",
+        "compound": "north_coast",
+        "phase": null,
+        "location_note": null,
+        "hours": "11:00 - 30 minutes before sunset",
+        "hours_source": "policy:P110",
+        "hours_hint": null,
+        "restrictions_en": [
+          "Beach access is restricted exclusively to registered residents; visitors are not permitted.",
+          "Gate access requires the official owner application.",
+          "Pets are only allowed on the beach from 09:00 to 11:00."
+        ],
+        "restrictions_ar": [
+          "لا يُسمح بدخول الشاطئ للزائرين، ويقتصر استخدامه على العملاء فقط.",
+          "الدخول من بوابات الشاطئ يتطلب استخدام التطبيق الرسمي.",
+          "ممنوع اصطحاب الحيوانات الأليفة إلى الشاطئ إلا من الساعة 9 حتى 11 صباحاً."
+        ],
+        "related_policy_ids": [
+          "P097",
+          "P099",
+          "P110",
+          "P114"
+        ],
+        "contact_id": "C005",
+        "status": "partially_configured",
+        "pending_fields": [
+          "phase",
+          "location_note"
+        ]
+      }
+    ],
+    "notice": "PLACEHOLDER FACILITY RECORDS. Palm Hills has not yet supplied real compound/phase names, locations, or opening hours. Fields are null with status='unconfigured' unless the value is directly traceable to the regulations document, in which case `hours_source` names the policy record it came from. Nothing in this file may be presented to a resident as a real location."
+  },
+  "franco_arabic_notes": {
+    "_comment": "Egyptian Franco-Arabic conventions confirmed by the project owner. Franco-Arabic is NOT an authoritative policy language: it is generated at query time from the verified en/ar fields. Rule scope, violation description and penalty amounts must trace directly to the ar/en fields without alteration.",
+    "authoritative": false,
+    "generation_rule_en": "Franco-Arabic responses may only paraphrase the connective and explanatory language using the conventions below. Rule scope, violation description, and penalty amounts must trace directly to the ar/en fields in the policies/violations data without alteration.",
+    "char_map": {
+      "2": {
+        "ar": "ء / أ",
+        "example_franco": "2ana",
+        "example_ar": "أنا"
+      },
+      "3": {
+        "ar": "ع",
+        "example_franco": "3araby",
+        "example_ar": "عربي"
+      },
+      "4": {
+        "ar": "ش",
+        "example_franco": "4okran",
+        "example_ar": "شكرًا"
+      },
+      "5": {
+        "ar": "خ",
+        "example_franco": "5alas",
+        "example_ar": "خلاص"
+      },
+      "6": {
+        "ar": "ط",
+        "example_franco": "6ayeb",
+        "example_ar": "طيب"
+      },
+      "7": {
+        "ar": "ح",
+        "example_franco": "7abibi",
+        "example_ar": "حبيبي"
+      },
+      "8": {
+        "ar": "ق",
+        "example_franco": "8alb",
+        "example_ar": "قلب",
+        "note": "8 is less universal in Egyptian Franco. '2' or 'q' may also represent ق because Egyptian pronunciation often turns ق into a glottal stop."
+      },
+      "9": {
+        "ar": "ص",
+        "example_franco": "9a7",
+        "example_ar": "صح"
+      },
+      "3'": {
+        "ar": "غ",
+        "example_franco": "3'ali",
+        "example_ar": "غالي"
+      },
+      "6'": {
+        "ar": "ظ",
+        "example_franco": "6'aher",
+        "example_ar": "ظاهر"
+      },
+      "9'": {
+        "ar": "ض",
+        "example_franco": "9'ahr",
+        "example_ar": "ضهر"
+      }
+    },
+    "digraphs": {
+      "sh": "ش",
+      "kh": "خ",
+      "gh": "غ",
+      "th": "ث",
+      "dh": "ذ"
+    },
+    "vowels": {
+      "aa": {
+        "ar": "ا",
+        "example_franco": "ana",
+        "example_ar": "أنا"
+      },
+      "a": {
+        "ar": "ا",
+        "example_franco": "ana",
+        "example_ar": "أنا"
+      },
+      "ee": {
+        "ar": "ي / ـي",
+        "example_franco": "kbeer",
+        "example_ar": "كبير"
+      },
+      "i": {
+        "ar": "ي / ـي",
+        "example_franco": "kbeer",
+        "example_ar": "كبير"
+      },
+      "oo": {
+        "ar": "و / ـو",
+        "example_franco": "noor",
+        "example_ar": "نور"
+      },
+      "u": {
+        "ar": "و / ـو",
+        "example_franco": "noor",
+        "example_ar": "نور"
+      }
+    },
+    "vocabulary": [
+      {
+        "franco": "3amel eh?",
+        "ar": "عامل إيه؟",
+        "en": "How are you?"
+      },
+      {
+        "franco": "3ayez",
+        "ar": "عايز",
+        "en": "want"
+      },
+      {
+        "franco": "7aga",
+        "ar": "حاجة",
+        "en": "thing"
+      },
+      {
+        "franco": "7abibi",
+        "ar": "حبيبي",
+        "en": "my dear"
+      },
+      {
+        "franco": "5alas",
+        "ar": "خلاص",
+        "en": "enough / done"
+      },
+      {
+        "franco": "5amsa",
+        "ar": "خمسة",
+        "en": "five"
+      },
+      {
+        "franco": "shokran",
+        "ar": "شكرًا",
+        "en": "thank you",
+        "variants": [
+          "4okran"
+        ]
+      },
+      {
+        "franco": "2ana",
+        "ar": "أنا",
+        "en": "I"
+      },
+      {
+        "franco": "2eih",
+        "ar": "إيه",
+        "en": "what"
+      },
+      {
+        "franco": "mesh",
+        "ar": "مش",
+        "en": "not"
+      },
+      {
+        "franco": "enta",
+        "ar": "إنتَ",
+        "en": "you (m)"
+      },
+      {
+        "franco": "enty",
+        "ar": "إنتِ",
+        "en": "you (f)"
+      },
+      {
+        "franco": "feen",
+        "ar": "فين",
+        "en": "where"
+      },
+      {
+        "franco": "leeh",
+        "ar": "ليه",
+        "en": "why"
+      },
+      {
+        "franco": "keda",
+        "ar": "كده",
+        "en": "like this"
+      },
+      {
+        "franco": "3ashan",
+        "ar": "عشان",
+        "en": "because"
+      },
+      {
+        "franco": "ma3lesh",
+        "ar": "معلش",
+        "en": "never mind"
+      },
+      {
+        "franco": "ba7ebak",
+        "ar": "بحبك",
+        "en": "I love you"
+      },
+      {
+        "franco": "ma3aya",
+        "ar": "معايا",
+        "en": "with me"
+      },
+      {
+        "franco": "delwa2ty",
+        "ar": "دلوقتي",
+        "en": "now"
+      }
+    ],
+    "domain_vocabulary": [
+      {
+        "franco": "ghrama",
+        "ar": "غرامة",
+        "en": "fine",
+        "variants": [
+          "3'rama",
+          "gharama",
+          "8rama",
+          "2rama"
+        ]
+      },
+      {
+        "franco": "mokhalfa",
+        "ar": "مخالفة",
+        "en": "violation",
+        "variants": [
+          "mo5alfa",
+          "mukhalfa",
+          "m5alfa"
+        ]
+      },
+      {
+        "franco": "la2e7a",
+        "ar": "لائحة",
+        "en": "regulation",
+        "variants": [
+          "laeha",
+          "la2eha"
+        ]
+      },
+      {
+        "franco": "kam",
+        "ar": "كام",
+        "en": "how much"
+      },
+      {
+        "franco": "masmoo7",
+        "ar": "مسموح",
+        "en": "allowed",
+        "variants": [
+          "masmouh",
+          "masmo7"
+        ]
+      },
+      {
+        "franco": "mamnoo3",
+        "ar": "ممنوع",
+        "en": "prohibited",
+        "variants": [
+          "mamnou3",
+          "mamno3"
+        ]
+      },
+      {
+        "franco": "el amn",
+        "ar": "الأمن",
+        "en": "security",
+        "variants": [
+          "el amn",
+          "elamn"
+        ]
+      },
+      {
+        "franco": "sianna",
+        "ar": "صيانة",
+        "en": "maintenance",
+        "variants": [
+          "siana",
+          "syana",
+          "9iana"
+        ]
+      },
+      {
+        "franco": "ra2m",
+        "ar": "رقم",
+        "en": "number",
+        "variants": [
+          "ra8m",
+          "raqm"
+        ]
+      },
+      {
+        "franco": "7ammam sebaha",
+        "ar": "حمام السباحة",
+        "en": "swimming pool",
+        "variants": [
+          "hammam sebaha",
+          "7amam el seba7a"
+        ]
+      },
+      {
+        "franco": "shate2",
+        "ar": "شاطئ",
+        "en": "beach",
+        "variants": [
+          "shate2",
+          "shati2",
+          "4ate2"
+        ]
+      },
+      {
+        "franco": "kalb",
+        "ar": "كلب",
+        "en": "dog",
+        "variants": [
+          "kalb",
+          "kelab"
+        ]
+      },
+      {
+        "franco": "3arabeya",
+        "ar": "عربية",
+        "en": "car",
+        "variants": [
+          "3arabiya",
+          "arabeya"
+        ]
+      },
+      {
+        "franco": "zar3",
+        "ar": "زرع",
+        "en": "grass / planting",
+        "variants": [
+          "zar3",
+          "zar'"
+        ]
+      },
+      {
+        "franco": "garage",
+        "ar": "جراج",
+        "en": "garage",
+        "variants": [
+          "garaj",
+          "grage"
+        ]
+      },
+      {
+        "franco": "tasre7",
+        "ar": "تصريح",
+        "en": "permit",
+        "variants": [
+          "tasri7",
+          "ta9re7"
+        ]
+      },
+      {
+        "franco": "pergola",
+        "ar": "برجولة",
+        "en": "pergola",
+        "variants": [
+          "bergola",
+          "birgola"
+        ]
+      }
+    ]
+  }
+}

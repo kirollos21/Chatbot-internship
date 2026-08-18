@@ -1,0 +1,192 @@
+{
+  "_comment": "Extracted from docs/source/Community_Living_standards_regulations_and_penalties.pdf. src_en/src_ar record provenance: 'pdf' = the rule is present in that language in the source document; 'derived' = faithfully translated during data preparation because the source section is abridged in that language. Arabic strings are normalised for PDF ligature/RTL extraction artefacts only; wording is unchanged.",
+  "categories": [
+    {
+      "category_id": "waste_management",
+      "category_en": "Waste Management Regulations",
+      "category_ar": "لائحة المخلفات",
+      "rules": [
+        {"id": "P001", "en": "The disposal of household waste in any area other than designated collection points is strictly prohibited.", "ar": "الالتزام بعدم إلقاء القمامة أو أي مخلفات في غير الأماكن المخصصة لها.", "src_en": "pdf", "src_ar": "pdf", "page_en": 15, "page_ar": 1},
+        {"id": "P002", "en": "All renovation and finishing debris must be properly handled and disposed of in the manner prescribed by management.", "ar": "الالتزام بعدم إلقاء المخلفات الناتجة عن أعمال تشطيبات الوحدات.", "src_en": "pdf", "src_ar": "pdf", "page_en": 15, "page_ar": 1},
+        {"id": "P003", "en": "The storage of construction materials in public or communal areas is not permitted under any circumstances.", "ar": "عدم تخزين مواد البناء في الأماكن العامة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 15, "page_ar": 1},
+        {"id": "P004", "en": "The burning of any type of waste is expressly forbidden.", "ar": "عدم حرق أي نوع من أنواع المخلفات المختلفة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 15, "page_ar": 1},
+        {"id": "P005", "en": "The discharge, spillage, or release of paint or chemical substances onto roadways or paved surfaces is strictly prohibited.", "ar": "عدم سكب الدهانات أو المواد الكيميائية على الطرق.", "src_en": "pdf", "src_ar": "pdf", "page_en": 15, "page_ar": 1},
+        {"id": "P006", "en": "Bulky items, heavy furniture, and similar refuse must be discarded safely and in accordance with approved procedures.", "ar": "الالتزام بالتخلص بصورة سليمة من الأثاث أو المخلفات الثقيلة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 15, "page_ar": 1}
+      ]
+    },
+    {
+      "category_id": "rental_regulations",
+      "category_en": "Rental Regulations",
+      "category_ar": "لائحة الإيجار",
+      "rules": [
+        {"id": "P007", "en": "Units may not be rented, leased, or subleased without notifying the competent authorities and registering the lease agreement at the relevant police department.", "ar": "عدم تأجير الوحدة دون إبلاغ الجهات المسؤولة وتوثيق العقد في أقسام الشرطة، مع ضرورة الانتهاء من إجراءات التعديل.", "src_en": "pdf", "src_ar": "pdf", "page_en": 15, "page_ar": 1},
+        {"id": "P008", "en": "Subleasing without authorization is explicitly prohibited.", "ar": "عدم تأجير الوحدة من الباطن.", "src_en": "pdf", "src_ar": "pdf", "page_en": 15, "page_ar": 1},
+        {"id": "P009", "en": "No advertising, promotional, or commercial signage may be affixed to building façades.", "ar": "عدم إتلاف الممتلكات العامة بوضع اللافتات الإعلانية أو الدعائية على واجهات الوحدات السكنية.", "src_en": "pdf", "src_ar": "pdf", "page_en": 15, "page_ar": 1},
+        {"id": "P010", "en": "Residential units may not be utilized for any non-residential or commercial purposes.", "ar": "عدم استخدام الوحدات السكنية في أي أغراض غير السكنية.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 1}
+      ]
+    },
+    {
+      "category_id": "elevator_regulations",
+      "category_en": "Elevator Regulations",
+      "category_ar": "لائحة المصاعد",
+      "rules": [
+        {"id": "P011", "en": "Elevators may not be used to transport furniture, construction materials, heavy equipment, or any similar items.", "ar": "عدم استخدام المصاعد لنقل الأثاث أو أي مواد بناء أو أجهزة ثقيلة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 1},
+        {"id": "P012", "en": "Transporting animals in elevators is strictly prohibited.", "ar": "عدم استخدام المصاعد في نقل الحيوانات من وإلى الوحدة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 1}
+      ]
+    },
+    {
+      "category_id": "pet_regulations",
+      "category_en": "Pet Regulations",
+      "category_ar": "لائحة الحيوانات الأليفة",
+      "rules": [
+        {"id": "P013", "en": "Only domesticated household pets are permitted; owners must provide official vaccination records issued by the competent authorities, in accordance with Egyptian law.", "ar": "عدم تربية حيوانات داخل الوحدة السكنية بخلاف الأنواع المتعارف على تربيتها داخل المنازل، مع ضرورة توفير شهادات التطعيم من الجهات المختصة لضمان سلامة الآخرين، على أن تخضع جميع أنواع الحيوانات لأحكام القانون المصري.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 2},
+        {"id": "P014", "en": "Unit gates and perimeter fences must be secured and of sufficient height to prevent pets, particularly dogs, from escaping.", "ar": "ضرورة التأكد من إغلاق بوابات الوحدة وارتفاع أسوارها بالشكل المناسب والذي يمنع الكلب من تجاوزه أو القفز من فوقه.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 2},
+        {"id": "P015", "en": "Pet waste and leftover food must not be left in public or communal areas.", "ar": "عدم ترك فضلات الحيوانات وبواقي الطعام بالأماكن العامة داخل المجتمع.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 2},
+        {"id": "P016", "en": "Excessive noise caused by pets, including disruptive barking, will not be tolerated.", "ar": "لا يُسمح بأصوات النباح أو أي أصوات ناتجة عن تربية الحيوانات الأليفة والتي قد تؤدي إلى إزعاج الجيران.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 2},
+        {"id": "P017", "en": "Dogs may not roam outside the unit unless accompanied by a responsible adult, and must remain leashed and muzzled at all times.", "ar": "عدم تجول الكلاب بدون صحبة مرافق بالغ معها وأن تكون مقيدة بالسلسلة والكمامة المخصصة لها.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 2},
+        {"id": "P018", "en": "Owners bear full legal responsibility for any form of aggression or attack initiated by their pets.", "ar": "المسئولية القانونية تعود على مالك الكلب في حالة وجود أي تعدٍ أو هجوم على شخص آخر.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 2},
+        {"id": "P019", "en": "Pets must not be harmed, poisoned, mistreated, or subjected to any form of cruelty; any incidents involving injured or stray animals must be reported to the relevant authorities.", "ar": "عدم التعرض للحيوانات الأليفة كالكلاب أو غيرها أو تلك التي تتواجد حول الوحدات بالأذى أو بالأدوات الحادة أو بالسموم احتراماً للمبادئ العامة والقوانين، وإبلاغ الجهات المختصة عند العثور على أي حالة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 2},
+        {"id": "P020", "en": "Pet houses or enclosures may not be placed outside the confines of the unit.", "ar": "عدم وضع بيت للحيوانات الأليفة (كالكلاب) خارج الوحدة السكنية.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 2},
+        {"id": "P021", "en": "Feeding pets or stray animals in public areas is prohibited.", "ar": "عدم وضع أي مأكولات للحيوانات الأليفة في الأماكن العامة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 2},
+        {"id": "P022", "en": "Public areas and internal building staircases may not be used to bathe pets.", "ar": "عدم استخدام الأماكن العامة أو السلالم الداخلية للعمارات لاستحمام الحيوانات الأليفة.", "src_en": "derived", "src_ar": "pdf", "page_en": null, "page_ar": 2}
+      ]
+    },
+    {
+      "category_id": "general_site_regulations",
+      "category_en": "General Site Regulations",
+      "category_ar": "لائحة الموقع العام",
+      "rules": [
+        {"id": "P023", "en": "Any form of vandalism or damage to public property is strictly prohibited.", "ar": "لا يُسمح بأي أعمال تخريبية للممتلكات العامة داخل المجتمع.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 2},
+        {"id": "P024", "en": "Planting vegetation in public gardens or outside units without prior written authorization is forbidden.", "ar": "عدم زراعة أي أنواع نباتات مخالفة للتصميم في الحدائق العامة أو أمام الوحدات، دون الحصول على تصريح مسبق.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 2},
+        {"id": "P025", "en": "Planting tall trees or species with invasive root systems in private gardens requires prior authorization from management.", "ar": "لا يُسمح بزراعة أشجار ذات جذور ضارة أو أشجار مرتفعة داخل الحدائق الخاصة دون الحصول على تصريح مسبق من الإدارة المختصة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 2},
+        {"id": "P026", "en": "Fruit trees may not be planted in ground-floor building gardens or external areas.", "ar": "لا يسمح بزراعة أشجار الفاكهة داخل حدائق العمارات بالدور الأرضي أو في الموقع الخارجي.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 2},
+        {"id": "P027", "en": "Organizing loud gatherings, events, or private parties without a permit is prohibited.", "ar": "منع إصدار أي أصوات صاخبة قد تسبب إزعاجاً للسكان في الأماكن الخاصة، الناتجة عن إقامة حفلات دون تصريح.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 2},
+        {"id": "P028", "en": "No private event may be held in communal spaces without formal approval from Community Management.", "ar": "عدم التعدي على أي مكان عام داخل المجتمع لإقامة حفلات خاصة أو لأي استخدام شخصي.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 2},
+        {"id": "P029", "en": "Conducting commercial activities without official authorization is strictly forbidden.", "ar": "عدم إقامة أي فعالية تجارية دون الحصول على تصريح مسبق من إدارة المجتمع.", "src_en": "pdf", "src_ar": "pdf", "page_en": 16, "page_ar": 2},
+        {"id": "P030", "en": "Personal belongings may not be left in visible outdoor areas or attached to building façades.", "ar": "عدم ترك المتعلقات الخاصة في أماكن ظاهرة أو على واجهات الوحدات.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 2},
+        {"id": "P031", "en": "Fireworks, laser devices, and noise-generating items including blank pistols are prohibited.", "ar": "عدم استخدام الألعاب النارية أو الليزر أو مسدسات الصوت.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 2},
+        {"id": "P032", "en": "The operation of noise-producing generators is not permitted.", "ar": "عدم تشغيل أي مولدات مسببة للضوضاء.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 2},
+        {"id": "P033", "en": "The use of flammable materials, including barbecues, hookah, or similar items in public areas is strictly prohibited.", "ar": "عدم استخدام أي مواد مشتعلة في المناطق العامة (شواء – شيشة – إلخ).", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 3},
+        {"id": "P034", "en": "Any verbal or physical assault against community employees or service providers is strictly prohibited.", "ar": "عدم التعدي اللفظي أو الجسدي تجاه الأشخاص أو موظفي ومسئولي المجتمع السكني.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 3},
+        {"id": "P035", "en": "Maintenance staff must be granted access to ground-floor gardens, after coordination with the resident, when required to perform essential service operations on building utilities (drinking water, irrigation water, drainage, gas, electricity, fibre rooms).", "ar": "يُسمح بدخول إدارة الصيانة إلى حدائق الدور الأرضي بعد التنسيق مع العميل، ولا يجوز منعهم، وذلك لتنفيذ أي أعمال صيانة خاصة بمرافق العمارة (مياه الشرب – مياه الري – الصرف – الغاز – الكهرباء – غرف الفايبر).", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 3},
+        {"id": "P036", "en": "Vehicles must not be driven on pedestrian walkways.", "ar": "عدم صعود المركبات على المشايات بالأماكن العامة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 3},
+        {"id": "P037", "en": "Nighttime gatherings in public areas or between residential buildings are not allowed.", "ar": "لا يُسمح بالتجمع في المناطق العامة وبين المباني السكنية ليلاً.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 3},
+        {"id": "P038", "en": "Unlicensed four-wheel recreational vehicles are prohibited.", "ar": "عدم استخدام المركبات ذات الأربع عجلات غير المرخصة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 3},
+        {"id": "P039", "en": "Unauthorized use of personal QR codes to grant access to visitors is strictly forbidden.", "ar": "لا يُسمح باستخدام رمز الاستجابة السريعة (QR) الشخصي بطرق غير شرعية لإدخال الزائرين.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 3}
+      ]
+    },
+    {
+      "category_id": "vehicle_regulations",
+      "category_en": "Vehicle Regulations",
+      "category_ar": "لائحة المركبات",
+      "rules": [
+        {"id": "P040", "en": "Parking on sidewalks, landscaped areas, or in spaces reserved for disabilities is strictly prohibited.", "ar": "عدم ركن المركبات في غير الأماكن المخصصة لها، سواء فوق الأرصفة أو المسطحات المزروعة أو الأماكن المخصصة لذوي الإعاقة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 3},
+        {"id": "P041", "en": "Driving against traffic or exceeding posted speed limits is not permitted.", "ar": "عدم السير عكس الاتجاه أو تجاوز حدود السرعات المحددة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 3},
+        {"id": "P042", "en": "Minors and unlicensed individuals are strictly prohibited from operating any type of vehicle within the community.", "ar": "عدم قيادة جميع أنواع المركبات من قِبل القُصَّر أو بدون رخصة داخل المجتمع.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 3},
+        {"id": "P043", "en": "Damaged or abandoned vehicles may not remain on site without prior authorization.", "ar": "عدم ترك مركبات تالفة في الموقع دون الحصول على تصريح.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 3},
+        {"id": "P044", "en": "All vehicles including golf carts must be fully licensed and compliant with community standards.", "ar": "عدم سير جميع أنواع المركبات دون ترخيص، مع ضرورة تقنين سيارات الجولف وجميع المركبات الأخرى.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 3},
+        {"id": "P045", "en": "All types of vehicles that remain parked for extended periods within the residential compound, such as caravans, vintage cars, and boats, must not be parked without prior authorization from Community Management.", "ar": "عدم ترك أي مركبات (سيارات، سيارات الجولف، الكرافانات المتحركة، المركبات المائية) في الموقع دون تصريح من إدارة المجتمعات.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 3},
+        {"id": "P046", "en": "Entry and exit gates must always remain unobstructed.", "ar": "عدم تعطيل بوابات المجتمع السكني، مع عدم ركن أي مركبات أمام البوابات.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 3},
+        {"id": "P047", "en": "Residents may not install private barriers, markers, or modifications within public parking areas.", "ar": "بخصوص ساحات انتظار السيارات العامة، لا يسمح بوضع أية علامات أو محددات بها أو المساس بالشكل المعماري الخاص بها.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 3}
+      ]
+    },
+    {
+      "category_id": "swimming_pool_regulations",
+      "category_en": "Swimming Pool Regulations",
+      "category_ar": "لائحة حمامات السباحة",
+      "rules": [
+        {"id": "P048", "en": "Guests may not access the swimming pool unless accompanied by the unit owner.", "ar": "لا يُسمح باستخدام المرافقين لحمامات السباحة دون تواجد المالك.", "src_en": "pdf", "src_ar": "pdf", "page_en": 17, "page_ar": 3},
+        {"id": "P049", "en": "All posted pool instructions and safety guidelines must be adhered to strictly.", "ar": "عدم مخالفة أي تعليمات أو إرشادات خاصة باللائحة الموجودة عند حمامات السباحة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 3},
+        {"id": "P050", "en": "Reserving sunbeds, loungers, or pool chairs is not permitted.", "ar": "لا يسمح بحجز كراسي الشاطئ أو المسبح.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 3},
+        {"id": "P051", "en": "Swimming is allowed only during designated hours; management assumes no responsibility for unauthorized use.", "ar": "يجب الالتزام بمواعيد استخدام حمام السباحة وتعليمات المشرف، والشركة غير مسؤولة عن السباحة خارج المواعيد المحددة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 4},
+        {"id": "P052", "en": "Pets are strictly prohibited within or around the pool area.", "ar": "لا يُسمح بدخول الحيوانات الأليفة إلى حمام السباحة أو التواجد حوله.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 4},
+        {"id": "P053", "en": "Smoking, eating, or drinking within the pool water is forbidden.", "ar": "لا يُسمح بالتدخين أو الأكل أو الشرب داخل مياه حمام السباحة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 4},
+        {"id": "P054", "en": "Glassware is not allowed in the pool area.", "ar": "لا يُسمح باستخدام الأكواب أو العبوات المصنوعة من الزجاج داخل حمام السباحة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 4},
+        {"id": "P055", "en": "Appropriate swimwear must always be worn.", "ar": "يشترط ارتداء الملابس المناسبة للسباحة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 4},
+        {"id": "P056", "en": "Children who are not fully potty-trained must wear approved swim diapers.", "ar": "الأطفال الذين لم يتعلموا استخدام المرحاض يجب أن يرتدوا حفاضات مخصصة للسباحة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 4},
+        {"id": "P057", "en": "Children under the age of 14 must be accompanied by an adult.", "ar": "يشترط وجود شخص بالغ مع الأطفال دون سن الـ14 عاماً.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 4},
+        {"id": "P058", "en": "Running, pushing, rough play, or diving is strictly prohibited.", "ar": "يمنع تماماً الجري أو الدفع أو الغطس بحمام السباحة، وفي حالة حدوث إصابة يرجى إبلاغ الإدارة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 4},
+        {"id": "P059", "en": "Playing loud music that disturbs others is not allowed.", "ar": "يمنع تشغيل الموسيقى بصوت مرتفع يسبب إزعاجاً للرواد الآخرين.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 4},
+        {"id": "P060", "en": "The pool must not be used during maintenance, chemical treatment, or safety inspections.", "ar": "يجب الالتزام بعدم استخدام حمام السباحة أثناء أعمال الصيانة أو المعالجة الكيميائية أو الفحوصات الأمنية.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 4}
+      ]
+    },
+    {
+      "category_id": "playground_regulations",
+      "category_en": "Playground Regulations",
+      "category_ar": "لائحة مناطق الألعاب",
+      "rules": [
+        {"id": "P061", "en": "Playground facilities are intended exclusively for children.", "ar": "لا يُسمح باستخدام منطقة الألعاب إلا للأطفال فقط.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 4},
+        {"id": "P062", "en": "Unsafe behavior, including running, pushing, jumping, or wrestling is strictly prohibited.", "ar": "يمنع تماماً أي سلوك يؤدي إلى وقوع حادث (مثل الجري، الدفع، القفز والمصارعة).", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 4},
+        {"id": "P063", "en": "Glass containers are not permitted in or near playground areas.", "ar": "لا يُسمح باستخدام الأكواب أو العبوات الزجاجية داخل منطقة الألعاب أو حولها.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 4},
+        {"id": "P064", "en": "Management is not liable for injuries or losses incurred in playground zones.", "ar": "الشركة غير مسؤولة عن أي إصابات أو خسائر تحدث في منطقة الألعاب.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 4},
+        {"id": "P065", "en": "Use of the playground is not advised when feeling unwell or fatigued.", "ar": "في حالة الشعور بالتعب لا ينصح باستخدام منطقة الألعاب.", "src_en": "derived", "src_ar": "pdf", "page_en": null, "page_ar": 4},
+        {"id": "P066", "en": "Children remain the responsibility of their guardians while using the playground area.", "ar": "الأطفال مسئولية ذويهم أثناء استخدامهم لمنطقة الألعاب.", "src_en": "derived", "src_ar": "pdf", "page_en": null, "page_ar": 4},
+        {"id": "P067", "en": "Children must always remain under the supervision of their guardians.", "ar": "يرجى مراقبة أطفالكم في جميع الأوقات.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 4},
+        {"id": "P068", "en": "Playground operating hours are from 10:00 a.m. until sunset.", "ar": "الالتزام بمواعيد منطقة الألعاب من الساعة 10 صباحاً حتى غروب الشمس.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 4}
+      ]
+    },
+    {
+      "category_id": "maintenance_modifications",
+      "category_en": "Maintenance, Finishing, and Modifications Regulations",
+      "category_ar": "لائحة أعمال الصيانة والتعديلات والتشطيبات",
+      "rules": [
+        {"id": "P069", "en": "No alterations to unit façades front, side, or rear may be performed without the required permits and official approvals.", "ar": "لا يجوز المساس وتعديل الواجهات الأمامية أو الجانبية أو الخلفية سواء في التصميم أو الديكورات إلا بعد إصدار التصاريح اللازمة والموافقات الرسمية والمعتمدة من الشركة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 5},
+        {"id": "P070", "en": "External paint codes must be strictly observed; color changes are not permitted.", "ar": "الالتزام بأكواد الدهانات الخارجية للوحدة وعدم تغيير الألوان نهائياً إلا بعد إصدار التصاريح اللازمة والموافقات الرسمية.", "src_en": "pdf", "src_ar": "pdf", "page_en": 18, "page_ar": 5},
+        {"id": "P071", "en": "No structures may be built on rooftops or within private gardens without prior authorization.", "ar": "عدم بناء أي منشأة على السطح أو في الحديقة الداخلية إلا بعد إصدار التصاريح اللازمة والموافقات الرسمية.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 5},
+        {"id": "P072", "en": "Sidewalks, landscaped areas, and external land boundaries may not be modified without official approval.", "ar": "عدم التعدي على الأرصفة أو مناطق الزراعة خارج الوحدة، أو زيادة مساحة الأراضي إلا بعد الحصول على الموافقات الرسمية والمعتمدة من الشركة، إن وجدت.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 5},
+        {"id": "P073", "en": "Utility shafts, drainage rooms, and service areas may not be obstructed or altered.", "ar": "عدم التعدي على المناور أو غرف الصرف.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 5},
+        {"id": "P074", "en": "Installing satellite dishes, rooftop lighting, or similar equipment requires prior authorization.", "ar": "لا يُسمح بتركيب كشافات على الأسطح أو أطباق الستالايت أو في التراس.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 5},
+        {"id": "P075", "en": "Constructing swimming pools or Jacuzzis is prohibited unless the required permits are obtained.", "ar": "لا يُسمح بعمل حمام سباحة أو جاكوزي إلا بعد إصدار التصاريح اللازمة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 5},
+        {"id": "P076", "en": "Installing pergolas is prohibited unless the required permits are obtained.", "ar": "لا يُسمح بوضع برجولات إلا بعد إصدار التصاريح اللازمة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 5},
+        {"id": "P077", "en": "Cameras, protective metal grills, solar heaters, and central gas or electrical heaters may not be installed without permits.", "ar": "لا يُسمح بتركيب الكاميرات أو حديد الحماية أو السخانات الشمسية أو سخانات الغاز المركزية أو سخانات الكهرباء المركزية إلا بعد الحصول على التصاريح اللازمة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 5},
+        {"id": "P078", "en": "Private elevators may not be installed unless formally approved.", "ar": "لا يُسمح بإنشاء مصعد خاص للوحدة إلا بعد الحصول على التصاريح اللازمة، إن وُجدت.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 5},
+        {"id": "P079", "en": "Expanding unit boundaries to create guard rooms, pet enclosures, or additional garages is not permitted.", "ar": "لا يُسمح بإضافة مساحات خارجية إلى الوحدة لعمل غرفة حارس أو حيوان أليف أو جراج إضافي.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 5},
+        {"id": "P080", "en": "Vehicles must only be parked in their designated garage spaces.", "ar": "لا يُسمح بوضع السيارة في جراج العمارة في غير المكان المخصص لها.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 5},
+        {"id": "P081", "en": "Air-conditioning units must be placed solely in the approved bracket locations.", "ar": "يجب الالتزام بأماكن حوامل التكييفات المحددة مع عدم تغيير الأماكن الخاصة بها.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 5},
+        {"id": "P082", "en": "Workers may not remain on site outside permitted working hours unless formally authorized.", "ar": "لا يُسمح باستمرار تواجد العمال بعد مواعيد العمل في المشروع إلا بعد إصدار التصاريح اللازمة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 5},
+        {"id": "P083", "en": "Workers must wear appropriate attire and may not gather or wander outside the unit.", "ar": "يجب الالتزام من جانب العمال بالوحدة أثناء التشطيب بالزي المناسب للأعمال مع عدم تجولهم أو تجمعهم خارج الوحدة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 5},
+        {"id": "P084", "en": "Workers, materials, and supplies may only enter through the gates designated for that purpose.", "ar": "لا يسمح بدخول عمال أو خامات أو تشوينات من غير البوابات المخصصة لذلك.", "src_en": "derived", "src_ar": "pdf", "page_en": null, "page_ar": 5},
+        {"id": "P085", "en": "Materials, tools, or waste may not be stored in shafts, building entrances, stairwells, or communal areas.", "ar": "لا يسمح باستخدام المناور أو مداخل العمارات أو السلالم لتشوين المعدات أو الخامات أو المخلفات.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 5},
+        {"id": "P086", "en": "Utility connections may not be carried out without the required permits.", "ar": "لا يُسمح بعمل أي توصيلات للمرافق إلا بعد إصدار التصاريح اللازمة.", "src_en": "derived", "src_ar": "pdf", "page_en": null, "page_ar": 5},
+        {"id": "P087", "en": "Staircases and building entrances must be cleaned after material handling works.", "ar": "ضرورة تنظيف السلالم ومداخل العمارات بعد أعمال التشوين في العمارات.", "src_en": "derived", "src_ar": "pdf", "page_en": null, "page_ar": 5},
+        {"id": "P088", "en": "Cleanliness must be maintained in front of units after material handling works are completed.", "ar": "يجب الالتزام بالنظافة أمام الوحدات بعد الانتهاء من أعمال التشوين.", "src_en": "derived", "src_ar": "pdf", "page_en": null, "page_ar": 5},
+        {"id": "P089", "en": "Water sources other than the unit's own supply may not be used.", "ar": "لا يُسمح باستخدام أي مصادر مياه غير الموجودة بالوحدة.", "src_en": "derived", "src_ar": "pdf", "page_en": null, "page_ar": 5},
+        {"id": "P090", "en": "External drainage rooms may not be opened without the project maintenance officer present.", "ar": "لا يُسمح بفتح غرف الصرف الخارجية بدون حضور مسؤول الصيانة بالمشروع.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 6},
+        {"id": "P091", "en": "Security procedures and inspection protocols at project gates must be fully respected.", "ar": "يجب الالتزام بالتعليمات الأمنية وإجراءات التفتيش أثناء الدخول أو الخروج من بوابات المشروع.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 6},
+        {"id": "P092", "en": "Climbing building façades is strictly prohibited without the required permits.", "ar": "لا يُسمح بالصعود على واجهات الوحدات إلا بعد إصدار التصاريح اللازمة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 6},
+        {"id": "P093", "en": "Misconduct by the owner or their representatives toward staff or service providers is not permitted.", "ar": "لا يُسمح بأي سوء سلوك صادر من جانب المالك أو من ينوب عنه تجاه الموظفين أو مقدمي الخدمات.", "src_en": "derived", "src_ar": "pdf", "page_en": null, "page_ar": 6},
+        {"id": "P094", "en": "Finishing or modification work may not commence without official approval.", "ar": "لا يسمح بالبدء في أعمال التشطيبات أو التعديلات قبل الحصول على الموافقات اللازمة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 6},
+        {"id": "P095", "en": "Workshops may not be established outside unit boundaries.", "ar": "عدم إقامة ورشة خارج حدود الوحدة السكنية.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 6},
+        {"id": "P096", "en": "Debris resulting from any works may not be dumped inside a neighbouring unit.", "ar": "عدم إلقاء المخلفات الناتجة عن أي أعمال في وحدة الجار.", "src_en": "derived", "src_ar": "pdf", "page_en": null, "page_ar": 6}
+      ]
+    },
+    {
+      "category_id": "north_coast_beach",
+      "category_en": "North Coast – Beach Regulations",
+      "category_ar": "لائحة الساحل الشمالي",
+      "rules": [
+        {"id": "P097", "en": "Beach access is restricted exclusively to registered residents; visitors are not permitted.", "ar": "لا يُسمح بدخول الشاطئ للزائرين، ويقتصر استخدامه على العملاء فقط.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 6},
+        {"id": "P098", "en": "Domestic staff or service personnel may not use the lagoons.", "ar": "لا يُسمح للمساعدين أو العاملين بالخدمة باستخدام البحيرات.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 6},
+        {"id": "P099", "en": "Pets are only allowed on the beach during designated hours from 9:00 a.m. to 11:00 a.m.", "ar": "ممنوع اصطحاب الكلاب أو أي حيوانات أليفة إلى الشاطئ إلا في المواعيد المخصصة من الساعة 9 صباحاً حتى 11 صباحاً.", "src_en": "pdf", "src_ar": "pdf", "page_en": 19, "page_ar": 6},
+        {"id": "P100", "en": "Glass containers are prohibited.", "ar": "ممنوع إدخال الحاويات الزجاجية إلى الشاطئ.", "src_en": "pdf", "src_ar": "pdf", "page_en": 20, "page_ar": 6},
+        {"id": "P101", "en": "Lighting fires on the beach is strictly forbidden.", "ar": "ممنوع إشعال النيران على الشاطئ.", "src_en": "pdf", "src_ar": "pdf", "page_en": 20, "page_ar": 6},
+        {"id": "P102", "en": "It is mandatory to maintain the cleanliness and pristine condition of the beach and the lagoon.", "ar": "يرجى الحفاظ على نظافة الشاطئ والبحيرة.", "src_en": "pdf", "src_ar": "pdf", "page_en": 20, "page_ar": 6},
+        {"id": "P103", "en": "Playing loud or disruptive music is not permitted.", "ar": "ممنوع تشغيل الموسيقى الصاخبة على الشاطئ.", "src_en": "pdf", "src_ar": "pdf", "page_en": 20, "page_ar": 6},
+        {"id": "P104", "en": "The possession or use of narcotics is strictly prohibited.", "ar": "ممنوع تعاطي أو حيازة المخدرات على الشاطئ.", "src_en": "pdf", "src_ar": "pdf", "page_en": 20, "page_ar": 6},
+        {"id": "P105", "en": "Swimming is allowed only within designated areas under lifeguard supervision; swimming beyond wave barriers is forbidden.", "ar": "يجب السباحة فقط في المناطق المخصصة وتحت إشراف رجال الإنقاذ، ويمنع السباحة خارج حدود الأمواج.", "src_en": "pdf", "src_ar": "pdf", "page_en": 20, "page_ar": 6},
+        {"id": "P106", "en": "Motorcycles and beach buggies are prohibited.", "ar": "ممنوع دخول الدراجات النارية أو البيتش باجي إلى الشاطئ.", "src_en": "pdf", "src_ar": "pdf", "page_en": 20, "page_ar": 6},
+        {"id": "P107", "en": "Disorderly behavior or non-compliant activities are not allowed.", "ar": "ممنوع القيام بأي سلوك مشاغب أو أنشطة غير نظامية على الشاطئ.", "src_en": "pdf", "src_ar": "pdf", "page_en": 20, "page_ar": 6},
+        {"id": "P108", "en": "Commercial activity or solicitation without approval is prohibited.", "ar": "ممنوع القيام بأي تسويق أو بيع على الشاطئ دون موافقة إدارة المجتمعات.", "src_en": "pdf", "src_ar": "pdf", "page_en": 20, "page_ar": 6},
+        {"id": "P109", "en": "Children under 14 must remain under adult supervision.", "ar": "يجب أن يكون الأطفال دون سن 14 عاماً تحت مراقبة شخص بالغ دائماً.", "src_en": "pdf", "src_ar": "pdf", "page_en": 20, "page_ar": 6},
+        {"id": "P110", "en": "Beach operating hours are from 11:00 a.m. until half an hour before sunset.", "ar": "ساعات استخدام الشاطئ من الساعة 11 صباحاً وحتى نصف ساعة قبل غروب الشمس.", "src_en": "pdf", "src_ar": "pdf", "page_en": 20, "page_ar": 7},
+        {"id": "P111", "en": "Personal items may not be left unattended; any found items will be transferred to Lost & Found.", "ar": "لا يُسمح بترك أي ممتلكات شخصية على الشاطئ، وسيتم نقل أي ممتلكات يتم العثور عليها وتسليمها إلى قسم المفقودات.", "src_en": "pdf", "src_ar": "pdf", "page_en": 20, "page_ar": 7},
+        {"id": "P112", "en": "Guests may not use beach cabins without the owner present or without a formally registered lease agreement.", "ar": "لا يُسمح بتواجد الضيوف في الكبائن دون حضور المالك أو دون وجود عقد إيجار رسمي مسجل لدى إدارة المجتمعات.", "src_en": "pdf", "src_ar": "pdf", "page_en": 20, "page_ar": 7},
+        {"id": "P113", "en": "Reserving sunbeds or loungers on the beach or lagoon areas is not permitted.", "ar": "لا يُسمح بحجز الشازلونجات والكراسي على الشاطئ أو البحيرات.", "src_en": "pdf", "src_ar": "pdf", "page_en": 20, "page_ar": 7},
+        {"id": "P114", "en": "Attempting to access beach gates without the official app, or confronting security staff, is prohibited.", "ar": "عدم محاولة الدخول إلى بوابات الشاطئ بدون استخدام التطبيق أو الاعتداء على أفراد الأمن.", "src_en": "pdf", "src_ar": "pdf", "page_en": 20, "page_ar": 7},
+        {"id": "P115", "en": "The owner's mobile application may not be used by unauthorized persons.", "ar": "لا يُسمح باستخدام تطبيق المالك من قبل أي شخص آخر.", "src_en": "pdf", "src_ar": "pdf", "page_en": 20, "page_ar": 7},
+        {"id": "P116", "en": "Beach invitations may not be traded or circulated for personal gain without entitlement.", "ar": "لا يسمح بتداول دعوات الشاطئ لتحقيق مكاسب شخصية دون وجه حق.", "src_en": "derived", "src_ar": "pdf", "page_en": null, "page_ar": 7},
+        {"id": "P117", "en": "Personal QR codes may not be used unlawfully to admit visitors or to circumvent security personnel.", "ar": "لا يُسمح باستخدام رمز الاستجابة السريعة (QR) الشخصي بطرق غير قانونية لإدخال الزوار أو للتحايل على أفراد الأمن.", "src_en": "derived", "src_ar": "pdf", "page_en": null, "page_ar": 7}
+      ]
+    }
+  ]
+}

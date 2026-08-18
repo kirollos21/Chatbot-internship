@@ -1,0 +1,46 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: palmhills-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-palmhills}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-palmhills}
+      POSTGRES_DB: ${POSTGRES_DB:-palmhills}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-palmhills} -d ${POSTGRES_DB:-palmhills}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: palmhills-api
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-palmhills}:${POSTGRES_PASSWORD:-palmhills}@postgres:5432/${POSTGRES_DB:-palmhills}
+      DATASET_PATH: /data/palm_hills_regulations_v1.0.json
+      EMBEDDING_PROVIDER: ${EMBEDDING_PROVIDER:-hash}
+      EMBEDDING_DIM: ${EMBEDDING_DIM:-768}
+      LLM_PROVIDER: ${LLM_PROVIDER:-template}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      LLM_MODEL: ${LLM_MODEL:-claude-opus-5}
+      API_KEYS: ${API_KEYS:-}
+      ENVIRONMENT: ${ENVIRONMENT:-development}
+    ports:
+      - "${API_PORT:-8000}:8000"
+    volumes:
+      # Read-only: the dataset is an input, never mutated by the service.
+      - ./data:/data:ro
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+volumes:
+  postgres_data:

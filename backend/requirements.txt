@@ -1,0 +1,21 @@
+# Lower bounds rather than exact pins: the Docker image runs Python 3.12 while
+# developers here are on 3.14, and several C-extension packages only publish
+# wheels for the newer interpreter at higher versions. Pin exactly once the
+# deployment target is chosen.
+fastapi>=0.115.6
+uvicorn[standard]>=0.34.0
+sqlalchemy>=2.0.36
+psycopg[binary]>=3.2.3
+pgvector>=0.3.6
+pydantic>=2.10.4
+pydantic-settings>=2.7.0
+python-multipart>=0.0.20
+anthropic>=0.69.0
+httpx>=0.28.1
+
+# Optional: real multilingual embeddings (EMBEDDING_PROVIDER=local).
+# Heavy download (~1.1 GB); left out of the default image on purpose.
+# sentence-transformers>=3.3.1
+
+# Dev / test
+pytest>=8.3.4
