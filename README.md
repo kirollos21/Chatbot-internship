@@ -84,7 +84,14 @@ run.bat db         :: start PostgreSQL and wait for it
 run.bat ingest     :: load the dataset, build embeddings
 run.bat serve      :: API on http://localhost:8000
 run.bat test       :: run the test suite
+run.bat app        :: Flutter web app in Chrome
+run.bat android    :: Flutter app on an Android emulator
+run.bat app-build  :: release web bundle into frontend/build/web
 ```
+
+The backend serves no HTML of its own - `/` is a 404 by design and the only
+browser page is `/docs`. The UI is the Flutter app, so run the API in one
+terminal and `run.bat app` (or `android`) in another.
 
 Set `GEMINI_API_KEY` in `.env` before serving. Without it the API still runs —
 it just answers from the deterministic renderer instead of the model.
@@ -99,6 +106,27 @@ curl localhost:8000/health/ready
 ```
 
 Interactive docs: `http://localhost:8000/docs`
+
+### Running the app on Android
+
+`run.bat android` boots the first available AVD, waits for
+`sys.boot_completed`, then runs the app against it. It needs the Android SDK -
+Android Studio's default location (`%LOCALAPPDATA%\Android\Sdk`) is found
+automatically, otherwise set `ANDROID_HOME`.
+
+Two Android-specific details, both already handled in the repo:
+
+- **The API base URL is `http://10.0.2.2:8000`, not `localhost`.** Inside the
+  emulator `localhost` is the emulator itself; `10.0.2.2` is its alias for the
+  host machine's loopback. `run.bat android` passes it via `--dart-define`.
+- **Cleartext HTTP is allowed for loopback hosts in debug builds only.**
+  Android 9+ blocks plain HTTP by default, which would kill every request to
+  the dev backend. `frontend/android/app/src/debug/res/xml/network_security_config.xml`
+  permits it for `10.0.2.2`, `localhost` and `127.0.0.1` and nothing else, and
+  it lives in the `debug` source set so release builds are unaffected.
+
+For a physical device over USB, run `adb reverse tcp:8000 tcp:8000` and pass
+`API_BASE_URL=http://localhost:8000` instead.
 
 ### Running the database on Windows
 

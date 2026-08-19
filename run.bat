@@ -264,3 +264,66 @@ set "RC=!ERRORLEVEL!"
 popd
 if "!RC!"=="0" echo Built frontend\build\web
 exit /b !RC!
+
+REM -------------------------------------------------------------------
+:android
+call :findflutter || exit /b 1
+set "ADB=%ANDROID_SDK%\platform-tools\adb.exe"
+set "EMULATOR=%ANDROID_SDK%\emulator\emulator.exe"
+if not exist "%ADB%" (
+    echo [ERROR] Android SDK not found at %ANDROID_SDK%
+    echo         Install Android Studio, or point ANDROID_HOME at the SDK.
+    exit /b 1
+)
+
+echo.
+echo === Flutter Android app ===========================================
+
+REM An already-attached device or a booted emulator wins - don't start a second.
+set "HAVEDEV="
+for /f "skip=1 tokens=1,2" %%a in ('"%ADB%" devices') do if "%%b"=="device" set "HAVEDEV=%%a"
+if defined HAVEDEV (
+    echo   Using device !HAVEDEV!
+    goto :androidrun
+)
+
+if not exist "%EMULATOR%" (
+    echo [ERROR] No device attached and no emulator installed.
+    echo         Android Studio ^> More Actions ^> SDK Manager ^> SDK Tools ^> Android Emulator
+    exit /b 1
+)
+set "AVD="
+for /f "delims=" %%a in ('"%EMULATOR%" -list-avds') do if not defined AVD set "AVD=%%a"
+if not defined AVD (
+    echo [ERROR] No AVD defined. Create one in Android Studio:
+    echo         More Actions ^> Virtual Device Manager ^> Create Virtual Device
+    exit /b 1
+)
+
+echo   Booting emulator !AVD! ...
+start "" "%EMULATOR%" -avd !AVD!
+"%ADB%" wait-for-device
+echo   Waiting for Android to finish booting ...
+set /a BOOTWAIT=0
+
+:androidboot
+set "BOOTED="
+for /f "delims=" %%a in ('"%ADB%" shell getprop sys.boot_completed 2^>nul') do set "BOOTED=%%a"
+if "!BOOTED!"=="1" goto :androidrun
+set /a BOOTWAIT+=1
+if !BOOTWAIT! GEQ 120 (
+    echo [ERROR] Emulator did not finish booting. Check the emulator window.
+    exit /b 1
+)
+ping -n 4 127.0.0.1 >nul
+goto :androidboot
+
+:androidrun
+echo   Backend expected at %ANDROID_API_BASE%  ^(the emulator's route to the
+echo   host machine - inside the emulator "localhost" is the emulator itself^)
+echo.
+pushd "%ROOT%\frontend"
+"%FLUTTER%" run -d android --dart-define=API_BASE_URL=%ANDROID_API_BASE%
+set "RC=!ERRORLEVEL!"
+popd
+exit /b !RC!
