@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Debug only. Android 9+ blocks cleartext HTTP by default, and the dev
+     backend is plain http://. Scoped to the loopback aliases the emulator and
+     a USB-attached device use to reach the host, so it never widens beyond
+     this machine. The release build has no such config. -->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- the Android emulator's alias for the host machine's 127.0.0.1 -->
+        <domain includeSubdomains="false">10.0.2.2</domain>
+        <!-- adb reverse tcp:8000 tcp:8000, for a physical device -->
+        <domain includeSubdomains="false">localhost</domain>
+        <domain includeSubdomains="false">127.0.0.1</domain>
+    </domain-config>
+</network-security-config>

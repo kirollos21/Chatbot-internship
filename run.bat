@@ -13,6 +13,7 @@ REM    run.bat serve      run the API on http://localhost:8000
 REM    run.bat test       run the test suite
 REM    run.bat check      report what is installed / configured
 REM    run.bat app        run the Flutter web app in Chrome
+REM    run.bat android    run the Flutter app on an Android emulator
 REM    run.bat app-build  build the Flutter web bundle
 REM ===================================================================
 
@@ -27,6 +28,13 @@ set "PGBIN_LOCAL=D:\PHD\tools\pgsql\bin"
 set "PGDATA_LOCAL=D:\PHD\tools\pgdata"
 set "PGPORT_LOCAL=5433"
 
+REM Android SDK. Android Studio installs here by default.
+set "ANDROID_SDK=%LOCALAPPDATA%\Android\Sdk"
+if defined ANDROID_HOME if exist "%ANDROID_HOME%\platform-tools\adb.exe" set "ANDROID_SDK=%ANDROID_HOME%"
+REM The emulator reaches the host machine at 10.0.2.2, never at localhost -
+REM inside the emulator localhost is the emulator itself.
+set "ANDROID_API_BASE=http://10.0.2.2:8000"
+
 set "CMD=%~1"
 if "%CMD%"=="" set "CMD=all"
 
@@ -39,10 +47,12 @@ if /i "%CMD%"=="serve"     goto :serve
 if /i "%CMD%"=="test"      goto :test
 if /i "%CMD%"=="check"     goto :check
 if /i "%CMD%"=="app"       goto :app
+if /i "%CMD%"=="android"   goto :android
 if /i "%CMD%"=="app-build" goto :appbuild
 if /i "%CMD%"=="all"       goto :all
 echo [ERROR] Unknown command "%CMD%".
-echo         Use: setup ^| dataset ^| db ^| db-stop ^| ingest ^| serve ^| test ^| check ^| app ^| app-build
+echo         Use: setup ^| dataset ^| db ^| db-stop ^| ingest ^| serve ^| test ^| check
+echo              app ^| app-build ^| android
 exit /b 1
 
 REM -------------------------------------------------------------------
