@@ -18,10 +18,15 @@ class TicketsScreen extends StatefulWidget {
 
 class _TicketsScreenState extends State<TicketsScreen> {
   late Future<(List<Ticket>, List<ViolationReport>)> _future;
+  bool _loaded = false;
 
+  /// Neither request takes a language or a compound, so this loads once. It
+  /// still cannot live in `initState` — see [AppScope.of].
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_loaded) return;
+    _loaded = true;
     _future = _load();
   }
 
@@ -31,14 +36,25 @@ class _TicketsScreenState extends State<TicketsScreen> {
     return (results[0] as List<Ticket>, results[1] as List<ViolationReport>);
   }
 
-  void _reload() => setState(() => _future = _load());
+  /// Block body, not `setState(() => _future = _load())` — see
+  /// `policies_screen.dart` for what the arrow form breaks. Awaiting the fetch
+  /// is also what keeps the pull-to-refresh spinner up until data arrives.
+  Future<void> _reload() async {
+    final future = _load();
+    setState(() {
+      _future = future;
+    });
+    try {
+      await future;
+    } catch (_) {}
+  }
 
   @override
   Widget build(BuildContext context) {
     final s = AppScope.of(context).strings;
 
     return RefreshIndicator(
-      onRefresh: () async => _reload(),
+      onRefresh: _reload,
       child: AsyncBody<(List<Ticket>, List<ViolationReport>)>(
         future: _future,
         onRetry: _reload,

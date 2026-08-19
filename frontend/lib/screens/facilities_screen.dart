@@ -19,10 +19,18 @@ class FacilitiesScreen extends StatefulWidget {
 
 class _FacilitiesScreenState extends State<FacilitiesScreen> {
   late Future<List<Facility>> _future;
+  String? _loadedFor;
 
+  /// Keyed on compound and language, both of which the request sends — without
+  /// this the list kept showing the previous language's records after a switch.
+  /// See [AppScope.of] for why this is not in `initState`.
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final state = AppScope.of(context);
+    final key = '${state.contentLanguage}|${state.compound ?? ''}';
+    if (key == _loadedFor) return;
+    _loadedFor = key;
     _future = _load();
   }
 
@@ -32,7 +40,17 @@ class _FacilitiesScreenState extends State<FacilitiesScreen> {
         .facilities(compound: state.compound, language: state.contentLanguage);
   }
 
-  void _reload() => setState(() => _future = _load());
+  /// Block body, not `setState(() => _future = _load())` — see
+  /// `policies_screen.dart` for what the arrow form breaks.
+  Future<void> _reload() async {
+    final future = _load();
+    setState(() {
+      _future = future;
+    });
+    try {
+      await future;
+    } catch (_) {}
+  }
 
   @override
   Widget build(BuildContext context) {

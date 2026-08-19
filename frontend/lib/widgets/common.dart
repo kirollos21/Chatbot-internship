@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../core/api_client.dart';
 import '../core/app_state.dart';
+import '../core/theme.dart';
 
 /// Standard async body: spinner, typed error with retry, empty state, content.
 class AsyncBody<T> extends StatelessWidget {
@@ -70,12 +71,24 @@ class _Message extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 40, color: Theme.of(context).colorScheme.outline),
-            const SizedBox(height: 12),
-            Text(text, textAlign: TextAlign.center),
+            Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                color: PalmHills.brandSoft,
+                borderRadius: BorderRadius.circular(18),
+              ),
+              child: Icon(icon, size: 27, color: PalmHills.brand),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              text,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
             if (actionLabel != null && onAction != null) ...[
-              const SizedBox(height: 16),
-              FilledButton.tonal(onPressed: onAction, child: Text(actionLabel!)),
+              const SizedBox(height: 18),
+              FilledButton(onPressed: onAction, child: Text(actionLabel!)),
             ],
           ],
         ),
@@ -123,11 +136,25 @@ class SourceChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final chip = Chip(
-      label: Text(id, style: const TextStyle(fontSize: 12)),
-      visualDensity: VisualDensity.compact,
-      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      side: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
+    // Monospace-ish and boxed: a record id is a reference a resident can quote
+    // back to Community Management, so it should look like an identifier rather
+    // than a decorative tag.
+    final chip = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
+      decoration: BoxDecoration(
+        color: PalmHills.sandDim,
+        borderRadius: BorderRadius.circular(7),
+        border: Border.all(color: PalmHills.line),
+      ),
+      child: Text(
+        id,
+        style: const TextStyle(
+          fontSize: 11.5,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 0.6,
+          color: PalmHills.brandDeep,
+        ),
+      ),
     );
     return tooltip == null ? chip : Tooltip(message: tooltip!, child: chip);
   }
@@ -142,18 +169,19 @@ class PenaltyBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: scheme.errorContainer,
-        borderRadius: BorderRadius.circular(8),
+        color: PalmHills.brandSoft,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: PalmHills.brand.withValues(alpha: 0.22)),
       ),
       child: Text(
         '$amount $currency',
-        style: TextStyle(
-          color: scheme.onErrorContainer,
-          fontWeight: FontWeight.w600,
+        style: const TextStyle(
+          color: PalmHills.brandDeep,
+          fontWeight: FontWeight.w700,
+          fontSize: 13.5,
         ),
       ),
     );
@@ -168,13 +196,26 @@ class SectionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
-      child: Text(
-        text,
-        style: Theme.of(context)
-            .textTheme
-            .titleSmall
-            ?.copyWith(color: Theme.of(context).colorScheme.primary),
+      padding: const EdgeInsets.fromLTRB(16, 22, 16, 10),
+      child: Row(
+        children: [
+          Container(
+            width: 3,
+            height: 15,
+            decoration: BoxDecoration(
+              color: PalmHills.brand,
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+          const SizedBox(width: 9),
+          Text(
+            text,
+            style: Theme.of(context)
+                .textTheme
+                .titleSmall
+                ?.copyWith(color: PalmHills.brandDeep),
+          ),
+        ],
       ),
     );
   }

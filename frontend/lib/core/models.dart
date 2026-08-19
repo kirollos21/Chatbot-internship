@@ -45,6 +45,45 @@ class SourceRef {
   final String label;
 }
 
+/// A Palm Hills project a resident can select as their location.
+///
+/// [compound] is what goes back to the API and is deliberately not always the
+/// same as [id]: several North Coast projects share one scoping token, because
+/// that is the only scope the shipped regulations distinguish. The backend owns
+/// that decision - see `app/services/projects.py`.
+class Project {
+  const Project({
+    required this.id,
+    required this.nameEn,
+    required this.nameAr,
+    required this.region,
+    required this.regionEn,
+    required this.regionAr,
+    required this.compound,
+  });
+
+  factory Project.fromJson(Map<String, dynamic> j) => Project(
+        id: _s(j['id']),
+        nameEn: _s(j['name_en']),
+        nameAr: _s(j['name_ar']),
+        region: _s(j['region']),
+        regionEn: _s(j['region_en']),
+        regionAr: _s(j['region_ar']),
+        compound: _s(j['compound']),
+      );
+
+  final String id;
+  final String nameEn;
+  final String nameAr;
+  final String region;
+  final String regionEn;
+  final String regionAr;
+  final String compound;
+
+  String name(String language) => language == 'ar' ? nameAr : nameEn;
+  String regionLabel(String language) => language == 'ar' ? regionAr : regionEn;
+}
+
 class ChatAnswer {
   ChatAnswer({
     required this.answer,

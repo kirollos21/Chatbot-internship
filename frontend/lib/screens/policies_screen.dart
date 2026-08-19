@@ -15,24 +15,42 @@ class _PoliciesScreenState extends State<PoliciesScreen> {
   late Future<(List<Category>, List<Policy>)> _future;
   String? _categoryId;
   String _query = '';
+  String? _loadedFor;
 
+  /// Keyed on the compound: which policies apply depends on it, so changing it
+  /// must refetch. See [AppScope.of] for why this is not in `initState`.
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final key = AppScope.of(context).compound ?? '';
+    if (key == _loadedFor) return;
+    _loadedFor = key;
     _future = _load();
   }
 
   Future<(List<Category>, List<Policy>)> _load() async {
-    final api = AppScope.of(context).api;
-    final compound = AppScope.of(context).compound;
+    final state = AppScope.of(context);
     final results = await Future.wait([
-      api.categories(),
-      api.policies(compound: compound),
+      state.api.categories(),
+      state.api.policies(compound: state.compound),
     ]);
     return (results[0] as List<Category>, results[1] as List<Policy>);
   }
 
-  void _reload() => setState(() => _future = _load());
+  Future<void> _reload() async {
+    final future = _load();
+    // A block body, not `setState(() => _future = _load())`: the arrow form
+    // hands setState the assigned Future as its return value, which it rejects
+    // — and then the widget never rebuilds to observe the new future.
+    setState(() {
+      _future = future;
+    });
+    // AsyncBody renders the failure state, so the error is swallowed here to
+    // keep an awaiting caller from seeing it a second time as an unhandled one.
+    try {
+      await future;
+    } catch (_) {}
+  }
 
   @override
   Widget build(BuildContext context) {

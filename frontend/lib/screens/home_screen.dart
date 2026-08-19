@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../core/app_state.dart';
+import '../core/theme.dart';
 import '../main.dart' show ShellNavigator;
+import '../widgets/palm_motif.dart';
+import '../widgets/project_picker.dart';
 import 'assistant_screen.dart';
 import 'contacts_screen.dart';
 import 'facilities_screen.dart';
@@ -17,46 +20,84 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
     final s = state.strings;
-    final scheme = Theme.of(context).colorScheme;
 
     final tiles = <_Tile>[
-      _Tile(s.assistant, Icons.chat_bubble_outline, const AssistantScreen()),
-      _Tile(s.policies, Icons.menu_book_outlined, const PoliciesScreen()),
-      _Tile(s.violations, Icons.gavel_outlined, const ViolationsScreen()),
-      _Tile(s.facilities, Icons.pool_outlined, const FacilitiesScreen()),
-      _Tile(s.contacts, Icons.call_outlined, const ContactsScreen()),
-      _Tile(s.reportViolation, Icons.flag_outlined, const ReportScreen()),
-      _Tile(s.myRequests, Icons.receipt_long_outlined, const TicketsScreen()),
+      _Tile(s.assistant, Icons.forum_outlined, PalmHills.brand,
+          const AssistantScreen()),
+      _Tile(s.policies, Icons.menu_book_outlined, PalmHills.brand,
+          const PoliciesScreen()),
+      _Tile(s.violations, Icons.gavel_outlined, PalmHills.brand,
+          const ViolationsScreen()),
+      _Tile(s.facilities, Icons.pool_outlined, PalmHills.brand,
+          const FacilitiesScreen()),
+      _Tile(s.contacts, Icons.call_outlined, PalmHills.brand,
+          const ContactsScreen()),
+      _Tile(s.reportViolation, Icons.flag_outlined, PalmHills.brand,
+          const ReportScreen()),
+      _Tile(s.myRequests, Icons.receipt_long_outlined, PalmHills.brand,
+          const TicketsScreen()),
     ];
 
     return ListView(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
       children: [
-        Card(
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(s.homeGreeting,
-                    style: Theme.of(context).textTheme.headlineSmall),
-                const SizedBox(height: 8),
-                Text(s.homeSubtitle,
-                    style: TextStyle(color: scheme.onSurfaceVariant)),
-                const SizedBox(height: 16),
-                FilledButton.icon(
-                  onPressed: () => ShellNavigator.goTo(
-                      context, const AssistantScreen(), s.assistant),
-                  icon: const Icon(Icons.chat_bubble_outline),
-                  label: Text(s.assistant),
+        PalmHero(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                s.communityName,
+                style: TextStyle(
+                  color: Colors.white.withValues(alpha: 0.78),
+                  fontSize: 12.5,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 1.6,
                 ),
-              ],
-            ),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                s.homeGreeting,
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineSmall
+                    ?.copyWith(color: Colors.white),
+              ),
+              const SizedBox(height: 10),
+              // Constrained so the text never runs under the palm motif.
+              ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 300),
+                child: Text(
+                  s.homeSubtitle,
+                  style: TextStyle(
+                    color: Colors.white.withValues(alpha: 0.82),
+                    height: 1.45,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              FilledButton.icon(
+                onPressed: () => ShellNavigator.goTo(
+                    context, const AssistantScreen(), s.assistant),
+                style: FilledButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: PalmHills.brandDeep,
+                ),
+                icon: const Icon(Icons.forum_outlined, size: 20),
+                label: Text(s.askAssistant),
+              ),
+            ],
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 18),
         const _CompoundCard(),
-        const SizedBox(height: 16),
+        const SizedBox(height: 22),
+        Padding(
+          padding: const EdgeInsetsDirectional.only(start: 4, bottom: 12),
+          child: Text(s.browse,
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: PalmHills.inkSoft,
+                  )),
+        ),
         LayoutBuilder(
           builder: (context, constraints) {
             final columns = constraints.maxWidth >= 720 ? 4 : 2;
@@ -66,31 +107,9 @@ class HomeScreen extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               mainAxisSpacing: 12,
               crossAxisSpacing: 12,
-              childAspectRatio: 1.25,
+              childAspectRatio: 1.5,
               children: [
-                for (final tile in tiles)
-                  Card(
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(14),
-                      onTap: () =>
-                          ShellNavigator.goTo(context, tile.screen, tile.label),
-                      child: Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(tile.icon, size: 28, color: scheme.primary),
-                            const SizedBox(height: 10),
-                            Text(
-                              tile.label,
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                for (final tile in tiles) _TileCard(tile: tile),
               ],
             );
           },
@@ -101,17 +120,64 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _Tile {
-  const _Tile(this.label, this.icon, this.screen);
+  const _Tile(this.label, this.icon, this.accent, this.screen);
   final String label;
   final IconData icon;
+  final Color accent;
   final Widget screen;
 }
 
-/// Lets the resident record their compound.
+class _TileCard extends StatelessWidget {
+  const _TileCard({required this.tile});
+
+  final _Tile tile;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: InkWell(
+        borderRadius: BorderRadius.circular(PalmHills.radiusCard),
+        onTap: () => ShellNavigator.goTo(context, tile.screen, tile.label),
+        child: Padding(
+          padding: const EdgeInsets.all(14),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 42,
+                height: 42,
+                decoration: BoxDecoration(
+                  // A wash of the tile's accent, not the accent itself: the
+                  // icon has to stay the loudest thing in the card.
+                  color: tile.accent.withValues(alpha: 0.10),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Icon(tile.icon, size: 21, color: tile.accent),
+              ),
+              const Spacer(),
+              Text(
+                tile.label,
+                style: Theme.of(context).textTheme.titleMedium,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Lets the resident select which Palm Hills project they live in.
 ///
 /// This matters for correctness, not convenience: when a rule could differ by
-/// compound and the backend does not know which one the resident is in, it
-/// declines to guess and asks. Setting it here removes that ambiguity.
+/// project and the backend does not know which one the resident is in, it
+/// declines to guess and asks. Selecting here removes that ambiguity.
+///
+/// Selected, never typed — see `widgets/project_picker.dart` for why free text
+/// could not scope anything.
 class _CompoundCard extends StatelessWidget {
   const _CompoundCard();
 
@@ -119,38 +185,32 @@ class _CompoundCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
     final s = state.strings;
+    final project = state.project;
+    final isSet = project != null;
 
     return Card(
       child: ListTile(
-        leading: const Icon(Icons.location_city_outlined),
-        title: Text(s.compound),
-        subtitle: Text(state.compound ?? s.compoundHint),
-        trailing: const Icon(Icons.edit_outlined),
-        onTap: () async {
-          final controller = TextEditingController(text: state.compound ?? '');
-          final value = await showDialog<String>(
-            context: context,
-            builder: (context) => AlertDialog(
-              title: Text(s.compound),
-              content: TextField(
-                controller: controller,
-                autofocus: true,
-                decoration: InputDecoration(hintText: s.compoundHint),
-              ),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: Text(s.cancel),
-                ),
-                FilledButton(
-                  onPressed: () => Navigator.pop(context, controller.text),
-                  child: Text(s.submit),
-                ),
-              ],
-            ),
-          );
-          if (value != null) state.setCompound(value);
-        },
+        onTap: () => selectProject(context),
+        leading: Container(
+          width: 42,
+          height: 42,
+          decoration: BoxDecoration(
+            color: PalmHills.brandSoft,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: const Icon(Icons.location_city_outlined,
+              size: 21, color: PalmHills.brand),
+        ),
+        title: Text(s.compound,
+            style: Theme.of(context).textTheme.titleMedium),
+        subtitle: Text(
+          isSet ? project.name(state.contentLanguage) : s.compoundHint,
+          style: TextStyle(
+            color: isSet ? PalmHills.brand : PalmHills.inkSoft,
+            fontWeight: isSet ? FontWeight.w600 : FontWeight.w400,
+          ),
+        ),
+        trailing: const Icon(Icons.expand_more, color: PalmHills.inkSoft),
       ),
     );
   }

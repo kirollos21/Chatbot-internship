@@ -281,3 +281,34 @@ def test_dataset_status_reports_unconfigured_records(api_client) -> None:
     assert body["version"] == "1.0"
     assert body["counts"]["violations"] == 90
     assert body["unconfigured_contacts"], "placeholder contacts must be reported as unconfigured"
+
+
+def test_projects_are_selectable_and_carry_a_scoping_token(api_client) -> None:
+    """The location picker is fed from here, so it must never be empty."""
+    projects = api_client.get(f"{BASE}/projects").json()
+    assert projects, "the picker would have nothing to offer"
+    for project in projects:
+        assert project["name_en"] and project["name_ar"]
+        assert project["compound"], "every project must scope to something"
+        assert project["region_en"] and project["region_ar"]
+
+
+def test_north_coast_projects_share_the_north_coast_scope(api_client) -> None:
+    """The one scope the shipped dataset actually distinguishes.
+
+    A Hacienda resident must keep the North Coast beach facility in scope; a
+    Cairo resident must not. That only works if the North Coast projects resolve
+    to the same `compound` token the dataset uses.
+    """
+    projects = api_client.get(f"{BASE}/projects").json()
+    coastal = [p for p in projects if p["region"] == "north_coast"]
+    assert coastal, "expected the North Coast projects"
+    assert {p["compound"] for p in coastal} == {"north_coast"}
+
+    beach = api_client.get(f"{BASE}/facilities", params={"compound": "north_coast"}).json()
+    assert any(f["compound"] == "north_coast" for f in beach)
+
+    inland = api_client.get(
+        f"{BASE}/facilities", params={"compound": "palm_hills_october"}
+    ).json()
+    assert not any(f["compound"] == "north_coast" for f in inland)

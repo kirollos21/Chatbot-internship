@@ -220,7 +220,10 @@ if exist "%PGDATA_LOCAL%\postgresql.conf" (
 )
 
 if exist "%ROOT%\.env" (
-    findstr /b /c:"GEMINI_API_KEY=" "%ROOT%\.env" | findstr /r /c:"GEMINI_API_KEY=.\+" >nul 2>&1
+    REM findstr regex has no "+" quantifier - "..*" is how it spells one-or-more.
+    REM With "\+" this never matched, so a configured key was always reported as
+    REM NOT SET and the assistant looked like it was running on templates.
+    findstr /r /c:"^GEMINI_API_KEY=..*" "%ROOT%\.env" >nul 2>&1
     if errorlevel 1 (
         echo   GEMINI_API_KEY   NOT SET - answers fall back to deterministic templates
     ) else (

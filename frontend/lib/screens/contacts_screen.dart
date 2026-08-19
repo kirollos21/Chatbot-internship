@@ -19,10 +19,16 @@ class ContactsScreen extends StatefulWidget {
 
 class _ContactsScreenState extends State<ContactsScreen> {
   late Future<List<Contact>> _future;
+  String? _loadedFor;
 
+  /// Keyed on the language the request sends, so switching language refetches
+  /// the directory. See [AppScope.of] for why this is not in `initState`.
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final key = AppScope.of(context).contentLanguage;
+    if (key == _loadedFor) return;
+    _loadedFor = key;
     _future = _load();
   }
 
@@ -31,7 +37,17 @@ class _ContactsScreenState extends State<ContactsScreen> {
     return state.api.contacts(language: state.contentLanguage);
   }
 
-  void _reload() => setState(() => _future = _load());
+  /// Block body, not `setState(() => _future = _load())` — see
+  /// `policies_screen.dart` for what the arrow form breaks.
+  Future<void> _reload() async {
+    final future = _load();
+    setState(() {
+      _future = future;
+    });
+    try {
+      await future;
+    } catch (_) {}
+  }
 
   @override
   Widget build(BuildContext context) {

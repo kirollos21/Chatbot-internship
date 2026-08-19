@@ -130,8 +130,37 @@ class IntentResult:
     matched: list[str]
 
 
+# Franco function words, excluded before skeletonisation.
+#
+# A skeleton drops vowels and collapses repeated consonants, which makes some
+# function words indistinguishable from real keywords: `momken` ("is it
+# possible") reduces to `mkn`, exactly like `makan` ("place"). Since `mkn` is a
+# facility keyword, every question opening with "momken ..." - the commonest way
+# to start a Franco question - was routed to the facilities directory and
+# answered with opening hours instead of the rule that was asked about.
+#
+# Excluded by spelling rather than by skeleton, so `makan` itself still matches.
+_FRANCO_FUNCTION_WORDS = frozenset(
+    {
+        "momken", "momkin", "mumkin", "momkn", "yenfa3", "ynfa3", "yenfa",
+        "3ayez", "3ayza", "3awez", "3awza", "3aiz",
+        "ana", "enta", "enti", "enty", "e7na", "howa", "heya",
+        "da", "di", "de", "dah", "deh", "dee",
+        "eh", "ezay", "ezzay", "leh", "lih", "keda", "kda", "bas", "kol",
+        "fel", "fil", "bel", "bil", "wel", "3al", "3ala", "el", "al",
+        "lw", "law", "aw", "wala", "ya",
+    }
+)
+
+
 def _token_skeletons(text: str) -> set[str]:
-    return {s for s in (skeleton(t) for t in LATIN_TOKEN.findall(text)) if len(s) >= 2}
+    return {
+        sk
+        for token in LATIN_TOKEN.findall(text)
+        if token.lower() not in _FRANCO_FUNCTION_WORDS
+        for sk in (skeleton(token),)
+        if len(sk) >= 2
+    }
 
 
 def _score_bank(text_lower: str, raw: str, skeletons: set[str], bank: dict[str, list[str]]) -> tuple[int, list[str]]:

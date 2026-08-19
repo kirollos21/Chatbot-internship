@@ -65,6 +65,23 @@ void main() {
       expect(AppLanguage.franco.textDirection, TextDirection.ltr);
     });
 
+    test('Franco is written, never chosen', () {
+      // Franco has no standard orthography, so it is not offered as an
+      // interface language - a resident gets a Franco answer by writing Franco.
+      expect(AppLanguage.uiChoices, [AppLanguage.en, AppLanguage.ar]);
+      expect(AppLanguage.uiChoices.contains(AppLanguage.franco), isFalse);
+      // It stays in the enum: the backend still labels answers "franco".
+      expect(AppLanguage.values.contains(AppLanguage.franco), isTrue);
+    });
+
+    test('an answer is laid out in its own direction', () {
+      // An Arabic interface can receive a Franco or English answer, and Latin
+      // script laid out right-to-left is unreadable.
+      expect(AppLanguage.directionFor('ar'), TextDirection.rtl);
+      expect(AppLanguage.directionFor('franco'), TextDirection.ltr);
+      expect(AppLanguage.directionFor('en'), TextDirection.ltr);
+    });
+
     test('every language resolves distinct UI strings', () {
       final en = const S(AppLanguage.en).violations;
       final ar = const S(AppLanguage.ar).violations;

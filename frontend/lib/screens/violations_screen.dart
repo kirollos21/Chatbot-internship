@@ -20,10 +20,16 @@ class _ViolationsScreenState extends State<ViolationsScreen> {
   late Future<(List<Category>, List<Violation>)> _future;
   String? _categoryId;
   String _query = '';
+  String? _loadedFor;
 
+  /// Keyed on the compound: a fine can differ by compound, so changing it must
+  /// refetch. See [AppScope.of] for why this is not in `initState`.
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final key = AppScope.of(context).compound ?? '';
+    if (key == _loadedFor) return;
+    _loadedFor = key;
     _future = _load();
   }
 
@@ -36,7 +42,17 @@ class _ViolationsScreenState extends State<ViolationsScreen> {
     return (results[0] as List<Category>, results[1] as List<Violation>);
   }
 
-  void _reload() => setState(() => _future = _load());
+  /// Block body, not `setState(() => _future = _load())` — see
+  /// `policies_screen.dart` for what the arrow form breaks.
+  Future<void> _reload() async {
+    final future = _load();
+    setState(() {
+      _future = future;
+    });
+    try {
+      await future;
+    } catch (_) {}
+  }
 
   @override
   Widget build(BuildContext context) {

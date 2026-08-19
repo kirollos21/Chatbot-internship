@@ -24,8 +24,10 @@ from app.schemas.catalog import (
     DatasetStatus,
     FacilityOut,
     PolicyOut,
+    ProjectOut,
     ViolationOut,
 )
+from app.services import projects as projects_service
 
 router = APIRouter(tags=["catalog"], dependencies=[Depends(authenticated)])
 
@@ -47,6 +49,28 @@ def _scope(stmt, model, compound: str | None, phase: str | None, as_of: date):
     if phase:
         stmt = stmt.where(or_(model.phase.is_(None), model.phase == phase))
     return stmt
+
+
+@router.get("/projects", response_model=list[ProjectOut])
+def list_projects() -> list[ProjectOut]:
+    """The projects a resident can pick as their location.
+
+    Served rather than compiled into the app so a corrected or newly launched
+    project reaches residents without a new build. This is reference data, not
+    transcribed policy - see `app.services.projects`.
+    """
+    return [
+        ProjectOut(
+            id=p.id,
+            name_en=p.name_en,
+            name_ar=p.name_ar,
+            region=p.region,
+            region_en=projects_service.REGIONS[p.region][0],
+            region_ar=projects_service.REGIONS[p.region][1],
+            compound=p.compound,
+        )
+        for p in projects_service.list_projects()
+    ]
 
 
 @router.get("/categories", response_model=list[CategoryOut])

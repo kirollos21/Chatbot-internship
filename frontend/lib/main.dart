@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'core/app_state.dart';
 import 'core/strings.dart';
+import 'core/theme.dart';
 import 'screens/assistant_screen.dart';
 import 'screens/contacts_screen.dart';
 import 'screens/facilities_screen.dart';
@@ -39,7 +40,7 @@ class _PalmHillsAppState extends State<PalmHillsApp> {
           return MaterialApp(
             title: 'Palm Hills Assistant',
             debugShowCheckedModeBanner: false,
-            theme: _buildTheme(),
+            theme: buildPalmHillsTheme(),
             // Arabic must lay out right-to-left. Franco is Latin script, so it
             // stays LTR even though the language is Arabic.
             builder: (context, child) => Directionality(
@@ -53,25 +54,6 @@ class _PalmHillsAppState extends State<PalmHillsApp> {
     );
   }
 
-  ThemeData _buildTheme() {
-    const seed = Color(0xFF1B5E4A);
-    return ThemeData(
-      useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(seedColor: seed),
-      appBarTheme: const AppBarTheme(centerTitle: false),
-      cardTheme: CardThemeData(
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(14),
-          side: BorderSide(color: Colors.black.withValues(alpha: 0.08)),
-        ),
-      ),
-      inputDecorationTheme: const InputDecorationTheme(
-        border: OutlineInputBorder(),
-        filled: true,
-      ),
-    );
-  }
 }
 
 class RootShell extends StatefulWidget {
@@ -173,7 +155,7 @@ class LanguageMenu extends StatelessWidget {
       initialValue: state.language,
       onSelected: state.setLanguage,
       itemBuilder: (context) => [
-        for (final language in AppLanguage.values)
+        for (final language in AppLanguage.uiChoices)
           PopupMenuItem(value: language, child: Text(language.label)),
       ],
     );

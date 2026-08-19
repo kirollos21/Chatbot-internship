@@ -1,13 +1,19 @@
-/// UI strings in the three languages the assistant supports.
+/// UI strings.
 ///
-/// Franco-Arabic is a first-class UI language here, not just something the
-/// assistant replies in. A resident who types Franco should not be forced to
-/// read an English or Arabic interface.
+/// The interface is offered in English and Arabic — see [AppLanguage.uiChoices].
+/// Franco-Arabic is a *written* language here, not a chosen one: a resident who
+/// types Franco in the chat is answered in Franco, but nobody picks Franco as an
+/// interface. It has no BCP-47 code, no `intl` support and no standard
+/// orthography, so treating it as a UI locale asks residents to read an
+/// interface in a language that has no agreed spelling.
+///
+/// [AppLanguage.franco] therefore stays in the enum: the backend still reports
+/// `language: "franco"` on an answer, and the app needs to be able to name that.
+/// Its UI strings are kept so the type stays total, but no picker offers them.
 ///
 /// This is a plain map rather than `flutter_localizations`/ARB because Franco
-/// is not a real locale — it has no BCP-47 code and no `intl` support — so the
-/// standard localisation pipeline cannot represent it. Arabic still gets
-/// correct RTL via [AppLanguage.textDirection].
+/// cannot be represented as a locale at all. Arabic still gets correct RTL via
+/// [AppLanguage.textDirection].
 library;
 
 import 'package:flutter/widgets.dart';
@@ -22,6 +28,16 @@ enum AppLanguage {
   final String code;
   final String label;
   final TextDirection textDirection;
+
+  /// The languages the interface is offered in. Franco is excluded on purpose;
+  /// it is a language the assistant *answers* in, never one you select.
+  static const List<AppLanguage> uiChoices = [en, ar];
+
+  /// The direction to lay an answer out in, given the language the backend says
+  /// it wrote. Franco is Arabic in Latin script, so it reads left-to-right even
+  /// when the surrounding interface is Arabic.
+  static TextDirection directionFor(String languageCode) =>
+      languageCode == 'ar' ? TextDirection.rtl : TextDirection.ltr;
 }
 
 class S {
@@ -58,6 +74,34 @@ class S {
   String get languageLabel => _pick('Language', 'اللغة', 'El Logha');
 
   // --- home ------------------------------------------------------------
+  /// Sits above the greeting in the hero. Names the community rather than the
+  /// app, which is what makes the header feel like Palm Hills.
+  String get communityName => _pick(
+        'PALM HILLS COMMUNITIES',
+        'مجتمعات بالم هيلز',
+        'PALM HILLS COMMUNITIES',
+      );
+  String get askAssistant => _pick(
+        'Ask the assistant',
+        'اسأل المساعد',
+        'Es2al el assistant',
+      );
+  String get browse => _pick('BROWSE', 'تصفح', 'BROWSE');
+  String get chooseProject => _pick(
+        'Choose your project',
+        'اختر مشروعك',
+        'Ekhtar el project bet3ak',
+      );
+  String get chooseProjectHint => _pick(
+        'Answers are scoped to the project you select.',
+        'الإجابات تتحدد حسب المشروع الذي تختاره.',
+        'El egabat hatetkhaded 3ala hasab el project.',
+      );
+  String get noProjectHint => _pick(
+        'Community-wide rules only',
+        'اللوائح العامة للمجتمع فقط',
+        'Lawa2e7 el mogtama3 el 3amma bas',
+      );
   String get homeGreeting => _pick(
         'How can I help you today?',
         'كيف أقدر أساعدك النهاردة؟',
@@ -70,6 +114,14 @@ class S {
       );
 
   // --- assistant -------------------------------------------------------
+  /// Says out loud that Franco is accepted. Without this the only way a
+  /// resident discovers it is by guessing, now that Franco is not in the
+  /// language menu.
+  String get writeAnyLanguage => _pick(
+        'Write in English, Arabic or Franco — the answer comes back in the same language.',
+        'اكتب بالعربية أو الإنجليزية أو الفرانكو — والرد يجيك بنفس اللغة.',
+        'Ekteb bel 3arabi, English aw Franco — el radd hayeegy be nafs el logha.',
+      );
   String get askPlaceholder => _pick(
         'Ask a question…',
         'اكتب سؤالك…',
@@ -175,11 +227,11 @@ class S {
       };
 
   // --- settings --------------------------------------------------------
-  String get compound => _pick('Compound', 'الكمبوند', 'El Compound');
+  String get compound => _pick('Your project', 'مشروعك', 'El project bet3ak');
   String get compoundHint => _pick(
-        'Set your compound so answers match your location',
-        'حدد الكمبوند لتكون الإجابات مطابقة لموقعك',
-        'Haddid el compound 3ashan el egabat tetbe2 3ala makanak',
+        'Tap to choose your Palm Hills project',
+        'اضغط لاختيار مشروعك في بالم هيلز',
+        'Eddos le tekhtar el project bet3ak fe Palm Hills',
       );
   String get notSet => _pick('Not set', 'غير محدد', 'Mesh mehaddad');
 }

@@ -31,10 +31,13 @@ class _ReportScreenState extends State<ReportScreen> {
   ViolationReport? _submitted;
   String? _uploadWarning;
 
+  /// The category list is language-independent — `label()` picks the language at
+  /// render time — so it is fetched once. It cannot be fetched in `initState`;
+  /// see [AppScope.of].
   @override
-  void initState() {
-    super.initState();
-    _categories = AppScope.of(context).api.categories();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _categories ??= AppScope.of(context).api.categories();
   }
 
   @override

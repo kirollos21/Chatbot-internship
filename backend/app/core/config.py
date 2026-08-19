@@ -90,10 +90,18 @@ class Settings(BaseSettings):
 
     # --- Retrieval / confidence ----------------------------------------
     retrieval_top_k: int = 8
+    # How many scoped records reach the Python scorer. Concept coverage is
+    # computed there, so this has to be wide enough to include records that
+    # match on meaning but not on characters. See app.services.retrieval.
+    retrieval_candidate_limit: int = 500
     confidence_high: float = 0.62
     confidence_low: float = 0.34
+    # Relative shares of the three similarity signals. They are renormalised
+    # over whichever ones are available, so dropping the vector half (no
+    # pgvector) redistributes its share instead of shrinking every score.
     vector_weight: float = 0.55
     lexical_weight: float = 0.45
+    coverage_weight: float = 0.60
 
     # --- Security -------------------------------------------------------
     # Comma-separated list. Empty => auth disabled (local development only).

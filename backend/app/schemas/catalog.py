@@ -78,6 +78,17 @@ class FacilityOut(BaseModel):
     pending_fields: list[str] = []
 
 
+class ProjectOut(BaseModel):
+    id: str
+    name_en: str
+    name_ar: str
+    region: str
+    region_en: str
+    region_ar: str
+    #: Send this back as `compound`; it is not always the project id.
+    compound: str
+
+
 class DatasetStatus(BaseModel):
     version: str | None
     source_document: str | None

@@ -55,3 +55,26 @@ def test_greeting_yields_to_a_real_question() -> None:
 def test_franco_beach_question_is_routed_by_topic() -> None:
     result = classify_intent("momken akhod el kalb 3al shate2?")
     assert "north_coast_beach" in result.category_hints or "pet_regulations" in result.category_hints
+
+
+def test_momken_is_not_read_as_makan() -> None:
+    """`momken` ("is it possible") must not be mistaken for `makan` ("place").
+
+    A consonant skeleton drops vowels and collapses repeats, so both reduce to
+    `mkn`. Because `mkn` is a facility keyword, every question opening with
+    "momken ..." — the commonest way to start a Franco question — was routed to
+    the facilities directory and answered with opening hours.
+    """
+    assert classify_intent("momken a3mel pergola fel gnena?").intent == POLICY_QUESTION
+    assert classify_intent("momken akhod el kalb 3al shate2?").intent == POLICY_QUESTION
+
+
+def test_makan_still_routes_to_facilities() -> None:
+    """The fix excludes the function word by spelling, not the skeleton."""
+    assert classify_intent("emta byeftah el makan?").intent == FACILITY_LOOKUP
+
+
+def test_franco_filler_does_not_change_routing() -> None:
+    """Stripping filler must not disturb the intents that already worked."""
+    assert classify_intent("feen ra2m el maintenance?").intent == CONTACT_LOOKUP
+    assert classify_intent("fe kam ghrama 3ala el zar3?").intent == FINE_LOOKUP

@@ -87,6 +87,27 @@ def strip_diacritics(text: str) -> str:
     return "".join(c for c in decomposed if not unicodedata.combining(c))
 
 
+# Residents do not write Arabic to a fixed orthography: hamza carriers vary
+# freely (أ/إ/آ for ا), final ي and ى are interchangeable, ة and ه get swapped,
+# and tashkeel is optional. Folding these is what lets "الحديقه" reach the
+# records that spell it "الحديقة" instead of missing them by one character.
+_AR_MARKS = re.compile(r"[ؐ-ًؚ-ٰٟۖ-ۭـ]")
+_AR_FOLD = str.maketrans(
+    {
+        "أ": "ا", "إ": "ا", "آ": "ا", "ٱ": "ا", "ٲ": "ا", "ٳ": "ا",
+        "ى": "ي", "ئ": "ي", "ی": "ي",
+        "ؤ": "و",
+        "ة": "ه",
+        "ک": "ك", "ﻙ": "ك",
+    }
+)
+
+
+def normalise_arabic(text: str) -> str:
+    """Fold Arabic orthographic variation that carries no meaning."""
+    return _AR_MARKS.sub("", text or "").translate(_AR_FOLD)
+
+
 def franco_to_latin(token: str) -> str:
     """Replace Franco digit conventions with their Latin equivalents."""
     out = token.lower()
@@ -252,7 +273,15 @@ def normalise_for_search(text: str) -> str:
 
     Franco input is expanded into its Latin skeleton *in addition to* the raw
     text, so `ghrama` and `3'rama` both reach the same lexical index entries.
+    The Arabic-folded form is appended for the same reason: the stored text
+    keeps its original orthography, so both spellings have to be offered.
     """
     raw = (text or "").strip()
+    parts = [raw]
+    folded = normalise_arabic(raw)
+    if folded != raw:
+        parts.append(folded)
     extra = phrase_skeleton(raw)
-    return f"{raw} {extra}".strip()
+    if extra:
+        parts.append(extra)
+    return " ".join(parts).strip()

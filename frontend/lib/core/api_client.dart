@@ -78,9 +78,12 @@ class ApiClient {
 
   // --- assistant -------------------------------------------------------
 
+  /// [language] forces the answer's language. Leave it null to let the backend
+  /// answer in whatever language the resident wrote in — that is what lets a
+  /// Franco question come back in Franco without Franco being a UI language.
   Future<ChatAnswer> ask({
     required String message,
-    required String language,
+    String? language,
     String? compound,
     String? phase,
     String? userId,
@@ -91,7 +94,7 @@ class ApiClient {
           headers: _headers,
           body: jsonEncode({
             'message': message,
-            'language': language,
+            if (language != null) 'language': language,
             if (compound != null && compound.isNotEmpty) 'compound': compound,
             if (phase != null && phase.isNotEmpty) 'phase': phase,
             if (userId != null) 'user_id': userId,
@@ -102,6 +105,13 @@ class ApiClient {
   }
 
   // --- catalog ---------------------------------------------------------
+
+  /// The Palm Hills projects offered in the location picker. Served by the
+  /// backend so a corrected or new project does not need an app release.
+  Future<List<Project>> projects() async {
+    final body = await _send(() => _client.get(_uri('/projects'), headers: _headers));
+    return (body as List).map((e) => Project.fromJson(e)).toList();
+  }
 
   Future<List<Category>> categories() async {
     final body = await _send(() => _client.get(_uri('/categories'), headers: _headers));
