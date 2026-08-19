@@ -319,11 +319,20 @@ ping -n 4 127.0.0.1 >nul
 goto :androidboot
 
 :androidrun
+REM Resolve the concrete device id: "flutter run -d android" is not a device
+REM selector, it is matched against ids and names and finds nothing.
+if not defined HAVEDEV (
+    for /f "skip=1 tokens=1,2" %%a in ('"%ADB%" devices') do if "%%b"=="device" set "HAVEDEV=%%a"
+)
+if not defined HAVEDEV (
+    echo [ERROR] The emulator booted but adb lists no device.
+    exit /b 1
+)
 echo   Backend expected at %ANDROID_API_BASE%  ^(the emulator's route to the
 echo   host machine - inside the emulator "localhost" is the emulator itself^)
 echo.
 pushd "%ROOT%\frontend"
-"%FLUTTER%" run -d android --dart-define=API_BASE_URL=%ANDROID_API_BASE%
+"%FLUTTER%" run -d !HAVEDEV! --dart-define=API_BASE_URL=%ANDROID_API_BASE%
 set "RC=!ERRORLEVEL!"
 popd
 exit /b !RC!
