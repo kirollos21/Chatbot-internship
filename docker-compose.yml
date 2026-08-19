@@ -30,9 +30,11 @@ services:
       DATASET_PATH: /data/palm_hills_regulations_v1.0.json
       EMBEDDING_PROVIDER: ${EMBEDDING_PROVIDER:-hash}
       EMBEDDING_DIM: ${EMBEDDING_DIM:-768}
-      LLM_PROVIDER: ${LLM_PROVIDER:-template}
+      LLM_PROVIDER: ${LLM_PROVIDER:-gemini}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
-      LLM_MODEL: ${LLM_MODEL:-claude-opus-5}
+      LLM_MODEL: ${LLM_MODEL:-}
+      LLM_THINKING_BUDGET: ${LLM_THINKING_BUDGET:-0}
       API_KEYS: ${API_KEYS:-}
       ENVIRONMENT: ${ENVIRONMENT:-development}
     ports:

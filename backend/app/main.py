@@ -58,7 +58,12 @@ def health() -> dict:
 
 @health_router.get("/health/ready")
 def readiness() -> dict:
-    checks = {"database": "unknown", "embeddings": settings.embedding_provider, "llm": settings.llm_provider}
+    checks = {
+        "database": "unknown",
+        "embeddings": settings.embedding_provider if settings.vector_enabled else "disabled",
+        "llm": settings.llm_provider,
+        "retrieval_mode": "vector+trigram" if settings.vector_enabled else "trigram-only",
+    }
     try:
         with engine.connect() as conn:
             conn.execute(text("SELECT 1"))

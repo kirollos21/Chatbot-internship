@@ -8,7 +8,7 @@ from sqlalchemy import create_engine, text
 from sqlalchemy.orm import Session, sessionmaker
 
 from app.core.config import get_settings
-from app.db.models import Base
+from app.db.models import VECTOR_ENABLED, Base
 
 _settings = get_settings()
 
@@ -22,25 +22,42 @@ engine = create_engine(
 SessionLocal = sessionmaker(bind=engine, autoflush=False, expire_on_commit=False, future=True)
 
 
-def init_db() -> None:
-    """Create the pgvector extension, the schema, and the vector indexes.
+class VectorExtensionMissing(RuntimeError):
+    """pgvector was requested but the server cannot provide it."""
 
-    Idempotent: safe to run on every boot. Kept deliberately simple instead of
-    pulling in a migration tool at this stage; the schema-version table gives us
-    somewhere to hang real migrations later.
+
+def init_db() -> None:
+    """Create extensions, schema and indexes. Idempotent - safe on every boot.
+
+    Kept deliberately simple instead of pulling in a migration tool at this
+    stage; the policy_versions table gives us somewhere to hang real migrations
+    later.
     """
     with engine.begin() as conn:
-        conn.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
+        # pg_trgm is bundled with PostgreSQL, so it is always required.
         conn.execute(text("CREATE EXTENSION IF NOT EXISTS pg_trgm"))
+
+        if VECTOR_ENABLED:
+            try:
+                conn.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
+            except Exception as exc:
+                raise VectorExtensionMissing(
+                    "VECTOR_ENABLED=true but this PostgreSQL has no pgvector "
+                    "extension. Either install pgvector (see README), or set "
+                    "VECTOR_ENABLED=false to run on trigram search alone."
+                ) from exc
+
     Base.metadata.create_all(engine)
+
     with engine.begin() as conn:
         for table in ("policies", "violations"):
-            conn.execute(
-                text(
-                    f"CREATE INDEX IF NOT EXISTS ix_{table}_embedding "
-                    f"ON {table} USING hnsw (embedding vector_cosine_ops)"
+            if VECTOR_ENABLED:
+                conn.execute(
+                    text(
+                        f"CREATE INDEX IF NOT EXISTS ix_{table}_embedding "
+                        f"ON {table} USING hnsw (embedding vector_cosine_ops)"
+                    )
                 )
-            )
             conn.execute(
                 text(
                     f"CREATE INDEX IF NOT EXISTS ix_{table}_search_trgm "

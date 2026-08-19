@@ -85,3 +85,35 @@ def test_empty_input_is_safe() -> None:
     result = detect_language("")
     assert result.language == "en"
     assert result.confidence == 0.0
+
+
+# --- regression: English contractions are not Franco --------------------
+# `LATIN_TOKEN` includes the apostrophe, and `'` is part of the 3'/6'/9'
+# digraphs, so "What's" was once detected as Franco and answered in Franco.
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "What's the security number?",
+        "I can't find the pool rules",
+        "Don't I need a permit for a pergola?",
+        "It's 5000 EGP isn't it?",
+    ],
+)
+def test_english_contractions_are_not_franco(text: str) -> None:
+    assert detect_language(text).language == "en"
+
+
+@pytest.mark.parametrize("token", ["V034", "P117", "C002", "F003"])
+def test_record_ids_are_not_franco_tokens(token: str) -> None:
+    """Identifiers contain Franco digits but are mostly digits, not letters."""
+    from app.services.language import looks_franco_token
+
+    assert not looks_franco_token(token)
+
+
+@pytest.mark.parametrize("token", ["7abibi", "3ayez", "5alas", "9a7", "3'ali"])
+def test_real_franco_tokens_still_detected(token: str) -> None:
+    from app.services.language import looks_franco_token
+
+    assert looks_franco_token(token)

@@ -34,7 +34,13 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 from app.core.config import get_settings
 
-EMBEDDING_DIM = get_settings().embedding_dim
+_settings = get_settings()
+EMBEDDING_DIM = _settings.embedding_dim
+
+# When pgvector is unavailable the column is not declared at all, so
+# create_all() never emits DDL the server cannot execute. Retrieval falls
+# back to trigram-only ranking. See Settings.vector_enabled.
+VECTOR_ENABLED = _settings.vector_enabled
 
 
 class Base(DeclarativeBase):
@@ -94,7 +100,8 @@ class Policy(Base):
     effective_until: Mapped[date | None] = mapped_column(Date)
 
     search_text: Mapped[str] = mapped_column(Text)
-    embedding = mapped_column(Vector(EMBEDDING_DIM), nullable=True)
+    if VECTOR_ENABLED:
+        embedding = mapped_column(Vector(EMBEDDING_DIM), nullable=True)
 
 
 class Violation(Base):
@@ -125,7 +132,8 @@ class Violation(Base):
     effective_until: Mapped[date | None] = mapped_column(Date)
 
     search_text: Mapped[str] = mapped_column(Text)
-    embedding = mapped_column(Vector(EMBEDDING_DIM), nullable=True)
+    if VECTOR_ENABLED:
+        embedding = mapped_column(Vector(EMBEDDING_DIM), nullable=True)
 
 
 class Contact(Base):

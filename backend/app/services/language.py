@@ -49,6 +49,10 @@ FRANCO_DIGITS: dict[str, str] = {
     "9": "s",    # ص
 }
 FRANCO_DIGIT_CHARS = set(FRANCO_DIGITS) | {"'"}
+# The only places an apostrophe signals Franco rather than an English contraction.
+_FRANCO_DIGRAPH_MARKERS = tuple(src for src, _ in FRANCO_DIGRAPH_DIGITS)
+# Letters then digits: a record ID or product code, never a Franco word.
+_IDENTIFIER = re.compile(r"^[A-Za-z]+\d+$")
 
 # Collapse digraphs to single symbols so `kh`/`5`, `sh`/`4` etc. converge.
 SKELETON_DIGRAPHS: list[tuple[str, str]] = [
@@ -120,7 +124,7 @@ def phrase_skeleton(text: str) -> str:
 def _franco_lexicon() -> tuple[frozenset[str], dict[str, str]]:
     """(skeletons, skeleton -> canonical franco spelling)."""
     words: list[str] = list(_FALLBACK_FRANCO_WORDS)
-    path = Path(get_settings().dataset_path)
+    path = get_settings().dataset_file
     if path.exists():
         try:
             with path.open(encoding="utf-8") as fh:
@@ -142,12 +146,32 @@ def _franco_lexicon() -> tuple[frozenset[str], dict[str, str]]:
 
 
 def looks_franco_token(token: str) -> bool:
-    """A Latin token carrying a Franco digit *between/attached to* letters."""
-    if not any(c in FRANCO_DIGIT_CHARS for c in token):
+    """A Latin token carrying a Franco digit used as a letter.
+
+    Three things must NOT trip this:
+
+    * English contractions — `what's`, `don't`. A bare apostrophe is not a
+      Franco marker; only the `3'`/`6'`/`9'` digraphs are, and there the
+      apostrophe always follows one of those digits.
+    * Plain numbers — `5000`, `2000`.
+    * Record identifiers — `V034`, `P117`. These contain Franco digits but put
+      all letters before all digits; Franco interleaves them.
+    """
+    letters = sum(1 for c in token if c.isalpha())
+    if letters == 0:
         return False
-    if token.isdigit():
-        return False  # a plain number such as "5000" is not Franco
-    return any(c.isalpha() for c in token)
+
+    if any(marker in token for marker in _FRANCO_DIGRAPH_MARKERS):
+        return True
+
+    # An identifier is letters followed by digits (V034, P117, COVID19). Franco
+    # interleaves them instead (7abibi, 9a7, delwa2ty), so shape separates the
+    # two better than counting - `9a7` is one letter and two digits yet is
+    # unmistakably Franco.
+    if _IDENTIFIER.match(token):
+        return False
+
+    return any(c in FRANCO_DIGITS for c in token)
 
 
 def franco_lexicon_hit(token: str, cutoff: float = 0.86) -> bool:

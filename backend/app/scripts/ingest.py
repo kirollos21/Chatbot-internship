@@ -26,6 +26,7 @@ from sqlalchemy import delete, select
 from app.core.config import get_settings
 from app.db.database import SessionLocal, init_db
 from app.db.models import (
+    VECTOR_ENABLED,
     Contact,
     Facility,
     Policy,
@@ -49,6 +50,8 @@ def _search_text(*parts: str | None) -> str:
 
 
 def _embed_all(texts: list[str]) -> list[list[float]]:
+    if not VECTOR_ENABLED:
+        return []  # no embedding column exists; nothing to store
     provider = get_embedding_provider()
     vectors: list[list[float]] = []
     for start in range(0, len(texts), BATCH):
@@ -210,7 +213,8 @@ def ingest(dataset_path: Path, activate: bool = True) -> dict:
             "violations": len(violation_rows),
             "contacts": len(dataset["contacts"]["entries"]),
             "facilities": len(dataset["facilities"]["entries"]),
-            "embedding_provider": get_embedding_provider().name,
+            "embedding_provider": get_embedding_provider().name if VECTOR_ENABLED else "disabled",
+        "retrieval_mode": "vector+trigram" if VECTOR_ENABLED else "trigram-only",
             "active": activate,
         }
     finally:
@@ -220,7 +224,7 @@ def ingest(dataset_path: Path, activate: bool = True) -> dict:
 def main() -> int:
     settings = get_settings()
     parser = argparse.ArgumentParser(description="Ingest the Palm Hills regulations dataset.")
-    parser.add_argument("--dataset", default=settings.dataset_path)
+    parser.add_argument("--dataset", default=str(settings.dataset_file))
     parser.add_argument(
         "--no-activate",
         dest="activate",

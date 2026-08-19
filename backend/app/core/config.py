@@ -9,10 +9,29 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 
+# Per-provider model defaults. Keeping these keyed by provider means switching
+# LLM_PROVIDER without also editing LLM_MODEL cannot send one vendor's model ID
+# to another vendor's endpoint.
+DEFAULT_LLM_MODEL: dict[str, str] = {
+    "gemini": "gemini-2.5-flash",
+    "claude": "claude-opus-5",
+}
+DEFAULT_EMBEDDING_MODEL: dict[str, str] = {
+    "gemini": "gemini-embedding-2",
+    "local": "intfloat/multilingual-e5-base",
+    "voyage": "voyage-3",
+}
+
 
 class Settings(BaseSettings):
+    # Absolute paths: a relative ".env" resolves against the *current working
+    # directory*, so running from backend/ (as the launcher and the ingest
+    # script do) would silently miss the repo-root .env and fall back to
+    # defaults. Later entries win, so a backend/.env can override the root one.
     model_config = SettingsConfigDict(
-        env_file=".env", env_file_encoding="utf-8", extra="ignore"
+        env_file=(REPO_ROOT / ".env", REPO_ROOT / "backend" / ".env"),
+        env_file_encoding="utf-8",
+        extra="ignore",
     )
 
     app_name: str = "Palm Hills Resident Assistant API"
@@ -22,28 +41,52 @@ class Settings(BaseSettings):
     # --- Database -------------------------------------------------------
     database_url: str = "postgresql+psycopg://palmhills:palmhills@localhost:5432/palmhills"
 
+    # pgvector is the production target, but it ships no Windows binaries, so a
+    # stock local PostgreSQL cannot load it without MSVC or a container.
+    # Setting this false drops the vector column and index and ranks on trigram
+    # similarity alone (pg_trgm is bundled with PostgreSQL). Retrieval quality
+    # is lower — it becomes lexical-only — so keep it true wherever pgvector is
+    # available. `/health/ready` reports which mode is live.
+    vector_enabled: bool = True
+
     # --- Dataset --------------------------------------------------------
     dataset_path: str = str(REPO_ROOT / "data" / "palm_hills_regulations_v1.0.json")
 
     # --- Embeddings -----------------------------------------------------
     # hash   : deterministic, offline, no model download. Dev/test default.
-    # local  : sentence-transformers multilingual model (real semantic search).
+    # gemini : Gemini embeddings (reuses GEMINI_API_KEY).
+    # local  : sentence-transformers multilingual model.
     # voyage : Voyage AI hosted embeddings (requires VOYAGE_API_KEY).
     embedding_provider: str = "hash"
-    embedding_model: str = "intfloat/multilingual-e5-base"
+    # Leave unset to take the provider's own default (see DEFAULT_EMBEDDING_MODEL);
+    # a single shared default would send one provider's model ID to another.
+    embedding_model: str | None = None
     embedding_dim: int = 768
     voyage_api_key: str | None = None
 
     # --- LLM ------------------------------------------------------------
-    # claude   : Anthropic Messages API.
+    # gemini   : Google Gemini (generateContent).
+    # claude   : Anthropic Messages API (kept so the layer stays provider-neutral).
     # template : deterministic, no network. Used by tests and as the fallback
     #            whenever the configured provider is unavailable.
-    llm_provider: str = "template"
+    llm_provider: str = "gemini"
+    gemini_api_key: str | None = None
     anthropic_api_key: str | None = None
-    llm_model: str = "claude-opus-5"
-    llm_effort: str = "low"
+    # Leave unset to take the provider's own default (see DEFAULT_LLM_MODEL).
+    llm_model: str | None = None
     llm_max_tokens: int = 4000
     llm_timeout_seconds: float = 30.0
+
+    # Gemini-specific. gemini-2.5-flash is a thinking model with thinking ON by
+    # default; a budget of 0 disables it. This task is a grounded rewrite of
+    # records the retriever already selected, so thinking buys little and risks
+    # the known 2.5 failure mode where reasoning consumes max_output_tokens and
+    # the response comes back empty with finish_reason=MAX_TOKENS.
+    llm_thinking_budget: int = 0
+    llm_temperature: float = 0.2
+
+    # Claude-specific (ignored by other providers).
+    llm_effort: str = "low"
 
     # --- Retrieval / confidence ----------------------------------------
     retrieval_top_k: int = 8
@@ -59,6 +102,22 @@ class Settings(BaseSettings):
     max_upload_bytes: int = 5 * 1024 * 1024
     allowed_upload_types: str = "image/jpeg,image/png,image/webp"
     cors_origins: str = "*"
+
+    @property
+    def dataset_file(self) -> Path:
+        """Dataset path resolved against the repo root, not the CWD."""
+        path = Path(self.dataset_path)
+        return path if path.is_absolute() else (REPO_ROOT / path).resolve()
+
+    @property
+    def resolved_llm_model(self) -> str:
+        return self.llm_model or DEFAULT_LLM_MODEL.get(self.llm_provider.lower(), "")
+
+    @property
+    def resolved_embedding_model(self) -> str:
+        return self.embedding_model or DEFAULT_EMBEDDING_MODEL.get(
+            self.embedding_provider.lower(), ""
+        )
 
     @property
     def api_key_set(self) -> set[str]:

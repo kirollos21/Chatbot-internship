@@ -28,6 +28,7 @@ from sqlalchemy import text
 from sqlalchemy.orm import Session
 
 from app.core.config import get_settings
+from app.db.models import VECTOR_ENABLED
 from app.providers.embeddings import get_embedding_provider
 from app.services.intent import FINE_LOOKUP
 from app.services.language import normalise_for_search
@@ -84,32 +85,54 @@ _SCOPE_SQL = """
     AND (t.phase IS NULL OR t.phase = :phase)
 """
 
+# The lexical half is always available (pg_trgm ships with PostgreSQL).
+_LEXICAL_SQL = """GREATEST(
+        similarity(t.search_text, :q),
+        word_similarity(:q, t.search_text)
+    )"""
+
+# Rank on the fused score, not on vector distance alone: ordering by distance
+# and then re-scoring in Python would drop a strong lexical match that the
+# vector index happens to rank low, and it would never reach the candidate set.
 _SEARCH_TEMPLATE = """
 SELECT
     t.record_id,
     t.category_id,
     {columns},
-    1 - (t.embedding <=> (:qvec)::vector) AS vector_score,
-    GREATEST(
-        similarity(t.search_text, :q),
-        word_similarity(:q, t.search_text)
-    ) AS lexical_score,
+    {vector_score} AS vector_score,
+    {lexical} AS lexical_score,
     v.version AS policy_version
 FROM {table} AS t
 JOIN policy_versions AS v ON v.id = t.version_id
 WHERE {scope}
--- Rank on the fused score, not on vector distance alone: ordering by distance
--- and then re-scoring in Python would drop a strong lexical match that the
--- vector index happens to rank low, and it would never reach the candidate set.
-ORDER BY (
-    :vector_weight * (1 - (t.embedding <=> (:qvec)::vector))
-    + :lexical_weight * GREATEST(
-        similarity(t.search_text, :q),
-        word_similarity(:q, t.search_text)
-    )
-) DESC
+ORDER BY ({rank}) DESC
 LIMIT :candidate_limit
 """
+
+
+def _render_sql(table: str, columns: str) -> str:
+    """Build the search statement for the active retrieval mode.
+
+    Without pgvector the embedding column does not exist, so every reference to
+    it has to disappear from the statement rather than merely be weighted to
+    zero — the query would fail to parse otherwise.
+    """
+    if VECTOR_ENABLED:
+        vector_score = "1 - (t.embedding <=> (:qvec)::vector)"
+        rank = (
+            f":vector_weight * ({vector_score}) + :lexical_weight * {_LEXICAL_SQL}"
+        )
+    else:
+        vector_score = "0.0"
+        rank = _LEXICAL_SQL
+    return _SEARCH_TEMPLATE.format(
+        table=table,
+        columns=columns,
+        scope=_SCOPE_SQL,
+        vector_score=vector_score,
+        lexical=_LEXICAL_SQL,
+        rank=rank,
+    )
 
 _VIOLATION_COLUMNS = (
     "t.violation_en, t.violation_ar, t.penalty_egp, t.action_en, t.action_ar, "
@@ -138,20 +161,18 @@ def _fetch(
     vector_weight: float,
     lexical_weight: float,
 ) -> list[dict]:
-    sql = _SEARCH_TEMPLATE.format(table=table, columns=columns, scope=_SCOPE_SQL)
-    rows = db.execute(
-        text(sql),
-        {
-            "qvec": qvec,
-            "q": query,
-            "as_of": as_of,
-            "compound": compound,
-            "phase": phase,
-            "candidate_limit": candidate_limit,
-            "vector_weight": vector_weight,
-            "lexical_weight": lexical_weight,
-        },
-    ).mappings()
+    params = {
+        "q": query,
+        "as_of": as_of,
+        "compound": compound,
+        "phase": phase,
+        "candidate_limit": candidate_limit,
+    }
+    if VECTOR_ENABLED:
+        params["qvec"] = qvec
+        params["vector_weight"] = vector_weight
+        params["lexical_weight"] = lexical_weight
+    rows = db.execute(text(_render_sql(table, columns)), params).mappings()
     return [dict(row) for row in rows]
 
 
@@ -199,7 +220,13 @@ def search(
     hints = set(category_hints or [])
 
     lexical_query = normalise_for_search(query)
-    qvec = _vector_literal(get_embedding_provider().embed_one(lexical_query))
+    # Skip the embedding call entirely in trigram-only mode; it would be work
+    # whose result the query never reads.
+    qvec = (
+        _vector_literal(get_embedding_provider().embed_one(lexical_query))
+        if VECTOR_ENABLED
+        else ""
+    )
     candidate_limit = max(top_k * 3, 24)
 
     violation_rows = _fetch(

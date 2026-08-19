@@ -5,3 +5,13 @@ __pycache__/
 .pytest_cache/
 build/
 .dart_tool/
+
+# --- Flutter ---
+frontend/build/
+frontend/.dart_tool/
+frontend/.flutter-plugins-dependencies
+frontend/windows/flutter/ephemeral/
+**/generated_plugin_registrant.dart
+
+# --- local tooling (SDKs live outside the repo) ---
+tools/
