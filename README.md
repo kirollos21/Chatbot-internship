@@ -128,6 +128,28 @@ Two Android-specific details, both already handled in the repo:
 For a physical device over USB, run `adb reverse tcp:8000 tcp:8000` and pass
 `API_BASE_URL=http://localhost:8000` instead.
 
+#### One toolchain quirk worth knowing
+
+`cmdline-tools` **23.0** replaced `sdkmanager` with a new `android` CLI and made
+`sdkmanager.bat` a thin deprecation shim. The shim breaks two things the Android
+Gradle Plugin relies on:
+
+- it splits `;`-separated package paths into separate arguments, so
+  `sdkmanager "ndk;28.2.13676358"` becomes a lookup for `ndk` and for
+  `28.2.13676358`, both of which fail;
+- it then exits with `0xC0000409` (stack buffer overrun) rather than an error,
+  so AGP reports only "finished with non-zero exit value".
+
+The result is that AGP cannot auto-install the NDK, and `flutter build apk`
+fails while configuring `:app`. The fix in place here: `cmdline-tools/latest`
+holds the pre-deprecation **19.0** tools, which AGP drives correctly, and 23.0
+is kept alongside at `cmdline-tools/23.0`. The new CLI's native downloader also
+failed repeatedly on the larger archives (`java.io.IOException`, message
+elided), so the classic `sdkmanager` did the system-image and NDK installs.
+
+If a future Android Studio needs 23.0 as `latest`, swap the two directories
+back and pre-install any package AGP would otherwise fetch itself.
+
 ### Running the database on Windows
 
 The backend needs PostgreSQL with **pg_trgm** (bundled with PostgreSQL) and,
