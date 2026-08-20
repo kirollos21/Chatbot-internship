@@ -226,6 +226,57 @@ class S {
         _ => status,
       };
 
+  // --- complaints ------------------------------------------------------
+  String get required => _pick('Required', 'مطلوب', 'Matloob');
+  String get complaints => _pick('Complaints', 'الشكاوى', 'El Shakawi');
+  String get newComplaint => _pick(
+        'Raise a complaint',
+        'تقديم شكوى',
+        'Eddem shakwa',
+      );
+  String get myComplaints => _pick('My complaints', 'شكاواي', 'Shakawiya');
+  String get complaintIntro => _pick(
+        'Tell Community Management about a problem with the community or its services.',
+        'أبلغ إدارة المجتمعات بمشكلة في المجتمع أو خدماته.',
+        'Ballagh el Community Management be moshkela fel mogtama3 aw el khadamat.',
+      );
+  String get complaintCategory => _pick('What is it about?', 'الشكوى بخصوص؟', 'El shakwa bekhosos eh?');
+  String get complaintSubject => _pick('Summary', 'عنوان الشكوى', 'Onwan el shakwa');
+  String get complaintSubjectHint => _pick(
+        'One line, e.g. "Lift out of service"',
+        'سطر واحد، مثال: "المصعد متوقف"',
+        'Satr wa7ed, masalan: "El asanser wa2ef"',
+      );
+  String get complaintDetails => _pick('What happened?', 'ماذا حدث؟', 'Eh elly 7asal?');
+  String get complaintWhere => _pick(
+        'Where? (optional)',
+        'المكان؟ (اختياري)',
+        'Fen? (ekhtiyari)',
+      );
+  String get complaintPhone => _pick(
+        'Phone for a call back (optional)',
+        'رقم للتواصل (اختياري)',
+        'Raqm lel tawasol (ekhtiyari)',
+      );
+  String get complaintFiled => _pick(
+        'Complaint received',
+        'تم تسجيل الشكوى',
+        'El shakwa etsaggelet',
+      );
+  String get complaintReference => _pick('Reference', 'رقم الشكوى', 'Raqm el shakwa');
+  String get complaintUrgentCall => _pick(
+        'For anything happening right now, call security instead of filing a form.',
+        'لو في حاجة بتحصل دلوقتي، اتصل بالأمن بدل تقديم شكوى.',
+        'Law fi 7aga bet7sal delwa2ty, ettesel bel amn badal el form.',
+      );
+  String get noComplaints => _pick(
+        'You have not raised any complaints.',
+        'لم تقدم أي شكاوى.',
+        'Ma 3andaksh shakawi.',
+      );
+  String get complaintRoutedTo => _pick('Routed to', 'محولة إلى', 'Et7awwelet le');
+  String get submitComplaint => _pick('Send complaint', 'إرسال الشكوى', 'Eb3at el shakwa');
+
   // --- settings --------------------------------------------------------
   String get compound => _pick('Your project', 'مشروعك', 'El project bet3ak');
   String get compoundHint => _pick(

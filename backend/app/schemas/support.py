@@ -32,6 +32,48 @@ class TicketStatusUpdate(BaseModel):
     assigned_team: str | None = Field(default=None, max_length=64)
 
 
+class ComplaintCreate(BaseModel):
+    category: str = Field(max_length=32)
+    subject: str = Field(min_length=3, max_length=256)
+    description: str = Field(min_length=5, max_length=4000)
+    compound: str | None = Field(default=None, max_length=128)
+    phase: str | None = Field(default=None, max_length=128)
+    location_text: str | None = Field(default=None, max_length=512)
+    contact_phone: str | None = Field(default=None, max_length=64)
+    user_id: str | None = Field(default=None, max_length=128)
+
+
+class ComplaintOut(BaseModel):
+    complaint_id: str
+    category: str
+    subject: str
+    description: str
+    compound: str | None
+    phase: str | None
+    location_text: str | None
+    contact_phone: str | None
+    status: str
+    assigned_team: str | None
+    resolution: str | None = None
+    created_at: datetime
+    resolved_at: datetime | None = None
+
+
+class ComplaintStatusUpdate(BaseModel):
+    status: str
+    resolution: str | None = Field(default=None, max_length=4000)
+    assigned_team: str | None = Field(default=None, max_length=64)
+
+
+class ComplaintCategoryOut(BaseModel):
+    id: str
+    label_en: str
+    label_ar: str
+    team: str
+    #: True when a form is the wrong channel - the resident should call instead.
+    urgent: bool = False
+
+
 class ViolationReportCreate(BaseModel):
     description: str = Field(min_length=5, max_length=4000)
     category_id: str | None = Field(default=None, max_length=64)

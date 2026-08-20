@@ -35,6 +35,7 @@ from app.db.models import (
     Violation,
 )
 from app.providers.embeddings import get_embedding_provider
+from app.services import dataset_state
 from app.services.language import phrase_skeleton
 
 BATCH = 64
@@ -85,6 +86,9 @@ def ingest(dataset_path: Path, activate: bool = True) -> dict:
         version.effective_from = effective_from
         version.effective_until = effective_until
         version.counts = meta.get("counts", {})
+        # Recorded so the API can report whether it is still serving what the
+        # file says; see `app.services.dataset_state`.
+        version.dataset_sha256 = dataset_state.file_digest()
         session.flush()
 
         if activate:

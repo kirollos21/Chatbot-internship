@@ -50,6 +50,16 @@ def init_db() -> None:
     Base.metadata.create_all(engine)
 
     with engine.begin() as conn:
+        # `create_all` creates missing tables but never alters existing ones, so
+        # a column added after a database already exists needs saying out loud.
+        conn.execute(
+            text(
+                "ALTER TABLE policy_versions "
+                "ADD COLUMN IF NOT EXISTS dataset_sha256 VARCHAR(64)"
+            )
+        )
+
+    with engine.begin() as conn:
         for table in ("policies", "violations"):
             if VECTOR_ENABLED:
                 conn.execute(

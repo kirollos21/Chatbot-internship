@@ -57,7 +57,12 @@ class PolicyVersion(Base):
     id: Mapped[uuid.UUID] = _uuid_pk()
     version: Mapped[str] = mapped_column(String(32), unique=True)
     source_document: Mapped[str] = mapped_column(String(512))
+    #: Hash of the source PDF, carried in the dataset's own metadata.
     source_sha256: Mapped[str | None] = mapped_column(String(64))
+    #: Hash of the dataset *file* as it was when ingested. Lets the API tell
+    #: whether it is still serving what the file now says - see
+    #: `app.services.dataset_state`.
+    dataset_sha256: Mapped[str | None] = mapped_column(String(64))
     issuer: Mapped[str] = mapped_column(String(256))
     effective_from: Mapped[date] = mapped_column(Date)
     effective_until: Mapped[date | None] = mapped_column(Date)
@@ -216,6 +221,46 @@ class Ticket(Base):
     assigned_team: Mapped[str | None] = mapped_column(String(64))
     resolution: Mapped[str | None] = mapped_column(Text)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    resolved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
+
+class Complaint(Base):
+    """A resident raising a problem with the community or its services.
+
+    Deliberately its own table rather than a flavour of `ViolationReport` or
+    `Ticket`. The three are different acts with different consequences:
+
+    * a **violation report** accuses somebody, and stays `reported` until staff
+      verify it - see the status comment on `ViolationReport`;
+    * a **ticket** is opened by the assistant when it could not verify an
+      answer, and carries retrieval internals staff need;
+    * a **complaint** is the resident's own grievance about service. Nobody is
+      accused and nothing is retrieved, so folding it into either of the others
+      would either imply an accusation or bury it among assistant failures.
+    """
+
+    __tablename__ = "complaints"
+    __table_args__ = (Index("ix_complaints_user", "user_id"),)
+
+    complaint_id: Mapped[str] = mapped_column(String(64), primary_key=True)
+    user_id: Mapped[str | None] = mapped_column(String(128))
+    category: Mapped[str] = mapped_column(String(32))
+    subject: Mapped[str] = mapped_column(String(256))
+    description: Mapped[str] = mapped_column(Text)
+    compound: Mapped[str | None] = mapped_column(String(128))
+    phase: Mapped[str | None] = mapped_column(String(128))
+    location_text: Mapped[str | None] = mapped_column(Text)
+    # Optional: a resident may want a call back, or may not.
+    contact_phone: Mapped[str | None] = mapped_column(String(64))
+    status: Mapped[str] = mapped_column(String(32), default="open")
+    assigned_team: Mapped[str | None] = mapped_column(String(64))
+    resolution: Mapped[str | None] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
+    )
     resolved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
 
 

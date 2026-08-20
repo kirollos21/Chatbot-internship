@@ -49,6 +49,9 @@ def public_contact(contact: Contact, language: str = "en") -> dict:
         "availability": CONFIGURED if configured else NOT_CONFIGURED,
         "message": None if configured else _UNAVAILABLE_MESSAGE[lang],
         "pending_fields": list(contact.pending_fields or []),
+        # Dataset contacts come from the regulations document itself, so there
+        # is no third-party provenance to report. Reference contacts fill this.
+        "source": None,
     }
 
 

@@ -4,6 +4,7 @@ import 'core/app_state.dart';
 import 'core/strings.dart';
 import 'core/theme.dart';
 import 'screens/assistant_screen.dart';
+import 'screens/complaints_screen.dart';
 import 'screens/contacts_screen.dart';
 import 'screens/facilities_screen.dart';
 import 'screens/home_screen.dart';
@@ -85,6 +86,8 @@ class _RootShellState extends State<RootShell> {
           const ContactsScreen()),
       _Destination(s.reportViolation, Icons.flag_outlined, Icons.flag,
           const ReportScreen()),
+      _Destination(s.complaints, Icons.feedback_outlined, Icons.feedback,
+          const ComplaintsScreen()),
       _Destination(s.myRequests, Icons.receipt_long_outlined, Icons.receipt_long,
           const TicketsScreen()),
     ];

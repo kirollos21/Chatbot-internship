@@ -9,7 +9,7 @@ REM    run.bat dataset    rebuild + validate the policy dataset
 REM    run.bat db         start PostgreSQL and wait for it
 REM    run.bat db-stop    stop the local PostgreSQL
 REM    run.bat ingest     load the dataset and build embeddings
-REM    run.bat serve      run the API on http://localhost:8000
+REM    run.bat serve      run the API on http://localhost:%API_PORT% (default 8000)
 REM    run.bat test       run the test suite
 REM    run.bat check      report what is installed / configured
 REM    run.bat app        run the Flutter web app in Chrome
@@ -28,12 +28,19 @@ set "PGBIN_LOCAL=D:\PHD\tools\pgsql\bin"
 set "PGDATA_LOCAL=D:\PHD\tools\pgdata"
 set "PGPORT_LOCAL=5433"
 
+REM API port. Overridable because port 8000 is popular: another local service
+REM holding it does not just clash with `serve`, it silently captures the app's
+REM traffic too - the emulator reaches the host on 10.0.2.2, which maps to the
+REM host's own loopback, so whoever owns 127.0.0.1:8000 answers the app.
+REM   set API_PORT=8010 ^&^& run.bat serve
+if not defined API_PORT set "API_PORT=8000"
+
 REM Android SDK. Android Studio installs here by default.
 set "ANDROID_SDK=%LOCALAPPDATA%\Android\Sdk"
 if defined ANDROID_HOME if exist "%ANDROID_HOME%\platform-tools\adb.exe" set "ANDROID_SDK=%ANDROID_HOME%"
 REM The emulator reaches the host machine at 10.0.2.2, never at localhost -
 REM inside the emulator localhost is the emulator itself.
-set "ANDROID_API_BASE=http://10.0.2.2:8000"
+set "ANDROID_API_BASE=http://10.0.2.2:%API_PORT%"
 
 set "CMD=%~1"
 if "%CMD%"=="" set "CMD=all"
@@ -179,12 +186,12 @@ REM -------------------------------------------------------------------
 :serve
 echo.
 echo === Serving =======================================================
-echo   API   http://localhost:8000
-echo   Docs  http://localhost:8000/docs
+echo   API   http://localhost:%API_PORT%
+echo   Docs  http://localhost:%API_PORT%/docs
 echo   Stop  Ctrl+C
 echo.
 pushd "%BACKEND%"
-"%PY%" -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+"%PY%" -m uvicorn app.main:app --host 0.0.0.0 --port %API_PORT%
 popd
 exit /b 0
 
@@ -205,7 +212,27 @@ echo === Environment check =============================================
 where python >nul 2>&1 && (echo   python           OK) || (echo   python           MISSING)
 if exist "%PY%" (echo   venv             OK) else (echo   venv             MISSING - run: run.bat setup)
 if exist "%ROOT%\.env" (echo   .env             OK) else (echo   .env             MISSING - run: run.bat setup)
-if exist "%ROOT%\data\palm_hills_regulations_v1.0.json" (echo   dataset          OK) else (echo   dataset          MISSING - run: run.bat dataset)
+if exist "%ROOT%\data\palm_hills_regulations_v1.0.json" (echo   dataset file     OK) else (echo   dataset file     MISSING - run: run.bat dataset)
+
+REM Editing the dataset file does not load it. Report whether the database is
+REM still serving what the file says, so a forgotten ingest is visible here
+REM rather than discovered through a wrong answer.
+REM Via a temp file rather than `for /f`: the nested quoting a one-liner needs
+REM is what batch parses worst.
+set "DSSYNC="
+if exist "%PY%" (
+    pushd "%BACKEND%"
+    "%PY%" -c "from app.db.database import SessionLocal; from app.services import dataset_state; db=SessionLocal(); s=dataset_state.current_state(db); db.close(); print(s.status)" > "%TEMP%\phds_sync.txt" 2>nul
+    popd
+    if exist "%TEMP%\phds_sync.txt" set /p DSSYNC=<"%TEMP%\phds_sync.txt"
+    del "%TEMP%\phds_sync.txt" >nul 2>&1
+)
+if "%DSSYNC%"=="in_sync"      echo   dataset loaded   IN SYNC with the file
+if "%DSSYNC%"=="stale"        echo   dataset loaded   STALE - file edited since ingest, run: run.bat ingest
+if "%DSSYNC%"=="not_ingested" echo   dataset loaded   NOT INGESTED - run: run.bat ingest
+if "%DSSYNC%"=="unknown"      echo   dataset loaded   UNKNOWN - re-ingest to start tracking drift
+if "%DSSYNC%"==""             echo   dataset loaded   UNKNOWN - could not reach the database
+
 where docker >nul 2>&1 && (echo   docker           OK) || (echo   docker           MISSING)
 
 if exist "%PGDATA_LOCAL%\postgresql.conf" (
@@ -218,6 +245,8 @@ if exist "%PGDATA_LOCAL%\postgresql.conf" (
 ) else (
     echo   local postgres   NOT SET UP
 )
+
+echo   api port         %API_PORT%
 
 if exist "%ROOT%\.env" (
     REM findstr regex has no "+" quantifier - "..*" is how it spells one-or-more.
@@ -250,10 +279,10 @@ REM -------------------------------------------------------------------
 call :findflutter || exit /b 1
 echo.
 echo === Flutter web app ===============================================
-echo   Backend expected at http://localhost:8000
+echo   Backend expected at http://localhost:%API_PORT%
 echo.
 pushd "%ROOT%\frontend"
-"%FLUTTER%" run -d chrome --dart-define=API_BASE_URL=http://localhost:8000
+"%FLUTTER%" run -d chrome --dart-define=API_BASE_URL=http://localhost:%API_PORT%
 set "RC=!ERRORLEVEL!"
 popd
 exit /b !RC!
@@ -262,7 +291,7 @@ REM -------------------------------------------------------------------
 :appbuild
 call :findflutter || exit /b 1
 pushd "%ROOT%\frontend"
-"%FLUTTER%" build web --release --dart-define=API_BASE_URL=http://localhost:8000
+"%FLUTTER%" build web --release --dart-define=API_BASE_URL=http://localhost:%API_PORT%
 set "RC=!ERRORLEVEL!"
 popd
 if "!RC!"=="0" echo Built frontend\build\web

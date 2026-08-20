@@ -11,7 +11,8 @@ from sqlalchemy import text
 
 from app.api.routes import catalog, chat, support
 from app.core.config import get_settings
-from app.db.database import engine, init_db
+from app.db.database import SessionLocal, engine, init_db
+from app.services import dataset_state
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -70,7 +71,23 @@ def readiness() -> dict:
         checks["database"] = "ok"
     except Exception as exc:  # pragma: no cover - depends on runtime env
         checks["database"] = f"error: {type(exc).__name__}"
+
+    # Serving stale rules is not a crash, so it must not read as healthy either:
+    # a readiness probe that says "ok" while the loaded rules no longer match the
+    # dataset file is the failure mode this is here to prevent.
+    if checks["database"] == "ok":
+        db = SessionLocal()
+        try:
+            state = dataset_state.current_state(db)
+        finally:
+            db.close()
+        checks["dataset"] = state.status
+        if state.needs_ingest:
+            checks["dataset_message"] = state.message
+
     checks["status"] = "ok" if checks["database"] == "ok" else "degraded"
+    if checks.get("dataset") in (dataset_state.NOT_INGESTED, dataset_state.STALE):
+        checks["status"] = "degraded"
     return checks
 
 

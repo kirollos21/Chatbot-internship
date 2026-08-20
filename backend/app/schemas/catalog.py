@@ -58,6 +58,8 @@ class ContactOut(BaseModel):
     availability: str
     message: str | None = None
     pending_fields: list[str] = []
+    #: Set only on reference contacts - where the number was taken from.
+    source: str | None = None
 
 
 class FacilityOut(BaseModel):
@@ -91,6 +93,12 @@ class ProjectOut(BaseModel):
 
 class DatasetStatus(BaseModel):
     version: str | None
+    #: in_sync | stale | not_ingested | unknown - whether the database still
+    #: holds what the dataset file currently says.
+    sync_status: str = "unknown"
+    sync_message: str | None = None
+    file_sha256: str | None = None
+    ingested_sha256: str | None = None
     source_document: str | None
     issuer: str | None
     effective_from: date | None

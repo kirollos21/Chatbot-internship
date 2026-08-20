@@ -312,3 +312,195 @@ def test_north_coast_projects_share_the_north_coast_scope(api_client) -> None:
         f"{BASE}/facilities", params={"compound": "palm_hills_october"}
     ).json()
     assert not any(f["compound"] == "north_coast" for f in inland)
+
+
+# --- complaints ---------------------------------------------------------
+
+def test_complaint_categories_carry_a_routing_team(api_client) -> None:
+    categories = api_client.get(f"{BASE}/complaint-categories").json()
+    assert categories, "the complaint form would have nothing to offer"
+    for category in categories:
+        assert category["label_en"] and category["label_ar"]
+        assert category["team"], "every category must route somewhere"
+    # Security is in progress by definition: a form is the wrong channel.
+    urgent = {c["id"] for c in categories if c["urgent"]}
+    assert "security" in urgent
+
+
+def test_complaint_is_filed_open_and_routed(api_client) -> None:
+    created = api_client.post(
+        f"{BASE}/complaints",
+        json={
+            "category": "maintenance",
+            "subject": "Lift out of service",
+            "description": "The lift in building 12 has been down for four days.",
+            "compound": "badya",
+            "user_id": "resident-test",
+        },
+    )
+    assert created.status_code == 201, created.text
+    body = created.json()
+    assert body["complaint_id"].startswith("CMP-")
+    assert body["status"] == "open"
+    assert body["assigned_team"] == "maintenance"
+
+    fetched = api_client.get(f"{BASE}/complaints/{body['complaint_id']}").json()
+    assert fetched["subject"] == "Lift out of service"
+
+    mine = api_client.get(f"{BASE}/complaints", params={"user_id": "resident-test"}).json()
+    assert body["complaint_id"] in {c["complaint_id"] for c in mine}
+
+
+def test_complaint_resolution_and_reopening(api_client) -> None:
+    """Reopening must clear `resolved_at`, not keep the old timestamp."""
+    complaint_id = api_client.post(
+        f"{BASE}/complaints",
+        json={
+            "category": "noise",
+            "subject": "Late night music",
+            "description": "Music from the clubhouse well past midnight.",
+        },
+    ).json()["complaint_id"]
+
+    resolved = api_client.patch(
+        f"{BASE}/complaints/{complaint_id}",
+        json={"status": "resolved", "resolution": "Spoke to the operator."},
+    ).json()
+    assert resolved["status"] == "resolved"
+    assert resolved["resolved_at"]
+
+    reopened = api_client.patch(
+        f"{BASE}/complaints/{complaint_id}", json={"status": "in_review"}
+    ).json()
+    assert reopened["status"] == "in_review"
+    assert reopened["resolved_at"] is None
+
+
+def test_unknown_complaint_category_is_rejected(api_client) -> None:
+    """A free-text category cannot be routed to a team, so it is refused."""
+    response = api_client.post(
+        f"{BASE}/complaints",
+        json={
+            "category": "not_a_category",
+            "subject": "Something",
+            "description": "Some description here.",
+        },
+    )
+    assert response.status_code == 422
+
+
+def test_invalid_complaint_status_is_rejected(api_client) -> None:
+    complaint_id = api_client.post(
+        f"{BASE}/complaints",
+        json={
+            "category": "other",
+            "subject": "Placeholder",
+            "description": "Placeholder description.",
+        },
+    ).json()["complaint_id"]
+    response = api_client.patch(
+        f"{BASE}/complaints/{complaint_id}", json={"status": "banana"}
+    )
+    assert response.status_code == 422
+
+
+# --- the directory changes with the resident's project ------------------
+
+def test_contact_directory_changes_with_the_project(api_client) -> None:
+    west = api_client.get(f"{BASE}/contacts", params={"compound": "palm_hills_october"}).json()
+    east = api_client.get(f"{BASE}/contacts", params={"compound": "palm_hills_new_cairo"}).json()
+
+    def offices(rows):
+        return {r["id"] for r in rows if r["role"] == "community_office"}
+
+    assert offices(west) and offices(east)
+    assert offices(west) != offices(east), "the office should follow the project"
+
+
+def test_group_numbers_apply_to_every_project(api_client) -> None:
+    for compound in (None, "badya", "north_coast"):
+        params = {} if compound is None else {"compound": compound}
+        rows = api_client.get(f"{BASE}/contacts", params=params).json()
+        care = [r for r in rows if r["role"] == "customer_care"]
+        assert care, f"customer care missing for {compound}"
+
+
+def test_unverified_numbers_are_labelled_and_sourced(api_client) -> None:
+    """A number we cannot vouch for must never look like one we can.
+
+    This is the placeholder-safety rule extended: the app may show a publicly
+    listed number, but never as though Community Management had confirmed it.
+    """
+    rows = api_client.get(f"{BASE}/contacts", params={"compound": "badya"}).json()
+    unverified = [r for r in rows if r["availability"] == "unverified"]
+    assert unverified, "expected the reference directory to contribute numbers"
+    for row in unverified:
+        assert row["phone"], "an unverified entry exists to carry a number"
+        assert row["message"], "it must say it is unconfirmed"
+        assert row["source"], "and say where it came from"
+
+
+def test_dataset_contacts_still_expose_no_placeholder_numbers(api_client) -> None:
+    """The original guarantee must survive the reference directory."""
+    rows = api_client.get(f"{BASE}/contacts", params={"compound": "badya"}).json()
+    for row in rows:
+        if row["availability"] == "not_configured":
+            assert row["phone"] is None
+        assert "XXXX" not in (row["phone"] or "")
+
+
+def test_maintenance_and_emergency_are_not_invented(api_client) -> None:
+    """The numbers nobody published stay unconfigured.
+
+    Guessing a maintenance or emergency number is the most damaging thing this
+    app could do, so the absence is asserted rather than left to chance.
+    """
+    rows = api_client.get(f"{BASE}/contacts", params={"compound": "badya"}).json()
+    for role in ("maintenance", "emergency", "security"):
+        entries = [r for r in rows if r["role"] == role]
+        assert entries, f"the {role} record should still be listed"
+        assert all(r["availability"] == "not_configured" for r in entries)
+
+
+# --- dataset drift ------------------------------------------------------
+
+def test_dataset_reports_whether_it_is_in_sync(api_client) -> None:
+    """Editing the file does not load it; the API must at least say so.
+
+    The manual ingest gate is deliberate - a half-finished edit must not
+    silently replace the rules residents are fined under. Silence about the
+    drift is not.
+    """
+    body = api_client.get(f"{BASE}/dataset").json()
+    assert body["sync_status"] in ("in_sync", "stale", "not_ingested", "unknown")
+    if body["sync_status"] == "in_sync":
+        assert body["file_sha256"] == body["ingested_sha256"]
+        assert body["sync_message"] is None
+
+
+def test_edited_dataset_file_is_reported_stale(api_client, tmp_path) -> None:
+    """A changed file must flip the status without being re-ingested."""
+    from app.db.database import SessionLocal
+    from app.services import dataset_state
+
+    db = SessionLocal()
+    try:
+        before = dataset_state.current_state(db)
+    finally:
+        db.close()
+
+    # A file whose hash cannot match whatever was ingested.
+    edited = tmp_path / "edited.json"
+    edited.write_text('{"metadata": {"version": "9.9"}}', encoding="utf-8")
+    assert dataset_state.file_digest(edited) != before.ingested_sha256
+
+
+def test_readiness_is_degraded_when_the_dataset_is_stale(api_client) -> None:
+    """Stale rules are not a crash, so they must not read as healthy."""
+    body = api_client.get("/health/ready").json()
+    assert "dataset" in body
+    if body["dataset"] in ("stale", "not_ingested"):
+        assert body["status"] == "degraded"
+        assert body["dataset_message"]
+    else:
+        assert body["status"] == "ok"

@@ -275,7 +275,16 @@ class Contact {
     this.email,
     this.hours,
     this.message,
+    this.source,
   });
+
+  /// A real number, confirmed by Community Management.
+  static const configured = 'configured';
+
+  /// A number Palm Hills lists publicly that Community Management has not
+  /// confirmed. Dialable, but shown with its caveat — see
+  /// `app/services/directory.py` for why this state exists.
+  static const unverified = 'unverified';
 
   factory Contact.fromJson(Map<String, dynamic> j) => Contact(
         id: _s(j['id']),
@@ -287,6 +296,7 @@ class Contact {
         hours: j['hours'] as String?,
         availability: _s(j['availability']),
         message: j['message'] as String?,
+        source: j['source'] as String?,
       );
 
   final String id;
@@ -299,11 +309,88 @@ class Contact {
   final String availability;
   final String? message;
 
+  /// Where an [unverified] number came from. Null for dataset contacts.
+  final String? source;
+
   String name(String language) => language == 'ar' ? nameAr : nameEn;
 
-  /// The backend nulls the phone unless it is a real, configured number, so a
-  /// non-empty value here is always safe to show and to dial.
+  /// The backend nulls the phone unless it has one, so a non-empty value here
+  /// is always a real number — but see [isUnverified] before presenting it as
+  /// authoritative.
   bool get hasPhone => phone != null && phone!.isNotEmpty;
+
+  bool get isUnverified => availability == unverified;
+}
+
+/// A category the complaint form offers. Served by the backend so the teams
+/// complaints route to stay a backend concern.
+class ComplaintCategory {
+  const ComplaintCategory({
+    required this.id,
+    required this.labelEn,
+    required this.labelAr,
+    required this.team,
+    required this.urgent,
+  });
+
+  factory ComplaintCategory.fromJson(Map<String, dynamic> j) => ComplaintCategory(
+        id: _s(j['id']),
+        labelEn: _s(j['label_en']),
+        labelAr: _s(j['label_ar']),
+        team: _s(j['team']),
+        urgent: j['urgent'] == true,
+      );
+
+  final String id;
+  final String labelEn;
+  final String labelAr;
+  final String team;
+
+  /// A form is the wrong channel for this — the resident should call.
+  final bool urgent;
+
+  String label(String language) => language == 'ar' ? labelAr : labelEn;
+}
+
+class Complaint {
+  Complaint({
+    required this.complaintId,
+    required this.category,
+    required this.subject,
+    required this.description,
+    required this.status,
+    required this.createdAt,
+    this.assignedTeam,
+    this.resolution,
+    this.locationText,
+    this.resolvedAt,
+  });
+
+  factory Complaint.fromJson(Map<String, dynamic> j) => Complaint(
+        complaintId: _s(j['complaint_id']),
+        category: _s(j['category']),
+        subject: _s(j['subject']),
+        description: _s(j['description']),
+        status: _s(j['status']),
+        assignedTeam: j['assigned_team'] as String?,
+        resolution: j['resolution'] as String?,
+        locationText: j['location_text'] as String?,
+        createdAt: DateTime.tryParse(_s(j['created_at'])) ?? DateTime.now(),
+        resolvedAt: DateTime.tryParse(_s(j['resolved_at'])),
+      );
+
+  final String complaintId;
+  final String category;
+  final String subject;
+  final String description;
+  final String status;
+  final String? assignedTeam;
+  final String? resolution;
+  final String? locationText;
+  final DateTime createdAt;
+  final DateTime? resolvedAt;
+
+  bool get isClosed => status == 'resolved' || status == 'closed';
 }
 
 class Ticket {

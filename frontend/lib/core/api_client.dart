@@ -139,11 +139,62 @@ class ApiClient {
     return (body as List).map((e) => Facility.fromJson(e)).toList();
   }
 
-  Future<List<Contact>> contacts({String? role, String language = 'en'}) async {
+  /// [compound] scopes the directory to the resident's project: the numbers a
+  /// resident sees should be the ones for where they live.
+  Future<List<Contact>> contacts({
+    String? role,
+    String? compound,
+    String language = 'en',
+  }) async {
     final body = await _send(() => _client.get(
-        _uri('/contacts', {'role': role, 'language': language}),
+        _uri('/contacts',
+            {'role': role, 'compound': compound, 'language': language}),
         headers: _headers));
     return (body as List).map((e) => Contact.fromJson(e)).toList();
+  }
+
+  // --- complaints ------------------------------------------------------
+
+  Future<List<ComplaintCategory>> complaintCategories() async {
+    final body = await _send(() =>
+        _client.get(_uri('/complaint-categories'), headers: _headers));
+    return (body as List).map((e) => ComplaintCategory.fromJson(e)).toList();
+  }
+
+  Future<Complaint> createComplaint({
+    required String category,
+    required String subject,
+    required String description,
+    String? locationText,
+    String? compound,
+    String? phase,
+    String? contactPhone,
+    String? userId,
+  }) async {
+    final body = await _send(() => _client.post(
+          _uri('/complaints'),
+          headers: _headers,
+          body: jsonEncode({
+            'category': category,
+            'subject': subject,
+            'description': description,
+            if (locationText != null && locationText.isNotEmpty)
+              'location_text': locationText,
+            if (compound != null && compound.isNotEmpty) 'compound': compound,
+            if (phase != null && phase.isNotEmpty) 'phase': phase,
+            if (contactPhone != null && contactPhone.isNotEmpty)
+              'contact_phone': contactPhone,
+            if (userId != null) 'user_id': userId,
+          }),
+        ));
+    return Complaint.fromJson(body as Map<String, dynamic>);
+  }
+
+  Future<List<Complaint>> complaints({String? userId}) async {
+    final body = await _send(() => _client.get(
+        _uri('/complaints', {'user_id': userId}),
+        headers: _headers));
+    return (body as List).map((e) => Complaint.fromJson(e)).toList();
   }
 
   // --- support ---------------------------------------------------------

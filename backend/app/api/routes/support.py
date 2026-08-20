@@ -13,14 +13,19 @@ from sqlalchemy.orm import Session
 from app.api.deps import authenticated
 from app.core.config import get_settings
 from app.db.database import get_db
-from app.db.models import Ticket, ViolationReport
+from app.db.models import Complaint, Ticket, ViolationReport
 from app.schemas.support import (
+    ComplaintCategoryOut,
+    ComplaintCreate,
+    ComplaintOut,
+    ComplaintStatusUpdate,
     TicketCreate,
     TicketOut,
     TicketStatusUpdate,
     ViolationReportCreate,
     ViolationReportOut,
 )
+from app.services import complaints as complaints_service
 from app.services import escalation as escalation_service
 from app.services import retrieval as retrieval_service
 from app.services.confidence import MEDIUM, ConfidenceAssessment
@@ -219,3 +224,86 @@ def get_report(report_id: str, db: Session = Depends(get_db)) -> ViolationReport
     if report is None:
         raise HTTPException(status_code=404, detail="Report not found.")
     return ViolationReportOut.model_validate(report, from_attributes=True)
+
+
+# ------------------------------------------------------------------ complaints
+
+@router.get("/complaint-categories", response_model=list[ComplaintCategoryOut])
+def list_complaint_categories() -> list[ComplaintCategoryOut]:
+    """Categories the complaint form offers, with the team each routes to."""
+    return [
+        ComplaintCategoryOut(
+            id=key,
+            label_en=label_en,
+            label_ar=label_ar,
+            team=team,
+            urgent=key in complaints_service.URGENT_CATEGORIES,
+        )
+        for key, (label_en, label_ar, team) in complaints_service.CATEGORIES.items()
+    ]
+
+
+@router.post("/complaints", response_model=ComplaintOut, status_code=status.HTTP_201_CREATED)
+def create_complaint(payload: ComplaintCreate, db: Session = Depends(get_db)) -> ComplaintOut:
+    if payload.category not in complaints_service.CATEGORIES:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Unknown complaint category '{payload.category}'.",
+        )
+    complaint = complaints_service.create_complaint(
+        db,
+        category=payload.category,
+        subject=payload.subject,
+        description=payload.description,
+        compound=payload.compound,
+        phase=payload.phase,
+        location_text=payload.location_text,
+        contact_phone=payload.contact_phone,
+        user_id=payload.user_id,
+    )
+    db.commit()
+    return ComplaintOut.model_validate(complaint, from_attributes=True)
+
+
+@router.get("/complaints", response_model=list[ComplaintOut])
+def list_complaints(
+    db: Session = Depends(get_db),
+    user_id: str | None = None,
+    status_filter: str | None = None,
+) -> list[ComplaintOut]:
+    rows = complaints_service.list_complaints(db, user_id=user_id, status=status_filter)
+    return [ComplaintOut.model_validate(r, from_attributes=True) for r in rows]
+
+
+@router.get("/complaints/{complaint_id}", response_model=ComplaintOut)
+def get_complaint(complaint_id: str, db: Session = Depends(get_db)) -> ComplaintOut:
+    row = db.get(Complaint, complaint_id)
+    if row is None:
+        raise HTTPException(status_code=404, detail="Complaint not found.")
+    return ComplaintOut.model_validate(row, from_attributes=True)
+
+
+@router.patch("/complaints/{complaint_id}", response_model=ComplaintOut)
+def update_complaint(
+    complaint_id: str,
+    payload: ComplaintStatusUpdate,
+    db: Session = Depends(get_db),
+) -> ComplaintOut:
+    """Staff-side status transition. Residents only ever read their complaints."""
+    if payload.status not in complaints_service.VALID_STATUSES:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Status must be one of {sorted(complaints_service.VALID_STATUSES)}.",
+        )
+    row = db.get(Complaint, complaint_id)
+    if row is None:
+        raise HTTPException(status_code=404, detail="Complaint not found.")
+    complaints_service.set_status(
+        db,
+        row,
+        status=payload.status,
+        resolution=payload.resolution,
+        assigned_team=payload.assigned_team,
+    )
+    db.commit()
+    return ComplaintOut.model_validate(row, from_attributes=True)

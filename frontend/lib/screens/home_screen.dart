@@ -6,6 +6,7 @@ import '../main.dart' show ShellNavigator;
 import '../widgets/palm_motif.dart';
 import '../widgets/project_picker.dart';
 import 'assistant_screen.dart';
+import 'complaints_screen.dart';
 import 'contacts_screen.dart';
 import 'facilities_screen.dart';
 import 'policies_screen.dart';
@@ -34,6 +35,8 @@ class HomeScreen extends StatelessWidget {
           const ContactsScreen()),
       _Tile(s.reportViolation, Icons.flag_outlined, PalmHills.brand,
           const ReportScreen()),
+      _Tile(s.complaints, Icons.feedback_outlined, PalmHills.brand,
+          const ComplaintsScreen()),
       _Tile(s.myRequests, Icons.receipt_long_outlined, PalmHills.brand,
           const TicketsScreen()),
     ];

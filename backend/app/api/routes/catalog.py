@@ -27,6 +27,8 @@ from app.schemas.catalog import (
     ProjectOut,
     ViolationOut,
 )
+from app.services import dataset_state
+from app.services import directory as directory_service
 from app.services import projects as projects_service
 
 router = APIRouter(tags=["catalog"], dependencies=[Depends(authenticated)])
@@ -191,7 +193,19 @@ def list_contacts(
     language: str = "en",
 ) -> list[ContactOut]:
     rows = catalog_repo.list_contacts(db, role=role, compound=compound)
-    return [ContactOut(**catalog_repo.public_contact(r, language)) for r in rows]
+    out = [ContactOut(**catalog_repo.public_contact(r, language)) for r in rows]
+
+    # Reference numbers are appended after the dataset's own records, and are
+    # scoped by the same compound token - which is what makes the directory
+    # change when the resident changes their project. See
+    # `app.services.directory` for why they are marked unverified.
+    for contact in directory_service.reference_contacts(compound):
+        if role and contact.role != role:
+            continue
+        out.append(
+            ContactOut(**directory_service.public_reference_contact(contact, language))
+        )
+    return out
 
 
 @router.get("/facilities", response_model=list[FacilityOut])
@@ -228,8 +242,13 @@ def dataset_status(db: Session = Depends(get_db)) -> DatasetStatus:
         f.record_id
         for f in db.execute(select(Facility).where(Facility.status != "configured")).scalars()
     ]
+    state = dataset_state.current_state(db)
     return DatasetStatus(
         version=version.version if version else None,
+        sync_status=state.status,
+        sync_message=state.message,
+        file_sha256=state.file_sha256,
+        ingested_sha256=state.ingested_sha256,
         source_document=version.source_document if version else None,
         issuer=version.issuer if version else None,
         effective_from=version.effective_from if version else None,
